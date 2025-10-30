@@ -1,0 +1,161 @@
+.footer {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    padding: 50px 0 20px 0;
+
+    .container {
+        max-width: 1372px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo {
+        img {
+            width: 180px;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    a {
+        color: #bfbfbf;
+        text-decoration: none;
+        font-size: 16px;
+
+        @media (max-width:576px) {
+            font-size: 14px;
+        }
+
+        &:hover {
+            color: #ffffff;
+        }
+    }
+
+    .footerGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        padding-bottom: 30px;
+
+        @media (max-width:1024px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width:576px) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .brand {
+
+            h3 {
+                margin:0 0 20px 0;
+                font-size: 18px;
+                font-weight: 600;
+                color: #ffffff;
+
+                @media (max-width:576px) {
+                    font-size: 16px;
+                }
+            }
+
+            h4 {
+                font-size: 16px;
+                color: #fff;
+
+                @media (max-width:576px) {
+                    font-size: 15px;
+                }
+            }
+
+            p {
+                margin: 12px 0;
+                font-size: 16px;
+                display: flex;
+                gap: 15px;
+
+
+            }
+
+            svg {
+                height: 18px;
+                width: 18px;
+                min-width: 18px;
+
+                @media (max-width:576px) {
+                    height: 16px;
+                    width: 16px;
+                    min-width: 16px;
+                }
+
+                path {
+                    fill: #adadad;
+                }
+            }
+        }
+
+        .products,
+        .links,
+        .extra {
+            h4 {
+                margin-bottom: 10px;
+                font-size: 18px;
+                font-weight: 600;
+
+                @media (max-width:576px) {
+                    font-size: 16px;
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin: 12px 0;
+                    font-size: 16px;
+
+                    svg {
+                        width: 12px;
+                        height: 12px;
+
+
+                        @media (max-width:576px) {
+                            width: 10px;
+                            height: 10px;
+                        }
+
+                        path {
+                            fill: #adadad;
+                        }
+                    }
+                }
+            }
+
+            p {
+                @media (max-width:576px) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .footerBottom {
+        p {
+            text-align: center;
+            font-size: 13px;
+            border-top: 1px solid #5b5b5b;
+            padding-top: 15px;
+            color: #bfbfbf;
+
+            @media (max-width:576px) {
+                font-size: 11px;
+            }
+        }
+    }
+}

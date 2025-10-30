@@ -1,0 +1,75 @@
+.missionVision {
+    background: #f9fafc;
+    padding: 100px 0;
+
+    .container {
+        max-width: 1372px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .missionvisiongrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            background: #ffffff;
+            padding:40px;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+
+            .iconWrap {
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #f1f5f9;
+                border-radius: 16px;
+                margin-bottom: 20px;
+
+                svg {
+                    font-size: 28px;
+                    color: #1f1f1f;
+                }
+            }
+
+            .tag {
+                display: inline-block;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                background: #1f1f1f;
+                color: #fff;
+                padding: 6px 14px;
+                border-radius: 20px;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+            h2 {
+                font-size: 28px;
+                font-weight: 700;
+                margin-bottom: 16px;
+                color: #1f1f1f;
+            }
+
+            p {
+                font-size: 18px;
+                line-height: 1.7;
+                color: #444;
+            }
+        }
+    }
+}
