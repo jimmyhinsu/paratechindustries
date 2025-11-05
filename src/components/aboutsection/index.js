@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./aboutsection.module.scss";
+import { usePathname } from "next/navigation";
 
 export default function Aboutsection() {
+  const pathName = usePathname();
+
   return (
     <>
       <section className={styles.about}>
@@ -26,9 +29,12 @@ export default function Aboutsection() {
                 reliability, and efficiency for impeccable results with
                 intricate jewelry designs.
               </p>
-              <a href="/aboutus" className={styles.btn}>
-                <button> Explore More</button>
-              </a>
+
+              {pathName !== "/aboutus" && (
+                <a href="/aboutus" className={styles.btn}>
+                  <button> Explore More</button>
+                </a>
+              )}
             </div>
 
             {/* Right Image */}
@@ -36,9 +42,26 @@ export default function Aboutsection() {
               <img src="/about-image.jpg" alt="About us" />
             </div>
           </div>
+
+          {pathName === "/aboutus" && (
+            <p className={styles.aboutp}>
+              As a respected name in the trade, we established ourselves solidly
+              into the market within the country and overseas. We are proud to
+              present ourselves with an exemplary level of customer service for
+              detailed responses given to our customers concerning the assembly,
+              operation, and servicing of our machines.
+              <br />
+              <br />
+              We cater to the differentiated needs of the jewelry industry
+              through the delivery of cutting-edge laser solutions that improve
+              productivity and precision. Quality, innovation, and customer
+              satisfaction constitute the foundations upon which we have built
+              our leadership globally as a provider of jewelry laser soldering
+              and welding machines.
+            </p>
+          )}
         </div>
       </section>
     </>
   );
 }
-
