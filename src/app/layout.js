@@ -2,6 +2,7 @@ import Header from "@/common/header";
 import "./globals.css";
 import Footer from "@/common/footer";
 import { AuthProvider } from "@/common/AuthProvider";
+import Whatsappbubble from "@/components/whatsappbubble";
 
 export const metadata = {
   title:
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <Header />
           <main className="layout">{children}</main>
+          <Whatsappbubble />
           <Footer />
         </AuthProvider>
       </body>

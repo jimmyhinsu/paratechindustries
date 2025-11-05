@@ -1,0 +1,57 @@
+.whatsappbubble {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 99;
+    padding: 14px;
+    border-radius: 99px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #25d366;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+
+    @media (max-width:1024px) {
+        bottom: 30px;
+        right: 30px;
+    }
+
+    @media (max-width:768px) {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+        margin-left: 2px;
+
+        path {
+            fill: #fff;
+        }
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        color: #fff;
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-left: 0;
+        display: inline-block;
+        padding: 0;
+        transition: all 0.4s ease-in-out;
+    }
+
+    &:hover {
+        span {
+            padding-right: 8px;
+            max-width: 158px;
+            margin-left: 8px;
+        }
+    }
+}
