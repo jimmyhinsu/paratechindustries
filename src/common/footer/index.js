@@ -7,6 +7,10 @@ import Location from "@/assests/svg/location";
 import Arrowicon from "@/assests/svg/arrowicon";
 import logo from "@/assests/images/whitelogo.png";
 import Image from "next/image";
+import Whatsappicon from "@/assests/svg/Whatsappicon";
+import Facebook from "@/assests/svg/facebook";
+import Linkeidn from "@/assests/svg/linkeidn";
+import Twitter from "@/assests/svg/twitter";
 
 export default function Footer() {
   return (
@@ -73,27 +77,81 @@ export default function Footer() {
               <ul>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Laser Engraving Machine</Link>
+                  <Link href="/fiberlasermarkingmachine">Fiber Laser Marking Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Jewellery Laser Soldering Machine</Link>
+                  <Link href="/">Customise Laser Marking Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Fiber Laser Rotary</Link>
+                  <Link href="/">Fiber Laser Cutting Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Product 4</Link>
+                  <Link href="/">Pipe Laser Cutting Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Sheet + Pipe Laser Cutting Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Fiber Laser Welding Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Battery Welding Laser Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Online Laser Marking Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Co2 Laser Cutting & Engraving Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Co2 Laser Engraving Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">3D Engraving</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">3D Marking</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Die Mould Welding</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Jewellery Cutting Machine</Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Jewellery Soldering Machine</Link>
                 </li>
               </ul>
             </div>
+          </div>
 
-            {/* <div className={styles.extra}>
-              <h4>Follow Us</h4>
-              <p>Social links or any extra info here</p>
-            </div> */}
+          <div className={styles.extra}>
+            <h4>Follow Us</h4>
+            <div className={styles.social}>
+              <a href="">
+                <Facebook />
+              </a>
+              <a href="">
+                <Linkeidn />
+              </a>
+              <a href="">
+                <Twitter />
+              </a>
+            </div>
           </div>
 
           <div className={styles.footerBottom}>

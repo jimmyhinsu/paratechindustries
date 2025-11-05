@@ -2,50 +2,27 @@
 import React from "react";
 import styles from "./herobanner.module.scss";
 import Image from "next/image";
-import Link from "next/link";
+import bgImage from "@/assests/images/bg.jpg"
 
-export default function Herobanner() {
+export default function HeroBanner() {
   return (
     <section className={styles.heroSection}>
+      <Image src={bgImage} alt="Paratech Industry" className={styles.bgImage} priority />
+
       <div className={styles.overlay}></div>
 
-      <div className={styles.contentWrapper}>
-        <div className={styles.textBox}>
-          <h1>
-            Precision <span>Technology</span> for a Smarter Future
-          </h1>
-          <p>
-            At Paratech, we deliver cutting-edge laser solutions with
-            reliability, innovation, and precision that define the future of
-            industrial manufacturing.
-          </p>
-
-          <div className={styles.btnGroup}>
-            <Link href="/" className={styles.primaryBtn}>
-              Explore Products
-            </Link>
-            <Link href="/contact" className={styles.secondaryBtn}>
-              Get Quote
-            </Link>
-          </div>
+      <div className={styles.content}>
+        <h1>
+          Powering The Future of <span>Industrial Innovation</span>
+        </h1>
+        <p>
+          Paratech Industry delivers reliable engineering and manufacturing solutions 
+          with precision, technology, and trust.
+        </p>
+        <div className={styles.buttons}>
+          <button className={styles.primaryBtn}>Explore More</button>
+          <button className={styles.secondaryBtn}>Contact Us</button>
         </div>
-
-        <div className={styles.imageBox}>
-          <Image
-            src="/images/laser-machine.png"
-            alt="Laser Machine"
-            width={600}
-            height={450}
-            className={styles.heroImg}
-            priority
-          />
-        </div>
-      </div>
-
-      <div className={styles.motionBg}>
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
     </section>
   );

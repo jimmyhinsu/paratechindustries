@@ -11,7 +11,6 @@ export default function Aboutsection() {
             <div className={styles.content}>
               <span>About Us</span>
               <h2>Turning Ideas Into Reality</h2>
-              <div className={styles.decorLine}></div>
               <p>
                 Paratech Industries is a reputed manufacturer, supplier, and
                 exporter that specializes in the design of high-quality laser
@@ -42,3 +41,4 @@ export default function Aboutsection() {
     </>
   );
 }
+

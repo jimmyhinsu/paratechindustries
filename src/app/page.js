@@ -3,6 +3,7 @@ import Aboutsection from "@/components/aboutsection";
 import Contactsection from "@/components/contactsection";
 import Herobanner from "@/components/herobanner";
 import Ourservices from "@/components/ourservices";
+import Review from "@/components/review";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <Herobanner />
       <Aboutsection />
       <Ourservices />
+      <Review />
       <Contactsection />
     </>
   );

@@ -1,6 +1,15 @@
 .whyChooseUs {
     padding: 60px 0;
 
+
+    @media (max-width:1024px) {
+        padding: 60px 0 0 0;
+    }
+
+    @media (max-width:576px) {
+        padding: 40px 0 0 0;
+    }
+
     .container {
         max-width: 1372px;
         margin: 0 auto;
@@ -11,6 +20,10 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
 
         // .imageBox img {
@@ -31,6 +44,15 @@
                 line-height: 1.3;
                 position: relative;
 
+                @media (max-width:1024px) {
+                    margin-bottom: 30px;
+                    font-size: 34px;
+                }
+
+                @media (max-width:576px) {
+                    font-size: 28px;
+                }
+
                 &::before {
                     content: "";
                     position: absolute;
@@ -40,6 +62,10 @@
                     height: 4px;
                     background-color: #000000;
                     border-radius: 2px;
+
+                    @media (max-width:576px) {
+                        height: 3px;
+                    }
                 }
             }
 
@@ -49,6 +75,11 @@
                 line-height: 1.5;
                 color: #555;
                 margin-bottom: 15px;
+
+                @media (max-width:576px) {
+                    font-size: 16px;
+                    line-height: 1.4;
+                }
             }
 
 

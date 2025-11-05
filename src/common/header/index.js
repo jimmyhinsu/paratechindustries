@@ -2,124 +2,81 @@
 import React, { useState } from "react";
 import styles from "./header.module.scss";
 import Link from "next/link";
-import Menuicon from "@/assests/svg/menuicon";
-import logo from "@/assests/images/paratechlogo.png";
 import Image from "next/image";
+import logo from "@/assests/images/paratechlogo.png";
+import { FiMenu } from "react-icons/fi";
+import Sidebar from "../sidebar";
+import Downarrowicon from "@/assests/svg/downarrowicon";
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const menuItems = [
-    {
-      title: "Laser Engraving Machine",
-      sub: [
-        "Laser 3D Die Engraving Brass Machine",
-        "Laser Marking And Engraving Machine For Metals",
-        "3D Laser Engraving and Die Making Machine",
-        "Laser Marking Engraving Machine",
-        "Industrial Laser Engraving Machine",
-        "Gift Article Laser Engraving Machine",
-        "Surgical Instruments Marking Machine",
-        "Metal 3D Die Deep Laser Engraving",
-        "50W Laser Engraving Machine",
-      ],
-    },
-    {
-      title: "Jewellery Laser Soldering Machine",
-      sub: [
-        "Jewellery Laser Soldering Machine",
-        "Jewellery Laser Soldering Machine",
-        "Laser Spot Soldering Machine",
-        "Desktop Jewellery Laser Soldering Welding Machine",
-        "200W Desktop Jewelry Laser Soldier Machine",
-        "Param Laser Soldering Machine Jewelry Laser Welding Machine",
-      ],
-    },
-    {
-      title: "Fiber Laser Rotary",
-      sub: [
-        "Fiber Laser Marking Rotary Device",
-        "Jewellery Fiber Laser Marking Rotary Device",
-      ],
-    },
-    { title: "Hot Stamping Machine", sub: [] },
-    { title: "Galvo Head Scanner With Red Beam", sub: [] },
-    {
-      title: "Laser Lense",
-      sub: ["F-theta Lenses For Fiber Laser Marking Machine"],
-    },
-    {
-      title: "Portable Jewellery Laser Welding Machine",
-      sub: [],
-    },
-    {
-      title: "Laser Printing Machine",
-      sub: ["Led Bulb Printing Machine", "Metal Laser Printing Machine"],
-    },
-    {
-      title: "Fiber Laser Marking Machine",
-      sub: ["F-theta Lenses For Fiber Laser Marking Machine"],
-    },
-  ];
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.headerflex}>
-          {/* Logo */}
-          <div className={styles.logo}>
-            <Link href="/">
-              <Image src={logo} />
-            </Link>
-          </div>
-
-          {/* Navigation */}
-          <nav className={`${styles.nav} ${mobileMenuOpen ? styles.open : ""}`}>
-            <Link href="/" className={styles.headername}>
-              Home
-            </Link>
-            <Link href="/aboutus" className={styles.headername}>
-              About Us
-            </Link>
-            <Link href="/companyprofile" className={styles.headername}>
-              Company Profile
-            </Link>
-
-            {/* Dropdown */}
-            <div className={styles.dropdown}>
-              <span className={styles.dropdownToggle}>Our Products ▾</span>
-              <div className={styles.dropdownMenu}>
-                {menuItems.map((item, idx) => (
-                  <div className={styles.dropdownItem} key={idx}>
-                    <span className={styles.parent}>{item.title}</span>
-                    {item.sub.length > 0 && (
-                      <div className={styles.subMenu}>
-                        {item.sub.map((subItem, subIdx) => (
-                          <Link href={`/products/${subIdx}`} key={subIdx}>
-                            {subItem}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+    <>
+      <header className={styles.header}>
+        <div className={styles.container}>
+          <div className={styles.headerFlex}>
+            {/* Logo */}
+            <div className={styles.logo}>
+              <Link href="/">
+                <Image src={logo} alt="Paratech Industries" priority />
+              </Link>
             </div>
 
-            <Link href="/contactus" className={styles.contactBtn}>
-              Contact Us
-            </Link>
-          </nav>
+            {/* Desktop Navigation */}
+            <nav className={styles.nav}>
+              <Link href="/" className={styles.ancer}>Home</Link>
+              <Link href="/aboutus" className={styles.ancer}>About Us</Link>
 
-          {/* Mobile Menu Icon */}
-          <div
-            className={styles.menuIcon}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <Menuicon />
+              {/* Products Dropdown */}
+              <div className={styles.dropdown}>
+                <Link href="/products" className={styles.dropdownToggle}>
+                  Products{" "}
+                  <div className={styles.icon}>
+                    <Downarrowicon />
+                  </div>
+                </Link>
+
+                <div className={styles.dropdownMenu}>
+                  <Link href="/fiberlasermarkingmachine">Fiber Laser Marking Machine</Link>
+                  <Link href="/">Customise Laser Marking Machine</Link>
+                  <Link href="/">Fiber Laser Cutting Machine</Link>
+                  <Link href="/">Pipe Laser Cutting Machine</Link>
+                  <Link href="/">Sheet + Pipe Laser Cutting Machine</Link>
+                  <Link href="/">Fiber Laser Welding Machine</Link>
+                  <Link href="/">Battery Welding Laser Machine</Link>
+                  <Link href="/">Online Laser Marking Machine</Link>
+                  <Link href="/">Co2 Laser Cutting & Engraving Machine</Link>
+                  <Link href="/">Co2 Laser Engraving Machine</Link>
+                  <Link href="/">3D Engraving</Link>
+                  <Link href="/">UV Laser Marking Machine</Link>
+                  <Link href="/">3D Marking</Link>
+                  <Link href="/">Die Mould Welding</Link>
+                  <Link href="/">Jewellery Cutting Machine</Link>
+                  <Link href="/">Jewellery Soldering Machine</Link>
+                </div>
+              </div>
+
+              <Link href="/companyprofile" className={styles.ancer}>Company Profile</Link>
+
+              <Link href="/contactus" className={styles.contactBtn}>
+                Contact Us
+              </Link>
+            </nav>
+
+            {/* Mobile Menu Icon */}
+            <div
+              className={styles.menuIcon}
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              <FiMenu />
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Sidebar Component */}
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+    </>
   );
 }

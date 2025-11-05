@@ -21,8 +21,9 @@
         color: #bfbfbf;
         text-decoration: none;
         font-size: 16px;
+        max-width: 400px;
 
-        @media (max-width:576px) {
+        @media (max-width: 576px) {
             font-size: 14px;
         }
 
@@ -32,40 +33,37 @@
     }
 
     .footerGrid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
         gap: 50px;
         padding-bottom: 30px;
 
-        @media (max-width:1024px) {
-            grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 1024px) {
+            flex-wrap: wrap;
             gap: 30px;
         }
 
-        @media (max-width:576px) {
-            grid-template-columns: repeat(1, 1fr);
+        @media (max-width: 576px) {
+            flex-direction: column;
             gap: 20px;
             padding-bottom: 20px;
         }
 
         .brand {
-
             h3 {
-                margin:0 0 20px 0;
+                margin: 0 0 20px 0;
                 font-size: 18px;
                 font-weight: 600;
-                color: #ffffff;
 
-                @media (max-width:576px) {
+                @media (max-width: 576px) {
                     font-size: 16px;
                 }
             }
 
             h4 {
                 font-size: 16px;
-                color: #fff;
 
-                @media (max-width:576px) {
+                @media (max-width: 576px) {
                     font-size: 15px;
                 }
             }
@@ -75,8 +73,6 @@
                 font-size: 16px;
                 display: flex;
                 gap: 15px;
-
-
             }
 
             svg {
@@ -84,7 +80,7 @@
                 width: 18px;
                 min-width: 18px;
 
-                @media (max-width:576px) {
+                @media (max-width: 576px) {
                     height: 16px;
                     width: 16px;
                     min-width: 16px;
@@ -96,15 +92,13 @@
             }
         }
 
-        .products,
-        .links,
-        .extra {
+        .links {
             h4 {
                 margin-bottom: 10px;
                 font-size: 18px;
                 font-weight: 600;
 
-                @media (max-width:576px) {
+                @media (max-width: 576px) {
                     font-size: 16px;
                 }
             }
@@ -119,13 +113,13 @@
                     gap: 10px;
                     margin: 12px 0;
                     font-size: 16px;
+                    transition: 0.3s ease;
 
                     svg {
                         width: 12px;
                         height: 12px;
 
-
-                        @media (max-width:576px) {
+                        @media (max-width: 576px) {
                             width: 10px;
                             height: 10px;
                         }
@@ -136,13 +130,101 @@
                     }
                 }
             }
+        }
 
-            p {
-                @media (max-width:576px) {
-                    font-size: 14px;
+        .products {
+            h4 {
+                margin-bottom: 10px;
+                font-size: 18px;
+                font-weight: 600;
+
+                @media (max-width: 576px) {
+                    font-size: 16px;
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px 30px;
+
+                @media (max-width: 768px) {
+                    grid-template-columns: 1fr;
+                }
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 16px;
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        color: #ffffff;
+                    }
+
+                    svg {
+                        width: 12px;
+                        height: 12px;
+
+                        @media (max-width: 576px) {
+                            width: 10px;
+                            height: 10px;
+                        }
+
+                        path {
+                            fill: #adadad;
+                        }
+                    }
                 }
             }
         }
+    }
+
+    .extra {
+        padding-bottom: 20px;
+
+        h4 {
+            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: 600;
+
+            @media (max-width: 576px) {
+                font-size: 16px;
+            }
+        }
+
+        .social {
+            display: flex;
+            gap: 15px;
+
+            a {
+                height: 50px;
+                width: 50px;
+                background-color: #bfbfbf;
+                transition: 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+
+                &:hover {
+                    background-color: #ffffff;
+                }
+
+                svg {
+                    height: 26px;
+                    width: 26px;
+
+                    path {
+                        fill: #000000;
+                    }
+                }
+            }
+        }
+
     }
 
     .footerBottom {
@@ -153,7 +235,7 @@
             padding-top: 15px;
             color: #bfbfbf;
 
-            @media (max-width:576px) {
+            @media (max-width: 576px) {
                 font-size: 11px;
             }
         }

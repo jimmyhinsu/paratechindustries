@@ -1,77 +1,115 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 import styles from "./sidebar.module.scss";
-import Closeicon from "@/assests/svg/closeicon";
+import Link from "next/link";
+import { IoClose } from "react-icons/io5";
+import Image from "next/image";
+import logo from "@/assests/images/paratechlogo.png";
+import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
-export default function Sidebar({ menuOpen, setMenuOpen }) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+export default function Sidebar({ isOpen, onClose }) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <>
-      <div className={`${styles.sidebar} ${menuOpen ? styles.open : ""}`}>
-        {/* Sidebar Header */}
-        <div className={styles.sidebarHeader}>
-          <span>Menu</span>
-          <div onClick={() => setMenuOpen(false)}>
-            <Closeicon />
-          </div>
+    <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
+      <div className={styles.overlay} onClick={onClose}></div>
+
+      <div className={styles.sidebarContent}>
+        <div className={styles.top}>
+          <a href="/">
+            <Image src={logo} alt="Logo" className={styles.logo} />
+          </a>
+          <IoClose className={styles.closeIcon} onClick={onClose} />
         </div>
 
-        {/* Sidebar Links */}
-        <div className={styles.sidebarLinks}>
-          <Link href="/" onClick={() => setMenuOpen(false)}>
+        <nav className={styles.nav}>
+          <Link href="/" onClick={onClose}>
             Home
           </Link>
-          <Link href="/aboutus" onClick={() => setMenuOpen(false)}>
+          <Link href="/aboutus" onClick={onClose}>
             About Us
           </Link>
 
-          {/* Dropdown Item */}
-          <div
-            className={`${styles.dropdown} ${
-              dropdownOpen ? styles.active : ""
-            }`}
-          >
+          {/* Products with dropdown */}
+          <div className={styles.dropdown}>
             <button
-              className={styles.dropdownToggle}
-              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className={styles.dropdownBtn}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              Services
-              <span className={styles.arrow}>{dropdownOpen ? "▲" : "▼"}</span>
+              Products
+              {isDropdownOpen ? (
+                <IoChevronUp className={styles.icon} />
+              ) : (
+                <IoChevronDown className={styles.icon} />
+              )}
             </button>
-            {dropdownOpen && (
+
+            {isDropdownOpen && (
               <div className={styles.dropdownMenu}>
-                <Link href="/services/web" onClick={() => setMenuOpen(false)}>
-                  Web Development
+                <Link href="/fiberlasermarkingmachine" onClick={onClose}>
+                  Fiber Laser Marking Machine
                 </Link>
-                <Link href="/services/app" onClick={() => setMenuOpen(false)}>
-                  App Development
+                <Link href="/" onClick={onClose}>
+                  Customise Laser Marking Machine
                 </Link>
-                <Link href="/services/seo" onClick={() => setMenuOpen(false)}>
-                  SEO Services
+                <Link href="/" onClick={onClose}>
+                  Fiber Laser Cutting Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Pipe Laser Cutting Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Sheet + Pipe Laser Cutting Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Fiber Laser Welding Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Battery Welding Laser Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Online Laser Marking Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Co2 Laser Cutting & Engraving Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Co2 Laser Engraving Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  3D Engraving
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  UV Laser Marking Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  3D Marking
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Die Mould Welding
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Jewellery Cutting Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Jewellery Soldering Machine
                 </Link>
               </div>
             )}
           </div>
 
-          <Link href="/products" onClick={() => setMenuOpen(false)}>
-            Products
+          <Link href="/companyprofile" onClick={onClose}>
+            Company Profile
           </Link>
           <Link
             href="/contactus"
             className={styles.contactBtn}
-            onClick={() => setMenuOpen(false)}
+            onClick={onClose}
           >
             Contact Us
           </Link>
-        </div>
+        </nav>
       </div>
-
-      {/* Overlay */}
-      {menuOpen && (
-        <div className={styles.overlay} onClick={() => setMenuOpen(false)} />
-      )}
-    </>
+    </div>
   );
 }

@@ -1,6 +1,13 @@
 .companyProfile {
     padding: 80px 0 0 0;
 
+    @media (max-width:1024px) {
+        padding: 60px 0 0 0;
+    }
+
+    @media (max-width:576px) {
+        padding: 40px 0 0 0;
+    }
 
     .container {
         max-width: 1372px;
@@ -16,6 +23,11 @@
 
         @media (max-width: 1024px) {
             grid-template-columns: repeat(1, 1fr);
+            gap: 40px;
+        }
+
+        @media (max-width:576px) {
+            gap: 30px;
         }
 
         .profileContent {
@@ -27,6 +39,16 @@
                 line-height: 1.3;
                 position: relative;
 
+                @media (max-width:1024px) {
+                    margin-bottom: 30px;
+                    font-size: 34px;
+                }
+
+                @media (max-width:576px) {
+                    font-size: 28px;
+                }
+
+
                 &::before {
                     content: "";
                     position: absolute;
@@ -36,6 +58,10 @@
                     height: 4px;
                     background-color: #000000;
                     border-radius: 2px;
+
+                    @media (max-width:576px) {
+                        height: 3px;
+                    }
                 }
             }
 
@@ -43,6 +69,11 @@
                 line-height: 1.6;
                 color: #555;
                 font-size: 18px;
+
+                @media (max-width:576px) {
+                    font-size: 16px;
+                    line-height: 1.4;
+                }
             }
         }
     }
@@ -60,12 +91,30 @@
     .tableWrapper {
         padding-top: 80px;
 
+        @media (max-width:1024px) {
+            padding: 60px 0 0 0;
+        }
+
+
+        @media (max-width:576px) {
+            padding: 40px 0 0 0;
+        }
+
         h2 {
             font-size: 40px;
             font-weight: 700;
             color: #1F1F1F;
             margin-bottom: 60px;
             position: relative;
+
+            @media (max-width:1024px) {
+                margin-bottom: 30px;
+                font-size: 34px;
+            }
+
+            @media (max-width:576px) {
+                font-size: 28px;
+            }
 
             &::before {
                 content: "";
@@ -76,6 +125,10 @@
                 height: 4px;
                 background-color: #000000;
                 border-radius: 2px;
+
+                @media (max-width:576px) {
+                    height: 3px;
+                }
             }
         }
 
@@ -102,6 +155,11 @@
                 padding: 14px 20px;
                 font-size: 15px;
                 border: 1px solid #adadad;
+
+                @media (max-width:576px) {
+                    font-size: 14px;
+                    padding: 12px 15px;
+                }
 
                 &:first-child {
                     font-weight: 600;
