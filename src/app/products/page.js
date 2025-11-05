@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import contact from "@/assests/images/bg.jpg";
 import Commonherobanner from "@/components/commonherobanner";
 import Contactsection from "@/components/contactsection";
@@ -8,6 +8,7 @@ export default function Products() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  
   return (
     <>
       <Commonherobanner
