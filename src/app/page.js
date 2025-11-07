@@ -1,6 +1,7 @@
 "use client";
 import Aboutsection from "@/components/aboutsection";
 import Contactsection from "@/components/contactsection";
+import Feature from "@/components/feature";
 import Herobanner from "@/components/herobanner";
 import Increaser from "@/components/increaser";
 import Ourservices from "@/components/ourservices";
@@ -17,6 +18,7 @@ export default function Home() {
       <Aboutsection />
       <Ourservices />
       <Increaser />
+      <Feature />
       <Review />
       <Contactsection />
     </>

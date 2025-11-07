@@ -24,7 +24,7 @@ export default function Footer() {
           </Link>
           <div className={styles.footerGrid}>
             <div className={styles.brand}>
-              <h3>Mr GAURAV DESAI</h3>
+              {/* <h3>Mr GAURAV DESAI</h3> */}
               <h4>GST : 24BRAPD4073J1Z2</h4>
               <p>
                 <Location />
