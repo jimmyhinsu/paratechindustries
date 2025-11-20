@@ -16,8 +16,8 @@ export default function Contactinfo() {
               </div>
               <div className={styles.textContent}>
                 <p>Email</p>
-                <a href="">
-                  <h3>info@example.com</h3>
+                <a href="mailto:info@paratechindustries.com">
+                  <h3>info@paratechindustries.com</h3>
                 </a>
               </div>
             </div>
@@ -28,8 +28,8 @@ export default function Contactinfo() {
               </div>
               <div className={styles.textContent}>
                 <p>Phone</p>
-                <a href="tel:+918045477720" target="__blank">
-                  <h3>+91 8045477720</h3>
+                <a href="tel:+919879533323" target="__blank">
+                  <h3>+91 9879533323</h3>
                 </a>
               </div>
             </div>

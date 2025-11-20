@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import styles from "./fiberlaser.module.scss";
 import Imagemodel from "../imagemodel";
-import image from "@/assests/images/bg.jpg";
 import Image from "next/image";
 
 export default function Fiberlaser() {
@@ -80,36 +79,33 @@ export default function Fiberlaser() {
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
               <h2>Fiber Laser Marking Machine</h2>
-              <h3>
-                Which Materials You Can Mark !!
-              </h3>
+              <h3>Which Materials You Can Mark !!</h3>
               <p>
-                SS, MS, ALUMINIUM, CAST IRON, PLASTIC, GOLD, SILVER, PLATINUM,
-                COATED GLASS, BRONZE, TITANIUM, COPPER, BRASS & More...
+                SS, MS,Aluminium, Cast Iron, Plastic, Gold, Silver, Platinum,
+                Coated Glass, Bronze, Titanium, Copper, Brass, Carbide, Non
+                Transparent Acrylic & More...
               </p>
               <h4 className={styles.specHeading}>Specification</h4>
 
               <table className={styles.specTable}>
                 <tbody>
                   <tr>
-                    <td className={styles.leftCell}>Working Area</td>
-                    <td className={styles.rightCell}>
-                      100x100, 175x175, 220x220, 300x300 MM & Customized
-                    </td>
+                    <td className={styles.leftCell}>Laser type</td>
+                    <td className={styles.rightCell}>Pulsed Fiber Laser</td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Laser Type</td>
-                    <td className={styles.rightCell}>Fiber Laser</td>
+                    <td className={styles.leftCell}>Working Area</td>
+                    <td className={styles.rightCell}>
+                      100x100, 175x175, 250x250, 300x300 Mm & Customized
+                    </td>
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Laser Power</td>
-                    <td className={styles.rightCell}>
-                      20, 30, 50, 60, 100, 200 W
-                    </td>
+                    <td className={styles.rightCell}>20, 30, 50, 60, 100 W</td>
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Operating System</td>
-                    <td className={styles.rightCell}>Windows 10</td>
+                    <td className={styles.rightCell}>Win 7/8/10/11 </td>
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Supported File</td>
@@ -120,8 +116,24 @@ export default function Fiberlaser() {
                   <tr>
                     <td className={styles.leftCell}>Working Volt</td>
                     <td className={styles.rightCell}>
-                      Single Phase 220–230V / 50HZ (Earthing Req)
+                      Single Phase 220-230v/50hz (Earthing Req)
                     </td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Wavelength:</td>
+                    <td className={styles.rightCell}>1064 nm</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Power Adjusting Range</td>
+                    <td className={styles.rightCell}>1-100%</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Max. Linear Speed</td>
+                    <td className={styles.rightCell}>Max 12000 Mm/S</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Min. Character Height</td>
+                    <td className={styles.rightCell}>0.1 MM</td>
                   </tr>
                 </tbody>
               </table>

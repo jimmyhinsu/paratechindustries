@@ -49,20 +49,20 @@ export default function Sidebar({ isOpen, onClose }) {
                 <Link href="/fiberlasermarkingmachine" onClick={onClose}>
                   Fiber Laser Marking Machine
                 </Link>
-                <Link href="/" onClick={onClose}>
-                  Customise Laser Marking Machine
+                <Link href="/fiberlasercuttingmachine" onClick={onClose}>
+                  Fiber Laser Cutting Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
-                  Fiber Laser Cutting Machine
+                  Fiber Laser Welding Machine
+                </Link>
+                <Link href="/" onClick={onClose}>
+                  Customise Laser Marking Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
                   Pipe Laser Cutting Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
                   Sheet + Pipe Laser Cutting Machine
-                </Link>
-                <Link href="/" onClick={onClose}>
-                  Fiber Laser Welding Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
                   Battery Welding Laser Machine
@@ -73,22 +73,22 @@ export default function Sidebar({ isOpen, onClose }) {
                 <Link href="/" onClick={onClose}>
                   Co2 Laser Cutting & Engraving Machine
                 </Link>
-                <Link href="/" onClick={onClose}>
+                <Link href="/co2laserengravingmachine" onClick={onClose}>
                   Co2 Laser Engraving Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
                   3D Engraving
                 </Link>
                 <Link href="/" onClick={onClose}>
-                  UV Laser Marking Machine
-                </Link>
-                <Link href="/" onClick={onClose}>
                   3D Marking
+                </Link>
+                <Link href="/uvlasermarkingmachine" onClick={onClose}>
+                  UV Laser Marking Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
                   Die Mould Welding
                 </Link>
-                <Link href="/" onClick={onClose}>
+                <Link href="/jewellerycuttingmachine" onClick={onClose}>
                   Jewellery Cutting Machine
                 </Link>
                 <Link href="/" onClick={onClose}>

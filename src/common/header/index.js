@@ -25,8 +25,12 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className={styles.nav}>
-              <Link href="/" className={styles.ancer}>Home</Link>
-              <Link href="/aboutus" className={styles.ancer}>About Us</Link>
+              <Link href="/" className={styles.ancer}>
+                Home
+              </Link>
+              <Link href="/aboutus" className={styles.ancer}>
+                About Us
+              </Link>
 
               {/* Products Dropdown */}
               <div className={styles.dropdown}>
@@ -38,26 +42,35 @@ export default function Header() {
                 </Link>
 
                 <div className={styles.dropdownMenu}>
-                  <Link href="/fiberlasermarkingmachine">Fiber Laser Marking Machine</Link>
+                  <Link href="/fiberlasermarkingmachine">
+                    Fiber Laser Marking Machine
+                  </Link>
+                  <Link href="/fiberlasercuttingmachine">
+                    Fiber Laser Cutting Machine
+                  </Link>
+                  <Link href="/">Fiber Laser Welding Machine</Link>
                   <Link href="/">Customise Laser Marking Machine</Link>
-                  <Link href="/">Fiber Laser Cutting Machine</Link>
                   <Link href="/">Pipe Laser Cutting Machine</Link>
                   <Link href="/">Sheet + Pipe Laser Cutting Machine</Link>
-                  <Link href="/">Fiber Laser Welding Machine</Link>
+
                   <Link href="/">Battery Welding Laser Machine</Link>
                   <Link href="/">Online Laser Marking Machine</Link>
                   <Link href="/">Co2 Laser Cutting & Engraving Machine</Link>
-                  <Link href="/">Co2 Laser Engraving Machine</Link>
+                  <Link href="/co2laserengravingmachine">Co2 Laser Engraving Machine</Link>
                   <Link href="/">3D Engraving</Link>
-                  <Link href="/">UV Laser Marking Machine</Link>
                   <Link href="/">3D Marking</Link>
+                  <Link href="/uvlasermarkingmachine">
+                    UV Laser Marking Machine
+                  </Link>
                   <Link href="/">Die Mould Welding</Link>
-                  <Link href="/">Jewellery Cutting Machine</Link>
+                  <Link href="/jewellerycuttingmachine">Jewellery Cutting Machine</Link>
                   <Link href="/">Jewellery Soldering Machine</Link>
                 </div>
               </div>
 
-              <Link href="/companyprofile" className={styles.ancer}>Company Profile</Link>
+              <Link href="/companyprofile" className={styles.ancer}>
+                Company Profile
+              </Link>
 
               <Link href="/contactus" className={styles.contactBtn}>
                 Contact Us

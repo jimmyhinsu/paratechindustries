@@ -38,14 +38,14 @@ export default function Footer() {
               </p>
               <p>
                 <Mailicon />
-                <a href="mailto:info@industry.com" target="__blank">
-                  info@industry.com
+                <a href="mailto:info@paratechindustries.com" target="__blank">
+                  info@paratechindustries.com
                 </a>
               </p>
               <p>
                 <Callicon />
-                <a href="tel:+918045477720" target="__blank">
-                  +91 8045477720
+                <a href="tel:+919879533323" target="__blank">
+                  +91 9879533323
                 </a>
               </p>
             </div>
@@ -77,15 +77,23 @@ export default function Footer() {
               <ul>
                 <li>
                   <Arrowicon />
-                  <Link href="/fiberlasermarkingmachine">Fiber Laser Marking Machine</Link>
+                  <Link href="/fiberlasermarkingmachine">
+                    Fiber Laser Marking Machine
+                  </Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/fiberlasercuttingmachine">
+                    Fiber Laser Cutting Machine
+                  </Link>
+                </li>
+                <li>
+                  <Arrowicon />
+                  <Link href="/">Fiber Laser Welding Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
                   <Link href="/">Customise Laser Marking Machine</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/">Fiber Laser Cutting Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -95,10 +103,7 @@ export default function Footer() {
                   <Arrowicon />
                   <Link href="/">Sheet + Pipe Laser Cutting Machine</Link>
                 </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/">Fiber Laser Welding Machine</Link>
-                </li>
+
                 <li>
                   <Arrowicon />
                   <Link href="/">Battery Welding Laser Machine</Link>
@@ -113,7 +118,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Co2 Laser Engraving Machine</Link>
+                  <Link href="/co2laserengravingmachine">Co2 Laser Engraving Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -125,11 +130,17 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
+                  <Link href="/uvlasermarkingmachine">
+                    UV Laser Marking Machine
+                  </Link>
+                </li>
+                <li>
+                  <Arrowicon />
                   <Link href="/">Die Mould Welding</Link>
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Jewellery Cutting Machine</Link>
+                  <Link href="/jewellerycuttingmachine">Jewellery Cutting Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
