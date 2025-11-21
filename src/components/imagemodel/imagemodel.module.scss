@@ -1,39 +1,63 @@
-.overlay {
+.modalOverlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal {
-    background: #fff;
-    border-radius: 8px;
-    max-width: 95%;
-    max-height: 95%;
-    position: relative;
-    padding: 10px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-    overflow: auto;
-}
-
-.close {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    border: none;
-    background: transparent;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-.imgWrap {
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 9999;
+    padding: 20px;
+
+    .modalContent {
+        background: #fff;
+        border-radius: 10px;
+        padding: 18px;
+        position: relative;
+        max-width: 700px; // MEDIUM SIZE
+        width: 90%;
+        max-height: 85vh;
+        overflow: hidden; // 🔥 PREVENT SCROLL
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            background: #000;
+            color: #fff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background: #333;
+            }
+        }
+
+        .imageBox {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .previewImg {
+            width: 100%;
+            height: auto;
+            object-fit: contain; // No zoom, perfect fit
+            max-height: 75vh; // prevents scrolling
+            border-radius: 8px;
+        }
+    }
 }

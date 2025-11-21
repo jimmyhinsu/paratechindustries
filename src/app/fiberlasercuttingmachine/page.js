@@ -1,5 +1,6 @@
 "use client";
 import Commonherobanner from "@/components/commonherobanner";
+import Fibercutting from "@/components/fibercutting";
 import React, { useEffect } from "react";
 
 export default function Fiberlasercuttingmachine() {
@@ -8,12 +9,13 @@ export default function Fiberlasercuttingmachine() {
   }, []);
 
   return (
-    <div>
+    <>
       <Commonherobanner
         title="Fiber Laser Cutting Machine"
         subtitle="Solutions That Fit You."
         bgImage="/images/contactbg.jpg"
       />
-    </div>
+      <Fibercutting />
+    </>
   );
 }
