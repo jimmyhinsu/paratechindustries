@@ -1,7 +1,7 @@
 "use client";
 import Commonherobanner from "@/components/commonherobanner";
 import React, { useEffect } from "react";
-import contact from "@/assests/images/bg.jpg";
+import common from "@/assests/images/common.jpg";
 import Contactsection from "@/components/contactsection";
 import Missionvision from "@/components/missionvision";
 import Whychoose from "@/components/whychoose";
@@ -16,7 +16,7 @@ export default function Aboutus() {
       <Commonherobanner
         title="About Us"
         subtitle="precision, passion, and performance."
-        bgImage={contact}
+        bgImage={common}
       />
       <Aboutsection />
       <Missionvision />

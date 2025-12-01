@@ -1,5 +1,7 @@
 "use client";
 import Commonherobanner from "@/components/commonherobanner";
+import Uvlasermarking from "@/components/uvlasermarking";
+import common from "@/assests/images/common.jpg";
 import React, { useEffect } from "react";
 
 export default function Uvlasermarkingmachine() {
@@ -8,12 +10,13 @@ export default function Uvlasermarkingmachine() {
   }, []);
 
   return (
-    <div>
+    <>
       <Commonherobanner
         title="UV Laser Marking Machine"
         subtitle="Solutions That Fit You."
-        bgImage="/images/contactbg.jpg"
+        bgImage={common}
       />
-    </div>
+      <Uvlasermarking />
+    </>
   );
 }

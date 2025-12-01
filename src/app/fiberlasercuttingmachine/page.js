@@ -2,6 +2,7 @@
 import Commonherobanner from "@/components/commonherobanner";
 import Fibercutting from "@/components/fibercutting";
 import React, { useEffect } from "react";
+import common from "@/assests/images/common.jpg";
 
 export default function Fiberlasercuttingmachine() {
   useEffect(() => {
@@ -13,7 +14,7 @@ export default function Fiberlasercuttingmachine() {
       <Commonherobanner
         title="Fiber Laser Cutting Machine"
         subtitle="Solutions That Fit You."
-        bgImage="/images/contactbg.jpg"
+        bgImage={common}
       />
       <Fibercutting />
     </>

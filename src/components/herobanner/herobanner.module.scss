@@ -35,10 +35,8 @@
       font-size: 56px;
       font-weight: 700;
       line-height: 1.2;
+      color: #fff;
 
-      span {
-        color: #f1c40f;
-      }
     }
 
     p {
@@ -46,6 +44,7 @@
       font-size: 20px;
       opacity: 0.9;
       max-width: 600px;
+      color: #fff;
     }
 
     .buttons {
@@ -55,7 +54,7 @@
       gap: 20px;
 
       .primaryBtn {
-        background: #f1c40f;
+        background: #ffffff;
         color: #1f1f1f;
         padding: 12px 30px;
         font-size: 16px;
@@ -66,15 +65,16 @@
         transition: 0.3s ease;
 
         &:hover {
-          background: #d4a10e;
+          background: #0c0c0c;
           transform: scale(1.05);
+          color: #ffffff;
         }
       }
 
       .secondaryBtn {
         background: transparent;
-        border: 2px solid #f1c40f;
-        color: #f1c40f;
+        border: 2px solid #ffffff;
+        color: #ffffff;
         padding: 12px 30px;
         font-size: 16px;
         font-weight: 600;
@@ -83,8 +83,7 @@
         transition: 0.3s ease;
 
         &:hover {
-          background: #f1c40f;
-          color: #1f1f1f;
+          background: #000000;
         }
       }
     }

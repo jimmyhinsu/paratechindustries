@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./whychoose.module.scss";
+import whychooseus from "@/assests/images/whychooseus.jpg";
+import Image from "next/image";
 
 export default function Whychoose() {
   return (
@@ -8,12 +10,7 @@ export default function Whychoose() {
         <div className={styles.container}>
           <div className={styles.whychoosegrid}>
             <div className={styles.imageBox}>
-              {/* <Image
-              src="/images/whychooseus.jpg"
-              alt="Why Choose Us"
-              width={500}
-              height={400}
-            /> */}
+              <Image src={whychooseus} alt="WhyChooseUs" />
             </div>
 
             <div className={styles.contentBox}>

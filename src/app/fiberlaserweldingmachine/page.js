@@ -1,6 +1,7 @@
 "use client";
 import Commonherobanner from "@/components/commonherobanner";
 import React, { useEffect } from "react";
+import common from "@/assests/images/common.jpg";
 
 export default function Fiberlaserweldingmachine() {
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function Fiberlaserweldingmachine() {
       <Commonherobanner
         title="Fiber Laser Welding Machine"
         subtitle="Solutions That Fit You."
-        bgImage="/images/contactbg.jpg"
+        bgImage={common}
       />
     </>
   );

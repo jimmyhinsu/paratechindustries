@@ -1,5 +1,6 @@
 "use client"
 import Commonherobanner from "@/components/commonherobanner";
+import common from "@/assests/images/common.jpg";
 import React, { useEffect } from "react";
 
 export default function Jewellerycuttingmachine() {
@@ -12,7 +13,7 @@ export default function Jewellerycuttingmachine() {
         <Commonherobanner
           title="Jewellery Cutting Machine"
           subtitle="Solutions That Fit You."
-          bgImage="/images/contactbg.jpg"
+          bgImage={common}
         />
       </div>
     </>

@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
 import styles from "./aboutsection.module.scss";
+import aboutusimg from "@/assests/images/aboutusimg.jpg";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Aboutsection() {
   const pathName = usePathname();
@@ -39,7 +42,7 @@ export default function Aboutsection() {
 
             {/* Right Image */}
             <div className={styles.imageWrap}>
-              <img src="/about-image.jpg" alt="About us" />
+              <Image src={aboutusimg} alt="aboutusimg" />
             </div>
           </div>
 

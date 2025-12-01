@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./companyprofilesection.module.scss";
+import companyprofile from "@/assests/images/companyprofile.jpg";
+import Image from "next/image";
 
 export default function Companyprofilesection() {
   return (
@@ -29,14 +31,12 @@ export default function Companyprofilesection() {
             </div>
 
             <div className={styles.profileImage}>
-              <img src="/company-building.jpg" alt="Paratech Industries" />
+              <Image src={companyprofile} alt="companyprofile" />
             </div>
           </div>
 
           <div className={styles.tableWrapper}>
-            <h2>
-              Key Facts of Paratech Industries
-            </h2>
+            <h2>Key Facts of Paratech Industries</h2>
             <table className={styles.infoTable}>
               <tbody>
                 <tr>
