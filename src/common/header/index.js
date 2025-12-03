@@ -34,7 +34,7 @@ export default function Header() {
 
               {/* Products Dropdown */}
               <div className={styles.dropdown}>
-                <Link href="/products" className={styles.dropdownToggle}>
+                <Link href="/" className={styles.dropdownToggle}>
                   Products{" "}
                   <div className={styles.icon}>
                     <Downarrowicon />

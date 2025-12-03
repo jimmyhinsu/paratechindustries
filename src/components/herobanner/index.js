@@ -18,10 +18,10 @@ export default function HeroBanner() {
       <div className={styles.overlay}></div>
 
       <div className={styles.content}>
-        <h1>Powering The Future of Industries Innovation</h1>
+        <h1>Empowering Industries Through Innovation</h1>
         <p>
-          Paratech Industries delivers reliable engineering and manufacturing
-          solutions with precision, technology, and trust.
+          Paratech Industries is committed to delivering reliable, innovative,
+          and future-ready solutions for businesses worldwide.
         </p>
         <div className={styles.buttons}>
           <Link href="/aboutus">

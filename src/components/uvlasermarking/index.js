@@ -14,12 +14,11 @@ import fc8 from "@/assests/images/fc8.png";
 import fc9 from "@/assests/images/fc9.png";
 import fc10 from "@/assests/images/fc10.png";
 import fc11 from "@/assests/images/fc11.png";
-import fibercutting from "@/assests/images/fiberlasercuttingmachine.jpg";
-import enclosed from "@/assests/images/enclosedfiberlasercuttingmachine.jpg";
+import uvlaser from "@/assests/images/uvlasermarkingmachine.jpg";
 
 export default function Uvlasermarking() {
   // Main product images (thumbnails change the main image)
-  const productImages = [fibercutting, enclosed];
+  const productImages = [uvlaser];
 
   // Application images (click opens modal)
   const applicationImages = [
@@ -41,11 +40,11 @@ export default function Uvlasermarking() {
 
   return (
     <>
-      <div className={styles.fibercutting}>
+      <div className={styles.uvlaser}>
         <div className={styles.container}>
           <div className={styles.gridmachine}>
             {/* LEFT: Product image, thumbnails, buttons */}
-            <div className={styles.cuttingleft}>
+            <div className={styles.uvlaserleft}>
               <div className={styles.imageWrap}>
                 <Image
                   src={mainImage}
@@ -88,7 +87,7 @@ export default function Uvlasermarking() {
             </div>
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
-            <div className={styles.cuttingright}>
+            <div className={styles.uvlaserright}>
               <h2>Uv Laser Marking/Engraving Machine</h2>
               <h3>Which Materials You Can Mark !!</h3>
               <p>

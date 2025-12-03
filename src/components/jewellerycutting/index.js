@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./fiberlaser.module.scss";
-import Imagemodel from "../imagemodel";
-import Image from "next/image";
+import styles from "./jewellerycutting.module.scss";
 import flm1 from "@/assests/images/flm1.png";
 import flm2 from "@/assests/images/flm2.png";
 import flm3 from "@/assests/images/flm3.png";
@@ -15,12 +13,15 @@ import flm9 from "@/assests/images/flm9.png";
 import flm10 from "@/assests/images/flm10.png";
 import flm11 from "@/assests/images/flm11.png";
 import flm12 from "@/assests/images/flm12.png";
-import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
-import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
+import jewellry from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine.jpg";
+import jewellry1 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine1.jpg";
+import jewellry3 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine3.jpg";
+import jewellry4 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine4.jpg";
+import Image from "next/image";
 
-export default function Fiberlaser() {
+export default function Jewellerycutting() {
   // Main product images (thumbnails change the main image)
-  const productImages = [lasermarkingmachine, lasermarkingmachine1];
+  const productImages = [jewellry, jewellry1, jewellry3, jewellry4];
 
   // Application images (click opens modal)
   const applicationImages = [
@@ -40,7 +41,6 @@ export default function Fiberlaser() {
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
-
   return (
     <>
       <section className={styles.machineSection}>
@@ -91,62 +91,40 @@ export default function Fiberlaser() {
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
-              <h2>Fiber Laser Marking Machine</h2>
-              <h3>Which Materials You Can Mark !!</h3>
+              <h2>Jewellery Cutting Machine</h2>
+              {/* <h3>Which Materials You Can Mark !!</h3>
               <p>
                 SS, MS,Aluminium, Cast Iron, Plastic, Gold, Silver, Platinum,
                 Coated Glass, Bronze, Titanium, Copper, Brass, Carbide, Non
                 Transparent Acrylic & More...
-              </p>
+              </p> */}
               <h4 className={styles.specHeading}>Specification</h4>
 
               <table className={styles.specTable}>
                 <tbody>
                   <tr>
                     <td className={styles.leftCell}>Laser type</td>
-                    <td className={styles.rightCell}>Pulsed Fiber Laser</td>
+                    <td className={styles.rightCell}>German Source</td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Working Area</td>
+                    <td className={styles.leftCell}>Cutting Size</td>
                     <td className={styles.rightCell}>
-                      100x100, 175x175, 250x250, 300x300 Mm & Customized
+                      100x100 Mm & Customized
                     </td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Laser Power</td>
-                    <td className={styles.rightCell}>20, 30, 50, 60, 100 W</td>
+                    <td className={styles.leftCell}>Cutting Depth</td>
+                    <td className={styles.rightCell}>0.01 Micron - 1.5mm</td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Operating System</td>
-                    <td className={styles.rightCell}>Win 7/8/10/11 </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.leftCell}>Supported File</td>
-                    <td className={styles.rightCell}>
-                      PLT, DXF, BMP, JPG, GLF, PNG.
-                    </td>
+                    <td className={styles.leftCell}>Optional Attachment</td>
+                    <td className={styles.rightCell}>Rotary/fume Extractor </td>
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Working Volt</td>
                     <td className={styles.rightCell}>
                       Single Phase 220-230v/50hz (Earthing Req)
                     </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.leftCell}>Wavelength:</td>
-                    <td className={styles.rightCell}>1064 nm</td>
-                  </tr>
-                  <tr>
-                    <td className={styles.leftCell}>Power Adjusting Range</td>
-                    <td className={styles.rightCell}>1-100%</td>
-                  </tr>
-                  <tr>
-                    <td className={styles.leftCell}>Max. Linear Speed</td>
-                    <td className={styles.rightCell}>Max 12000 Mm/S</td>
-                  </tr>
-                  <tr>
-                    <td className={styles.leftCell}>Min. Character Height</td>
-                    <td className={styles.rightCell}>0.1 MM</td>
                   </tr>
                 </tbody>
               </table>
