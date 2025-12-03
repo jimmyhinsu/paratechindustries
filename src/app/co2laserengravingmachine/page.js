@@ -2,6 +2,7 @@
 import Commonherobanner from "@/components/commonherobanner";
 import common from "@/assests/images/common.jpg";
 import React, { useEffect } from "react";
+import Co2laserengraving from "@/components/co2laserengraving";
 
 export default function Co2laserengravingmachine() {
   useEffect(() => {
@@ -15,6 +16,8 @@ export default function Co2laserengravingmachine() {
         subtitle="Solutions That Fit You."
         bgImage={common}
       />
+
+      <Co2laserengraving />
     </div>
   );
 }
