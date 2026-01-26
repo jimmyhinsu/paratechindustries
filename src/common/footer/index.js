@@ -7,10 +7,9 @@ import Location from "@/assests/svg/location";
 import Arrowicon from "@/assests/svg/arrowicon";
 import logo from "@/assests/images/whitelogo.png";
 import Image from "next/image";
-import Whatsappicon from "@/assests/svg/Whatsappicon";
 import Facebook from "@/assests/svg/facebook";
-import Linkeidn from "@/assests/svg/linkeidn";
-import Twitter from "@/assests/svg/twitter";
+import Instagram from "@/assests/svg/instagram";
+import Youtube from "@/assests/svg/youtube";
 
 export default function Footer() {
   return (
@@ -61,6 +60,11 @@ export default function Footer() {
                   <Arrowicon />
                   <Link href="/aboutus">About Us</Link>
                 </li>
+
+                <li>
+                  <Arrowicon />
+                  <Link href="/industriesweserve">Industries We Serve</Link>
+                </li>
                 <li>
                   <Arrowicon />
                   <Link href="/companyprofile">Company Profile</Link>
@@ -97,16 +101,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Pipe Laser Cutting Machine</Link>
-                </li>
-                <li>
-                  <Arrowicon />
                   <Link href="/">Sheet + Pipe Laser Cutting Machine</Link>
-                </li>
-
-                <li>
-                  <Arrowicon />
-                  <Link href="/">Battery Welding Laser Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -118,7 +113,9 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/co2laserengravingmachine">Co2 Laser Engraving Machine</Link>
+                  <Link href="/co2laserengravingmachine">
+                    Co2 Laser Engraving Machine
+                  </Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -136,11 +133,9 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Die Mould Welding</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/jewellerycuttingmachine">Jewellery Cutting Machine</Link>
+                  <Link href="/jewellerycuttingmachine">
+                    Jewellery Cutting Machine
+                  </Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -157,10 +152,10 @@ export default function Footer() {
                 <Facebook />
               </a>
               <a href="">
-                <Linkeidn />
+                <Instagram />
               </a>
               <a href="">
-                <Twitter />
+                <Youtube />
               </a>
             </div>
           </div>

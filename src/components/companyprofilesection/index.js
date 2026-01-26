@@ -49,11 +49,7 @@ export default function Companyprofilesection() {
                 </tr>
                 <tr>
                   <td>Year of Establishment</td>
-                  <td>2010</td>
-                </tr>
-                <tr>
-                  <td>Number of Employees</td>
-                  <td>13</td>
+                  <td>2014</td>
                 </tr>
                 <tr>
                   <td>GST Number</td>

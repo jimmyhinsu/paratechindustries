@@ -3,10 +3,12 @@ import "./globals.css";
 import Footer from "@/common/footer";
 import { AuthProvider } from "@/common/AuthProvider";
 import Whatsappbubble from "@/components/whatsappbubble";
+import Callbubble from "@/components/callbubble";
+import Mailbubble from "@/components/mainlbubble";
+import Cataloguebubble from "@/components/cataloguebubble";
 
 export const metadata = {
-  title:
-    "Laser Soldering Machine Manufacturer, Laser Spot Soldering Machine Exporter",
+  title: "Paratech Industries in Surat",
   description:
     "Leading Laser Soldering Machine Manufacturer and Exporter, offering high-precision laser spot soldering machines designed for durability, accuracy, and superior performance for industrial applications.",
 };
@@ -25,7 +27,10 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <Header />
           <main className="layout">{children}</main>
+          <Callbubble />
           <Whatsappbubble />
+          <Mailbubble />
+          <Cataloguebubble />
           <Footer />
         </AuthProvider>
       </body>

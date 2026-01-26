@@ -16,21 +16,25 @@ export default function Aboutsection() {
             {/* Left Content */}
             <div className={styles.content}>
               <span>About Us</span>
-              <h2>Turning Ideas Into Reality</h2>
+              <h2>The Best Laser Machine Manufacturer, in surat</h2>
               <p>
-                Paratech Industries is a reputed manufacturer, supplier, and
-                exporter that specializes in the design of high-quality laser
-                soldering and welding machines for the jewelry sector. Having
-                years of experience in the industry, we provide various kinds of
-                developed machinery, including Jewellery Laser Soldering
-                Machine, Laser Spot Soldering Machine, Desktop Jewellery Laser
-                Soldering Welding Machine, and Param Laser Soldering Machine
-                Jewelry Laser Welding Machine.
+                Established as a company in the year 2014 we “Paratech
+                Industries” are a leading Manufacturer, supplier and exporter of
+                all types of Industrial Laser Machines like Marking, Cutting,
+                Engraving, Welding, soldering and Cleaning. With a dedicated
+                in-house R&D team and rigorous quality control adhering to ISO &
+                CE standards.
               </p>
               <p>
-                Our products are designed and manufactured to provide precision,
-                reliability, and efficiency for impeccable results with
-                intricate jewelry designs.
+                Paratech Industries offers a diverse range of machines,
+                including Fiber Laser Marking, Cutting, Welding, and Cleaning
+                Machines, along with UV and CO2 Laser Marking Machines and
+                custom SPM machines. These machines find applications in various
+                industries such as Automobiles,Pump, Valves, Bearing,
+                Engineering, Hardware, Pharma, Surgical, Tools, LED, Die-Mould,
+                Cable-Wire, Pipe, Jewellery, Optical, FMCG, Sheet Metal, Gift
+                Article, Fabric, Elevators, and more than 100 other
+                applications.
               </p>
 
               {pathName !== "/aboutus" && (
@@ -48,19 +52,9 @@ export default function Aboutsection() {
 
           {pathName === "/aboutus" && (
             <p className={styles.aboutp}>
-              As a respected name in the trade, we established ourselves solidly
-              into the market within the country and overseas. We are proud to
-              present ourselves with an exemplary level of customer service for
-              detailed responses given to our customers concerning the assembly,
-              operation, and servicing of our machines.
-              <br />
-              <br />
-              We cater to the differentiated needs of the jewelry industry
-              through the delivery of cutting-edge laser solutions that improve
-              productivity and precision. Quality, innovation, and customer
-              satisfaction constitute the foundations upon which we have built
-              our leadership globally as a provider of jewelry laser soldering
-              and welding machines.
+              Paratech Industries offer fast, accurate, low or zero maintenance,
+              high speed and precision, innovative, reliable laser machines are
+              ideal for any types of industries.
             </p>
           )}
         </div>

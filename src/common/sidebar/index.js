@@ -59,13 +59,7 @@ export default function Sidebar({ isOpen, onClose }) {
                   Customise Laser Marking Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
-                  Pipe Laser Cutting Machine
-                </Link>
-                <Link href="/" onClick={onClose}>
                   Sheet + Pipe Laser Cutting Machine
-                </Link>
-                <Link href="/" onClick={onClose}>
-                  Battery Welding Laser Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
                   Online Laser Marking Machine
@@ -85,9 +79,6 @@ export default function Sidebar({ isOpen, onClose }) {
                 <Link href="/uvlasermarkingmachine" onClick={onClose}>
                   UV Laser Marking Machine
                 </Link>
-                <Link href="/" onClick={onClose}>
-                  Die Mould Welding
-                </Link>
                 <Link href="/jewellerycuttingmachine" onClick={onClose}>
                   Jewellery Cutting Machine
                 </Link>
@@ -97,6 +88,10 @@ export default function Sidebar({ isOpen, onClose }) {
               </div>
             )}
           </div>
+
+          <Link href="/industriesweserve" className={styles.ancer}>
+            Industries We Serve
+          </Link>
 
           <Link href="/companyprofile" onClick={onClose}>
             Company Profile
