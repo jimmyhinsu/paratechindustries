@@ -48,14 +48,14 @@ export default function Header() {
                   <Link href="/fiberlasercuttingmachine">
                     Fiber Laser Cutting Machine
                   </Link>
-                  <Link href="/">Fiber Laser Welding Machine</Link>
+                  <Link href="/handheldfiberlaserweldingmachine">Handheld Fiber Laser Welding Machine</Link>
                   <Link href="/">Customise Laser Marking Machine</Link>
-                  <Link href="/">Sheet + Pipe Laser Cutting Machine</Link>
+                  <Link href="/sheetpipelasercuttingmachine">Sheet + Pipe Laser Cutting Machine</Link>
                   <Link href="/">Online Laser Marking Machine</Link>
                   <Link href="/">Co2 Laser Cutting & Engraving Machine</Link>
                   <Link href="/co2laserengravingmachine">Co2 Laser Engraving Machine</Link>
-                  <Link href="/">3D Engraving</Link>
-                  <Link href="/">3D Marking</Link>
+                  <Link href="/dengraving">3D Engraving</Link>
+                  <Link href="/dmarking">3D Marking</Link>
                   <Link href="/uvlasermarkingmachine">
                     UV Laser Marking Machine
                   </Link>

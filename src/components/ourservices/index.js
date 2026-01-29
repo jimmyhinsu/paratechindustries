@@ -23,7 +23,7 @@ import clmm from "@/assests/images/lasermarkingmachine1.jpg";
 const services = [
   { title: "Fiber Laser Marking Machine", img: flmm },
   { title: "Fiber Laser Cutting Machine", img: flcm },
-  { title: "Fiber Laser Welding Machine", img: flwm },
+  { title: "Handheld Fiber Laser Welding Machine", img: flwm },
   { title: "Customise Laser Marking Machine", img: clmm },
   { title: "Sheet + Pipe Laser Cutting Machine", img: bg },
   { title: "Online Laser Marking Machine", img: fly },

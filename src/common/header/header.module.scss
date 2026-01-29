@@ -98,6 +98,8 @@
           display: none;
           flex-direction: column;
           z-index: 99;
+          overflow: auto;
+          max-height: calc(100vh - 200px);
 
           a {
             padding: 14px 20px;

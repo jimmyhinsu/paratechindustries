@@ -52,13 +52,13 @@ export default function Sidebar({ isOpen, onClose }) {
                 <Link href="/fiberlasercuttingmachine" onClick={onClose}>
                   Fiber Laser Cutting Machine
                 </Link>
-                <Link href="/" onClick={onClose}>
-                  Fiber Laser Welding Machine
+                <Link href="/handheldfiberlaserweldingmachine" onClick={onClose}>
+                  Handheld Fiber Laser Welding Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
                   Customise Laser Marking Machine
                 </Link>
-                <Link href="/" onClick={onClose}>
+                <Link href="/sheetpipelasercuttingmachine" onClick={onClose}>
                   Sheet + Pipe Laser Cutting Machine
                 </Link>
                 <Link href="/" onClick={onClose}>
@@ -70,10 +70,10 @@ export default function Sidebar({ isOpen, onClose }) {
                 <Link href="/co2laserengravingmachine" onClick={onClose}>
                   Co2 Laser Engraving Machine
                 </Link>
-                <Link href="/" onClick={onClose}>
+                <Link href="/dengraving" onClick={onClose}>
                   3D Engraving
                 </Link>
-                <Link href="/" onClick={onClose}>
+                <Link href="/dmarking" onClick={onClose}>
                   3D Marking
                 </Link>
                 <Link href="/uvlasermarkingmachine" onClick={onClose}>

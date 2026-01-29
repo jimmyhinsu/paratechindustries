@@ -93,7 +93,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Fiber Laser Welding Machine</Link>
+                  <Link href="/handheldfiberlaserweldingmachine">Handheld Fiber Laser Welding Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -101,7 +101,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Sheet + Pipe Laser Cutting Machine</Link>
+                  <Link href="/sheetpipelasercuttingmachine">Sheet + Pipe Laser Cutting Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -119,11 +119,11 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">3D Engraving</Link>
+                  <Link href="/dengraving">3D Engraving</Link>
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">3D Marking</Link>
+                  <Link href="/dmarking">3D Marking</Link>
                 </li>
                 <li>
                   <Arrowicon />
