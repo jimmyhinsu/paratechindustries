@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./aboutsection.module.scss";
-import aboutusimg from "@/assests/images/aboutusimg.jpg";
+import aboutusimg from "@/assests/images/aboutusimg.jpeg";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
