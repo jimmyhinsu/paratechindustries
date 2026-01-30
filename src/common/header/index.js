@@ -51,7 +51,7 @@ export default function Header() {
                   <Link href="/handheldfiberlaserweldingmachine">Handheld Fiber Laser Welding Machine</Link>
                   <Link href="/customiselasermachine">Customise Laser Marking Machine</Link>
                   <Link href="/sheetpipelasercuttingmachine">Sheet + Pipe Laser Cutting Machine</Link>
-                  <Link href="/">Online Laser Marking Machine</Link>
+                  <Link href="/onlinelasermarkingmachine">Online Laser Marking Machine</Link>
                   <Link href="/co2lasercuttingmachine">Co2 Laser Cutting & Engraving Machine</Link>
                   <Link href="/co2laserengravingmachine">Co2 Laser Engraving Machine</Link>
                   <Link href="/dengraving">3D Engraving</Link>
@@ -60,7 +60,7 @@ export default function Header() {
                     UV Laser Marking Machine
                   </Link>
                   <Link href="/jewellerycuttingmachine">Jewellery Cutting Machine</Link>
-                  <Link href="/">Jewellery Soldering Machine</Link>
+                  <Link href="/jewellerysolderingmachine">Jewellery Soldering Machine</Link>
                 </div>
               </div>
 

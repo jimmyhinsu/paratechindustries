@@ -21,19 +21,63 @@ import flwm from "@/assests/images/fiberlaserweldingmachine.jpg";
 import clmm from "@/assests/images/lasermarkingmachine1.jpg";
 
 const services = [
-  { title: "Fiber Laser Marking Machine", img: flmm },
-  { title: "Fiber Laser Cutting Machine", img: flcm },
-  { title: "Handheld Fiber Laser Welding Machine", img: flwm },
-  { title: "Customise Laser Marking Machine", img: clmm },
-  { title: "Sheet + Pipe Laser Cutting Machine", img: flmm },
-  { title: "Online Laser Marking Machine", img: fly },
-  { title: "Co2 Laser Cutting & Engraving Machine", img: bg },
-  { title: "Co2 Laser Engraving Machine", img: co },
-  { title: "3D Engraving", img: bg },
-  { title: "3D Marking", img: bg },
-  { title: "UV Laser Marking Machine", img: ulmm },
-  { title: "Jewellery Cutting Machine", img: jcm },
-  { title: "Jewellery Soldering Machine", img: jsm },
+  {
+    title: "Fiber Laser Marking Machine",
+    img: flmm,
+    Link: "/fiberlasermarkingmachine",
+  },
+  {
+    title: "Fiber Laser Cutting Machine",
+    img: flcm,
+    Link: "/fiberlasercuttingmachine",
+  },
+  {
+    title: "Handheld Fiber Laser Welding Machine",
+    img: flwm,
+    Link: "/handheldfiberlaserweldingmachine",
+  },
+  {
+    title: "Customise Laser Marking Machine",
+    img: clmm,
+    Link: "/customiselasermachine",
+  },
+  {
+    title: "Sheet + Pipe Laser Cutting Machine",
+    img: flmm,
+    Link: "/sheetpipelasercuttingmachine",
+  },
+  {
+    title: "Online Laser Marking Machine",
+    img: fly,
+    Link: "/onlinelasermarkingmachine",
+  },
+  {
+    title: "Co2 Laser Cutting & Engraving Machine",
+    img: bg,
+    Link: "/co2lasercuttingmachine",
+  },
+  {
+    title: "Co2 Laser Engraving Machine",
+    img: co,
+    Link: "/co2laserengravingmachine",
+  },
+  { title: "3D Engraving", img: bg, Link: "/dengraving" },
+  { title: "3D Marking", img: bg, Link: "/dmarking" },
+  {
+    title: "UV Laser Marking Machine",
+    img: ulmm,
+    Link: "/uvlasermarkingmachine",
+  },
+  {
+    title: "Jewellery Cutting Machine",
+    img: jcm,
+    Link: "/jewellerycuttingmachine",
+  },
+  {
+    title: "Jewellery Soldering Machine",
+    img: jsm,
+    Link: "/jewellerysolderingmachine",
+  },
 ];
 
 export default function Ourservices() {
@@ -61,7 +105,7 @@ export default function Ourservices() {
         >
           {services.map((service, i) => (
             <SwiperSlide key={i}>
-              <Link href="/">
+              <Link href={service.Link}>
                 <div
                   className={styles.card}
                   onClick={() => setScrollCategory(service.title.toLowerCase())}
