@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./dmarkingsection.module.scss";
+import styles from "./customisemachine.module.scss";
 import Imagemodel from "../imagemodel";
 import Image from "next/image";
 import flm1 from "@/assests/images/flm1.png";
@@ -18,7 +18,7 @@ import flm12 from "@/assests/images/flm12.png";
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
 import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
 
-export default function Dmarkingsection() {
+export default function Customisemachine() {
   // Main product images (thumbnails change the main image)
   const productImages = [lasermarkingmachine, lasermarkingmachine1];
 
@@ -40,9 +40,10 @@ export default function Dmarkingsection() {
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
+
   return (
     <>
-      <section className={styles.marking}>
+      <section className={styles.customise}>
         <div className={styles.container}>
           <div className={styles.gridmachine}>
             {/* LEFT: Product image, thumbnails, buttons */}
@@ -90,7 +91,7 @@ export default function Dmarkingsection() {
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
-              <h2>3D Engraving</h2>
+              <h2>Customise Laser Marking Machine</h2>
 
               <h4 className={styles.specHeading}>Specification</h4>
 
@@ -101,19 +102,28 @@ export default function Dmarkingsection() {
                     <td className={styles.rightCell}>Fiber Laser</td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Laser Power</td>
+                    <td className={styles.leftCell}>Laser Working Area</td>
                     <td className={styles.rightCell}>
-                      60 W Optional 80 W, 100 W
+                      600x600 · 900x900 · 1200x1200 · 1300x2500 · 1500x3000 mm &
+                      Customize
                     </td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Working Area</td>
-                    <td className={styles.rightCell}>100x100 mm</td>
+                    <td className={styles.leftCell}>Laser Power</td>
+                    <td className={styles.rightCell}>30, 50, 100, 200 W</td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Supporting Files</td>
+                    <td className={styles.leftCell}>Pulse Repetition</td>
+                    <td className={styles.rightCell}>2-500 ns</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Cooling</td>
+                    <td className={styles.rightCell}>Air</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Continuous Marking</td>
                     <td className={styles.rightCell}>
-                      PLT, SVG, DXF JPEG, BMP, PNG etc.
+                      Encodersynced motion for stitchingfree large graphic
                     </td>
                   </tr>
                 </tbody>

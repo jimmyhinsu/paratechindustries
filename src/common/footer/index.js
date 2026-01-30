@@ -97,7 +97,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Customise Laser Marking Machine</Link>
+                  <Link href="/customiselasermachine">Customise Laser Marking Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />
@@ -109,7 +109,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/">Co2 Laser Cutting & Engraving Machine</Link>
+                  <Link href="/co2lasercuttingmachine">Co2 Laser Cutting & Engraving Machine</Link>
                 </li>
                 <li>
                   <Arrowicon />

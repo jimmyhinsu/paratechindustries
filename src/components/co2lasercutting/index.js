@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./dmarkingsection.module.scss";
+import styles from "./co2lasercutting.module.scss";
 import Imagemodel from "../imagemodel";
 import Image from "next/image";
 import flm1 from "@/assests/images/flm1.png";
@@ -18,7 +18,7 @@ import flm12 from "@/assests/images/flm12.png";
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
 import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
 
-export default function Dmarkingsection() {
+export default function Co2lasercutting() {
   // Main product images (thumbnails change the main image)
   const productImages = [lasermarkingmachine, lasermarkingmachine1];
 
@@ -42,7 +42,7 @@ export default function Dmarkingsection() {
   const [modalImage, setModalImage] = useState(null);
   return (
     <>
-      <section className={styles.marking}>
+      <div className={styles.co2cutting}>
         <div className={styles.container}>
           <div className={styles.gridmachine}>
             {/* LEFT: Product image, thumbnails, buttons */}
@@ -90,30 +90,57 @@ export default function Dmarkingsection() {
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
-              <h2>3D Engraving</h2>
+              <h2>Co2 Laser Cutting & Engraving Machine</h2>
 
               <h4 className={styles.specHeading}>Specification</h4>
 
               <table className={styles.specTable}>
                 <tbody>
                   <tr>
-                    <td className={styles.leftCell}>Laser Type</td>
-                    <td className={styles.rightCell}>Fiber Laser</td>
-                  </tr>
-                  <tr>
-                    <td className={styles.leftCell}>Laser Power</td>
+                    <td className={styles.leftCell}>Cutting Area</td>
                     <td className={styles.rightCell}>
-                      60 W Optional 80 W, 100 W
+                      600x900, 1300x900, 1400x1000, 1600x1000, 1300x1300,
+                      1300x2500 MM & Customized
                     </td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Working Area</td>
-                    <td className={styles.rightCell}>100x100 mm</td>
+                    <td className={styles.leftCell}>Laser Tube</td>
+                    <td className={styles.rightCell}>
+                      80, 100, 130, 150, 200 W
+                    </td>
                   </tr>
                   <tr>
-                    <td className={styles.leftCell}>Supporting Files</td>
+                    <td className={styles.leftCell}>Laser Source</td>
                     <td className={styles.rightCell}>
-                      PLT, SVG, DXF JPEG, BMP, PNG etc.
+                      Sealed Glass Co2 Laser Tube
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Cooling System</td>
+                    <td className={styles.rightCell}>Water Cooling</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Working Table</td>
+                    <td className={styles.rightCell}>Strip / Honey Comb</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Optional</td>
+                    <td className={styles.rightCell}>Camera (CCD)</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Interface</td>
+                    <td className={styles.rightCell}>Udisk, Usb, Ethernet</td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Supported File</td>
+                    <td className={styles.rightCell}>
+                      PLT, DXF, BMP, JPG, GLF, PNG.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className={styles.leftCell}>Working Volt</td>
+                    <td className={styles.rightCell}>
+                      Single Phase 220-230V/50HZ (Earthing Req)
                     </td>
                   </tr>
                 </tbody>
@@ -145,7 +172,7 @@ export default function Dmarkingsection() {
         {modalImage && (
           <Imagemodel image={modalImage} onClose={() => setModalImage(null)} />
         )}
-      </section>
+      </div>
     </>
   );
 }
