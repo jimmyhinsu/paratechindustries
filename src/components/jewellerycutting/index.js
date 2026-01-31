@@ -1,18 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./jewellerycutting.module.scss";
-import flm1 from "@/assests/images/flm1.png";
-import flm2 from "@/assests/images/flm2.png";
-import flm3 from "@/assests/images/flm3.png";
-import flm4 from "@/assests/images/flm4.png";
-import flm5 from "@/assests/images/flm5.png";
-import flm6 from "@/assests/images/flm6.png";
-import flm7 from "@/assests/images/flm7.png";
-import flm8 from "@/assests/images/flm8.png";
-import flm9 from "@/assests/images/flm9.png";
-import flm10 from "@/assests/images/flm10.png";
-import flm11 from "@/assests/images/flm11.png";
-import flm12 from "@/assests/images/flm12.png";
+import jcm1 from "@/assests/images/jcm1.png";
+import jcm2 from "@/assests/images/jcm2.png";
+import jcm3 from "@/assests/images/jcm3.png";
+import jcm4 from "@/assests/images/jcm4.png";
 import jewellry from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine.jpg";
 import jewellry1 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine1.jpg";
 import jewellry3 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine3.jpg";
@@ -24,20 +16,7 @@ export default function Jewellerycutting() {
   const productImages = [jewellry, jewellry1, jewellry3, jewellry4];
 
   // Application images (click opens modal)
-  const applicationImages = [
-    flm1,
-    flm2,
-    flm3,
-    flm4,
-    flm5,
-    flm6,
-    flm7,
-    flm8,
-    flm9,
-    flm10,
-    flm11,
-    flm12,
-  ];
+  const applicationImages = [jcm1, jcm2, jcm3, jcm4];
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);

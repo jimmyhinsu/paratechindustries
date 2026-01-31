@@ -3,18 +3,18 @@ import React, { useState } from "react";
 import styles from "./jewellerysoldering.module.scss";
 import Imagemodel from "../imagemodel";
 import Image from "next/image";
-import flm1 from "@/assests/images/flm1.png";
-import flm2 from "@/assests/images/flm2.png";
-import flm3 from "@/assests/images/flm3.png";
-import flm4 from "@/assests/images/flm4.png";
-import flm5 from "@/assests/images/flm5.png";
-import flm6 from "@/assests/images/flm6.png";
-import flm7 from "@/assests/images/flm7.png";
-import flm8 from "@/assests/images/flm8.png";
-import flm9 from "@/assests/images/flm9.png";
-import flm10 from "@/assests/images/flm10.png";
-import flm11 from "@/assests/images/flm11.png";
-import flm12 from "@/assests/images/flm12.png";
+import jsm1 from "@/assests/images/jsm1.png";
+import jsm2 from "@/assests/images/jsm2.png";
+import jsm3 from "@/assests/images/jsm3.png";
+import jsm4 from "@/assests/images/jsm4.png";
+import jsm5 from "@/assests/images/jsm5.png";
+import jsm6 from "@/assests/images/jsm6.png";
+import jsm7 from "@/assests/images/jsm7.png";
+import jsm8 from "@/assests/images/jsm8.png";
+import jsm9 from "@/assests/images/jsm9.png";
+import jsm10 from "@/assests/images/jsm10.png";
+import jsm11 from "@/assests/images/jsm11.png";
+import jsm12 from "@/assests/images/jsm12.png";
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
 import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
 
@@ -24,18 +24,18 @@ export default function Jewellerysoldering() {
 
   // Application images (click opens modal)
   const applicationImages = [
-    flm1,
-    flm2,
-    flm3,
-    flm4,
-    flm5,
-    flm6,
-    flm7,
-    flm8,
-    flm9,
-    flm10,
-    flm11,
-    flm12,
+    jsm1,
+    jsm2,
+    jsm3,
+    jsm4,
+    jsm5,
+    jsm6,
+    jsm7,
+    jsm8,
+    jsm9,
+    jsm10,
+    jsm11,
+    jsm12,
   ];
 
   const [mainImage, setMainImage] = useState(productImages[0]);

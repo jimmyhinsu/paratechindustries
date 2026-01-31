@@ -3,17 +3,12 @@ import React, { useState } from "react";
 import styles from "./uvlasermarking.module.scss";
 import Imagemodel from "../imagemodel";
 import Image from "next/image";
-import fc1 from "@/assests/images/fc1.png";
-import fc2 from "@/assests/images/fc2.png";
-import fc3 from "@/assests/images/fc3.png";
-import fc4 from "@/assests/images/fc5.png";
-import fc5 from "@/assests/images/fc5.png";
-import fc6 from "@/assests/images/fc6.png";
-import fc7 from "@/assests/images/fc7.png";
-import fc8 from "@/assests/images/fc8.png";
-import fc9 from "@/assests/images/fc9.png";
-import fc10 from "@/assests/images/fc10.png";
-import fc11 from "@/assests/images/fc11.png";
+import ulmem1 from "@/assests/images/ulmem1.png";
+import ulmem2 from "@/assests/images/ulmem2.png";
+import ulmem3 from "@/assests/images/ulmem3.png";
+import ulmem4 from "@/assests/images/ulmem4.png";
+import ulmem5 from "@/assests/images/ulmem5.png";
+import ulmem6 from "@/assests/images/ulmem6.png";
 import uvlaser from "@/assests/images/uvlasermarkingmachine.jpg";
 
 export default function Uvlasermarking() {
@@ -22,17 +17,12 @@ export default function Uvlasermarking() {
 
   // Application images (click opens modal)
   const applicationImages = [
-    fc1,
-    fc2,
-    fc3,
-    fc4,
-    fc5,
-    fc6,
-    fc7,
-    fc8,
-    fc9,
-    fc10,
-    fc11,
+    ulmem1,
+    ulmem2,
+    ulmem3,
+    ulmem4,
+    ulmem5,
+    ulmem6,
   ];
 
   const [mainImage, setMainImage] = useState(productImages[0]);

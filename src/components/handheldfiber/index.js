@@ -3,18 +3,12 @@ import React, { useState } from "react";
 import styles from "./handheldfiber.module.scss";
 import Imagemodel from "../imagemodel";
 import Image from "next/image";
-import flm1 from "@/assests/images/flm1.png";
-import flm2 from "@/assests/images/flm2.png";
-import flm3 from "@/assests/images/flm3.png";
-import flm4 from "@/assests/images/flm4.png";
-import flm5 from "@/assests/images/flm5.png";
-import flm6 from "@/assests/images/flm6.png";
-import flm7 from "@/assests/images/flm7.png";
-import flm8 from "@/assests/images/flm8.png";
-import flm9 from "@/assests/images/flm9.png";
-import flm10 from "@/assests/images/flm10.png";
-import flm11 from "@/assests/images/flm11.png";
-import flm12 from "@/assests/images/flm12.png";
+import hflm1 from "@/assests/images/hflm1.png";
+import hflm2 from "@/assests/images/hflm2.png";
+import hflm3 from "@/assests/images/hflm3.png";
+import hflm4 from "@/assests/images/hflm4.png";
+import hflm5 from "@/assests/images/hflm5.png";
+import hflm6 from "@/assests/images/hflm6.png";
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
 import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
 
@@ -24,18 +18,12 @@ export default function Handheldfiber() {
 
   // Application images (click opens modal)
   const applicationImages = [
-    flm1,
-    flm2,
-    flm3,
-    flm4,
-    flm5,
-    flm6,
-    flm7,
-    flm8,
-    flm9,
-    flm10,
-    flm11,
-    flm12,
+    hflm1,
+    hflm2,
+    hflm3,
+    hflm4,
+    hflm5,
+    hflm6,
   ];
 
   const [mainImage, setMainImage] = useState(productImages[0]);
@@ -91,7 +79,7 @@ export default function Handheldfiber() {
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
-              <h2>Fiber Laser Marking Machine</h2>
+              <h2>Handheld Fiber Laser Welding Machine</h2>
               <h3>Which Materials You Can Mark !!</h3>
               <p>STAINLESS STEEL, MILD STEEL, ALUMINUM</p>
               <h4 className={styles.specHeading}>Specification</h4>
