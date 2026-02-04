@@ -13,7 +13,7 @@ import bg from "@/assests/images/colasermarkingmachine.jpg";
 import co from "@/assests/images/colasermarkingmachine.jpg";
 import fly from "@/assests/images/flylasermarkingmachine.jpg";
 import jsm from "@/assests/images/jewellerylaserweldingorsoldiermachine.jpg";
-import jcm from "@/assests/images/jewellerylaserweldingorsoldiermachine3.jpg";
+import jcm from "@/assests/images/jcm.jpg";
 import flcm from "@/assests/images/fiberlasercuttingmachine.jpg";
 import flmm from "@/assests/images/lasermarkingmachine.jpg";
 import ulmm from "@/assests/images/uvlasermarkingmachine.jpg";
