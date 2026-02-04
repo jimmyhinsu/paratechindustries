@@ -7,7 +7,7 @@ export default function Cataloguebubble() {
     <>
       <div>
         <a
-          href="/catalogue.pdf" // change to your catalogue link
+          href="/catalogue.pdf"
           target="_blank"
           className={styles.cataloguebubble}
         >

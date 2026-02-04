@@ -6,7 +6,7 @@ export default function Mailbubble() {
   return (
     <>
       <div>
-        <a href="mailto:info@example.com" className={styles.mailbubble}>
+        <a href="mailto:info@paratechindustries.com" className={styles.mailbubble}>
           <span>Email Us</span>
           <FaEnvelope />
         </a>
