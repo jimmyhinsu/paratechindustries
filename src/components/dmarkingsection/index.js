@@ -3,18 +3,9 @@ import React, { useState } from "react";
 import styles from "./dmarkingsection.module.scss";
 import Imagemodel from "../imagemodel";
 import Image from "next/image";
-import flm1 from "@/assests/images/flm1.png";
-import flm2 from "@/assests/images/flm2.png";
-import flm3 from "@/assests/images/flm3.png";
-import flm4 from "@/assests/images/flm4.png";
-import flm5 from "@/assests/images/flm5.png";
-import flm6 from "@/assests/images/flm6.png";
-import flm7 from "@/assests/images/flm7.png";
-import flm8 from "@/assests/images/flm8.png";
-import flm9 from "@/assests/images/flm9.png";
-import flm10 from "@/assests/images/flm10.png";
-import flm11 from "@/assests/images/flm11.png";
-import flm12 from "@/assests/images/flm12.png";
+import drm1 from "@/assests/images/drm1.png";
+import drm2 from "@/assests/images/drm2.png";
+import drm3 from "@/assests/images/drm3.png";
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
 import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
 
@@ -24,18 +15,9 @@ export default function Dmarkingsection() {
 
   // Application images (click opens modal)
   const applicationImages = [
-    flm1,
-    flm2,
-    flm3,
-    flm4,
-    flm5,
-    flm6,
-    flm7,
-    flm8,
-    flm9,
-    flm10,
-    flm11,
-    flm12,
+    drm1,
+    drm2,
+    drm3,
   ];
 
   const [mainImage, setMainImage] = useState(productImages[0]);
