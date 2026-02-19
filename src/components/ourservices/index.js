@@ -9,16 +9,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/common/AuthProvider";
 
-import bg from "@/assests/images/colasermarkingmachine.jpg";
-import co from "@/assests/images/colasermarkingmachine.jpg";
-import fly from "@/assests/images/flylasermarkingmachine.jpg";
-import jsm from "@/assests/images/jewellerylaserweldingorsoldiermachine.jpg";
-import jcm from "@/assests/images/jcm.jpg";
+import co from "@/assests/images/colaserengravingmachine.jpg";
+import jsm from "@/assests/images/jsm.jpeg";
+import jcm from "@/assests/images/jcm.jpeg";
 import flcm from "@/assests/images/fiberlasercuttingmachine.jpg";
 import flmm from "@/assests/images/lasermarkingmachine.jpg";
-import ulmm from "@/assests/images/uvlasermarkingmachine.jpg";
-import flwm from "@/assests/images/fiberlaserweldingmachine.jpg";
-import clmm from "@/assests/images/lasermarkingmachine1.jpg";
+import ulmm from "@/assests/images/uvlasermarkingmachine.jpeg";
+import clmm from "@/assests/images/customiselasermachine.jpg";
+import hflm from "@/assests/images/handheldfiberlaserweldingmachine.jpeg";
+import spcm from "@/assests/images/sheetpipelasercuttingmachine.jpeg";
+import clcmm from "@/assests/images/colasercuttingmachine.jpg";
+import da from "@/assests/images/dengraving.jpg";
+import dm from "@/assests/images/dmarking.jpg";
+import olmm from "@/assests/images/olmm.jpg";
 
 const services = [
   {
@@ -33,7 +36,7 @@ const services = [
   },
   {
     title: "Handheld Fiber Laser Welding Machine",
-    img: flwm,
+    img: hflm,
     Link: "/handheldfiberlaserweldingmachine",
   },
   {
@@ -43,17 +46,17 @@ const services = [
   },
   {
     title: "Sheet + Pipe Laser Cutting Machine",
-    img: flmm,
+    img: spcm,
     Link: "/sheetpipelasercuttingmachine",
   },
   {
     title: "Online Laser Marking Machine",
-    img: fly,
+    img: olmm,
     Link: "/onlinelasermarkingmachine",
   },
   {
     title: "Co2 Laser Cutting & Engraving Machine",
-    img: bg,
+    img: clcmm,
     Link: "/co2lasercuttingmachine",
   },
   {
@@ -61,8 +64,8 @@ const services = [
     img: co,
     Link: "/co2laserengravingmachine",
   },
-  { title: "3D Engraving", img: bg, Link: "/dengraving" },
-  { title: "3D Marking", img: bg, Link: "/dmarking" },
+  { title: "3D Engraving", img: da, Link: "/dengraving" },
+  { title: "3D Marking", img: dm, Link: "/dmarking" },
   {
     title: "UV Laser Marking Machine",
     img: ulmm,
