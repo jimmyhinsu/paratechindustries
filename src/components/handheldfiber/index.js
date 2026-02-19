@@ -9,12 +9,11 @@ import hflm3 from "@/assests/images/hflm3.png";
 import hflm4 from "@/assests/images/hflm4.png";
 import hflm5 from "@/assests/images/hflm5.png";
 import hflm6 from "@/assests/images/hflm6.png";
-import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
-import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
+import hflwm from "@/assests/images/handheldfiberlaserweldingmachine.jpeg";
 
 export default function Handheldfiber() {
   // Main product images (thumbnails change the main image)
-  const productImages = [lasermarkingmachine, lasermarkingmachine1];
+  const productImages = [hflwm];
 
   // Application images (click opens modal)
   const applicationImages = [

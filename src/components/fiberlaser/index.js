@@ -16,11 +16,10 @@ import flm10 from "@/assests/images/flm10.png";
 import flm11 from "@/assests/images/flm11.png";
 import flm12 from "@/assests/images/flm12.png";
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
-import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
 
 export default function Fiberlaser() {
   // Main product images (thumbnails change the main image)
-  const productImages = [lasermarkingmachine, lasermarkingmachine1];
+  const productImages = [lasermarkingmachine];
 
   // Application images (click opens modal)
   const applicationImages = [

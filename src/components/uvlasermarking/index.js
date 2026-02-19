@@ -9,7 +9,7 @@ import ulmem3 from "@/assests/images/ulmem3.png";
 import ulmem4 from "@/assests/images/ulmem4.png";
 import ulmem5 from "@/assests/images/ulmem5.png";
 import ulmem6 from "@/assests/images/ulmem6.png";
-import uvlaser from "@/assests/images/uvlasermarkingmachine.jpg";
+import uvlaser from "@/assests/images/uvlasermarkingmachine.jpeg";
 
 export default function Uvlasermarking() {
   // Main product images (thumbnails change the main image)

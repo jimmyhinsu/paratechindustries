@@ -15,13 +15,11 @@ import fc9 from "@/assests/images/fc9.png";
 import fc10 from "@/assests/images/fc10.png";
 import fc11 from "@/assests/images/fc11.png";
 import fibercutting from "@/assests/images/fiberlasercuttingmachine.jpg";
-import enclosed from "@/assests/images/enclosedfiberlasercuttingmachine.jpg";
 
 export default function Fibercutting() {
   // Main product images (thumbnails change the main image)
   const productImages = [
     fibercutting,
-    enclosed,
   ];
 
   // Application images (click opens modal)

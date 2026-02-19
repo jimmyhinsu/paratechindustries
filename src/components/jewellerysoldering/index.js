@@ -15,12 +15,16 @@ import jsm9 from "@/assests/images/jsm9.png";
 import jsm10 from "@/assests/images/jsm10.png";
 import jsm11 from "@/assests/images/jsm11.png";
 import jsm12 from "@/assests/images/jsm12.png";
-import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
-import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
+import jsm from "@/assests/images/jsm.jpeg";
+import jsmm2 from "@/assests/images/jsmm2.jpg";
+import jsmm3 from "@/assests/images/jsmm3.jpeg";
+import jsmm4 from "@/assests/images/jsmm4.jpeg";
+import jsmm5 from "@/assests/images/jsmm5.jpeg";
+
 
 export default function Jewellerysoldering() {
   // Main product images (thumbnails change the main image)
-  const productImages = [lasermarkingmachine, lasermarkingmachine1];
+  const productImages = [jsm, jsmm2, jsmm3, jsmm4, jsmm5];
 
   // Application images (click opens modal)
   const applicationImages = [

@@ -6,12 +6,11 @@ import Image from "next/image";
 import drm1 from "@/assests/images/drm1.png";
 import drm2 from "@/assests/images/drm2.png";
 import drm3 from "@/assests/images/drm3.png";
-import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
-import lasermarkingmachine1 from "@/assests/images/lasermarkingmachine1.jpg";
+import dengraving from "@/assests/images/dengraving.jpg";
 
 export default function Dengravingsection() {
   // Main product images (thumbnails change the main image)
-  const productImages = [lasermarkingmachine, lasermarkingmachine1];
+  const productImages = [dengraving];
 
   // Application images (click opens modal)
   const applicationImages = [

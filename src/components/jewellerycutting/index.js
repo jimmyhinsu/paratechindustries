@@ -5,15 +5,15 @@ import jcm1 from "@/assests/images/jcm1.png";
 import jcm2 from "@/assests/images/jcm2.png";
 import jcm3 from "@/assests/images/jcm3.png";
 import jcm4 from "@/assests/images/jcm4.png";
-import jewellry from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine.jpg";
-import jewellry1 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine1.jpg";
-import jewellry3 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine3.jpg";
-import jewellry4 from "@/assests/images/jewellerylasermarking,engravingandcuttingmachine4.jpg";
+import jcm from "@/assests/images/jcm.jpeg";
+import jcm22 from "@/assests/images/jcm2.jpeg";
+import jcm33 from "@/assests/images/jcm3.jpeg";
+import jcm44 from "@/assests/images/jcm4.jpeg";
 import Image from "next/image";
 
 export default function Jewellerycutting() {
   // Main product images (thumbnails change the main image)
-  const productImages = [jewellry, jewellry1, jewellry3, jewellry4];
+  const productImages = [jcm, jcm22, jcm33, jcm44];
 
   // Application images (click opens modal)
   const applicationImages = [jcm1, jcm2, jcm3, jcm4];

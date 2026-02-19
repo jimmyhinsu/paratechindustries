@@ -10,7 +10,7 @@ import clem5 from "@/assests/images/clem5.png";
 import clem6 from "@/assests/images/clem6.png";
 import clem7 from "@/assests/images/clem7.png";
 import clem8 from "@/assests/images/clem8.png";
-import colaser from "@/assests/images/colasermarkingmachine.jpg";
+import colaser from "@/assests/images/colaserengravingmachine.jpg";
 
 export default function Co2laserengraving() {
   // Main product images (thumbnails change the main image)
