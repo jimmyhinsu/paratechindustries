@@ -92,9 +92,9 @@ export default function Sidebar({ isOpen, onClose }) {
             )}
           </div>
 
-          <Link href="/industriesweserve" className={styles.ancer}>
+          {/* <Link href="/industriesweserve" className={styles.ancer}>
             Industries We Serve
-          </Link>
+          </Link> */}
 
           <Link href="/companyprofile" onClick={onClose}>
             Company Profile

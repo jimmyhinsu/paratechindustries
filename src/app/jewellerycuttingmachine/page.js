@@ -12,7 +12,7 @@ export default function Jewellerycuttingmachine() {
     <>
       <div>
         <Commonherobanner
-          title="Jewellery Cutting Machine"
+          title="Jewellery Laser Cutting Machine"
           subtitle="Solutions That Fit You."
           bgImage={common}
         />

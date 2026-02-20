@@ -13,7 +13,7 @@ import Image from "next/image";
 
 export default function Jewellerycutting() {
   // Main product images (thumbnails change the main image)
-  const productImages = [jcm, jcm22, jcm33, jcm44];
+  const productImages = [jcm44, jcm, jcm22, jcm33 ];
 
   // Application images (click opens modal)
   const applicationImages = [jcm1, jcm2, jcm3, jcm4];
@@ -70,7 +70,7 @@ export default function Jewellerycutting() {
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
-              <h2>Jewellery Cutting Machine</h2>
+              <h2>Jewellery Laser Cutting Machine</h2>
               {/* <h3>Which Materials You Can Mark !!</h3>
               <p>
                 SS, MS,Aluminium, Cast Iron, Plastic, Gold, Silver, Platinum,

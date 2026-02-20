@@ -12,7 +12,7 @@ import { useAuth } from "@/common/AuthProvider";
 import co from "@/assests/images/colaserengravingmachine.jpg";
 import jsm from "@/assests/images/jsm.jpeg";
 import jcm from "@/assests/images/jcm.jpeg";
-import flcm from "@/assests/images/fiberlasercuttingmachine.jpg";
+import flcm from "@/assests/images/fiberlasercuttingmachine.jpeg";
 import flmm from "@/assests/images/lasermarkingmachine.jpg";
 import ulmm from "@/assests/images/uvlasermarkingmachine.jpeg";
 import clmm from "@/assests/images/customiselasermachine.jpg";

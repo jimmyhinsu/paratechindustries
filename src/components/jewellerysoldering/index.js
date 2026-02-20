@@ -94,7 +94,7 @@ export default function Jewellerysoldering() {
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
-              <h2>Jewellery Soldering Machine</h2>
+              <h2>Jewellery Laser Soldering Machine</h2>
 
               <h4 className={styles.specHeading}>Specification</h4>
 

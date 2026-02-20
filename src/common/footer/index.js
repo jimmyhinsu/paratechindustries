@@ -61,10 +61,11 @@ export default function Footer() {
                   <Link href="/aboutus">About Us</Link>
                 </li>
 
-                <li>
+                {/* <li>
                   <Arrowicon />
                   <Link href="/industriesweserve">Industries We Serve</Link>
-                </li>
+                </li> */}
+                
                 <li>
                   <Arrowicon />
                   <Link href="/companyprofile">Company Profile</Link>
