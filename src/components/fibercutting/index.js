@@ -14,13 +14,11 @@ import fc8 from "@/assests/images/fc8.png";
 import fc9 from "@/assests/images/fc9.png";
 import fc10 from "@/assests/images/fc10.png";
 import fc11 from "@/assests/images/fc11.png";
-import fibercutting from "@/assests/images/fiberlasercuttingmachine.jpg";
+import fibercutting from "@/assests/images/fiberlasercuttingmachine.jpeg";
 
 export default function Fibercutting() {
   // Main product images (thumbnails change the main image)
-  const productImages = [
-    fibercutting,
-  ];
+  const productImages = [fibercutting];
 
   // Application images (click opens modal)
   const applicationImages = [
@@ -79,12 +77,16 @@ export default function Fibercutting() {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.quoteBtn}>
-                  Request A Quote &nbsp; →
-                </button>
-                <button className={styles.catalogBtn}>
-                  Download Catalogue &nbsp; →
-                </button>
+                <a href="mailto:info@paratechindustries.com" target="__blank">
+                  <button className={styles.quoteBtn}>
+                    Request A Quote &nbsp; →
+                  </button>
+                </a>
+                <a href="/catalogue.pdf" target="__blank">
+                  <button className={styles.catalogBtn}>
+                    Download Catalogue &nbsp; →
+                  </button>
+                </a>
               </div>
             </div>
 

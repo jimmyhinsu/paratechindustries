@@ -59,8 +59,8 @@ export default function Header() {
                   <Link href="/uvlasermarkingmachine">
                     UV Laser Marking Machine
                   </Link>
-                  <Link href="/jewellerycuttingmachine">Jewellery Cutting Machine</Link>
-                  <Link href="/jewellerysolderingmachine">Jewellery Soldering Machine</Link>
+                  <Link href="/jewellerycuttingmachine">Jewellery Laser Cutting Machine</Link>
+                  <Link href="/jewellerysolderingmachine">Jewellery Laser Soldering Machine</Link>
                 </div>
               </div>
 

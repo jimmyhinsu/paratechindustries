@@ -13,11 +13,7 @@ export default function Dengravingsection() {
   const productImages = [dengraving];
 
   // Application images (click opens modal)
-  const applicationImages = [
-    drm1,
-    drm2,
-    drm3,
-  ];
+  const applicationImages = [drm1, drm2, drm3];
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
@@ -61,19 +57,24 @@ export default function Dengravingsection() {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.quoteBtn}>
-                  Request A Quote &nbsp; →
-                </button>
+                <a href="mailto:info@paratechindustries.com" target="__blank">
+                  <button className={styles.quoteBtn}>
+                    Request A Quote &nbsp; →
+                  </button>
+                </a>
+
+                <a href="/catalogue.pdf" target="__blank">
                 <button className={styles.catalogBtn}>
                   Download Catalogue &nbsp; →
                 </button>
+                </a>
               </div>
             </div>
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
               <h2>3D Engraving</h2>
-              
+
               <h4 className={styles.specHeading}>Specification</h4>
 
               <table className={styles.specTable}>

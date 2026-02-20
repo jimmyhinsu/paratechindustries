@@ -79,12 +79,17 @@ export default function Fiberlaser() {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.quoteBtn}>
-                  Request A Quote &nbsp; →
-                </button>
-                <button className={styles.catalogBtn}>
-                  Download Catalogue &nbsp; →
-                </button>
+                <a href="mailto:info@paratechindustries.com" target="__blank">
+                  <button className={styles.quoteBtn}>
+                    Request A Quote &nbsp; →
+                  </button>
+                </a>
+
+                <a href="/catalogue.pdf" target="__blank">
+                  <button className={styles.catalogBtn}>
+                    Download Catalogue &nbsp; →
+                  </button>
+                </a>
               </div>
             </div>
 

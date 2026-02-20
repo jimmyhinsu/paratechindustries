@@ -72,12 +72,12 @@ const services = [
     Link: "/uvlasermarkingmachine",
   },
   {
-    title: "Jewellery Cutting Machine",
+    title: "Jewellery Laser Cutting Machine",
     img: jcm,
     Link: "/jewellerycuttingmachine",
   },
   {
-    title: "Jewellery Soldering Machine",
+    title: "Jewellery Laser Soldering Machine",
     img: jsm,
     Link: "/jewellerysolderingmachine",
   },

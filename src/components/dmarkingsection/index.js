@@ -60,12 +60,17 @@ export default function Dmarkingsection() {
               </div>
 
               <div className={styles.actions}>
+                <a href="mailto:info@paratechindustries.com" target="__blank">
                 <button className={styles.quoteBtn}>
                   Request A Quote &nbsp; →
                 </button>
+                </a>
+
+                <a href="/catalogue.pdf" target="__blank">
                 <button className={styles.catalogBtn}>
                   Download Catalogue &nbsp; →
                 </button>
+                </a>
               </div>
             </div>
 

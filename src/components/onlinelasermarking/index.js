@@ -79,12 +79,17 @@ export default function Onlinelasermarking() {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.quoteBtn}>
-                  Request A Quote &nbsp; →
-                </button>
-                <button className={styles.catalogBtn}>
-                  Download Catalogue &nbsp; →
-                </button>
+                <a href="mailto:info@paratechindustries.com" target="__blank">
+                  <button className={styles.quoteBtn}>
+                    Request A Quote &nbsp; →
+                  </button>
+                </a>
+
+                <a href="/catalogue.pdf" target="__blank">
+                  <button className={styles.catalogBtn}>
+                    Download Catalogue &nbsp; →
+                  </button>
+                </a>
               </div>
             </div>
 
@@ -119,9 +124,10 @@ export default function Onlinelasermarking() {
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Working Volt</td>
-                    <td className={styles.rightCell}>Single Phase 220-230V/50HZ (Earthing Req)</td>
+                    <td className={styles.rightCell}>
+                      Single Phase 220-230V/50HZ (Earthing Req)
+                    </td>
                   </tr>
-                 
                 </tbody>
               </table>
 

@@ -16,14 +16,7 @@ export default function Uvlasermarking() {
   const productImages = [uvlaser];
 
   // Application images (click opens modal)
-  const applicationImages = [
-    ulmem1,
-    ulmem2,
-    ulmem3,
-    ulmem4,
-    ulmem5,
-    ulmem6,
-  ];
+  const applicationImages = [ulmem1, ulmem2, ulmem3, ulmem4, ulmem5, ulmem6];
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
@@ -67,12 +60,17 @@ export default function Uvlasermarking() {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.quoteBtn}>
-                  Request A Quote &nbsp; →
-                </button>
+                <a href="mailto:info@paratechindustries.com" target="__blank">
+                  <button className={styles.quoteBtn}>
+                    Request A Quote &nbsp; →
+                  </button>
+                </a>
+
+                <a href="/catalogue.pdf" target="__blank">
                 <button className={styles.catalogBtn}>
                   Download Catalogue &nbsp; →
                 </button>
+                </a>
               </div>
             </div>
 
@@ -107,7 +105,10 @@ export default function Uvlasermarking() {
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Average Power Stability</td>
-                    <td className={styles.rightCell}> less than 3% Over 24 Hours</td>
+                    <td className={styles.rightCell}>
+                      {" "}
+                      less than 3% Over 24 Hours
+                    </td>
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>
@@ -141,7 +142,9 @@ export default function Uvlasermarking() {
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Marking Area</td>
-                    <td className={styles.rightCell}>150 Mm X 160 Mm Standard</td>
+                    <td className={styles.rightCell}>
+                      150 Mm X 160 Mm Standard
+                    </td>
                   </tr>
                   <tr>
                     <td className={styles.leftCell}>Repeated Accuracy</td>
@@ -154,7 +157,7 @@ export default function Uvlasermarking() {
                   <tr>
                     <td className={styles.leftCell}>Warranty</td>
                     <td className={styles.rightCell}>1 Year Warranty</td>
-                  </tr>                
+                  </tr>
                 </tbody>
               </table>
 

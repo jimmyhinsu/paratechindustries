@@ -83,10 +83,10 @@ export default function Sidebar({ isOpen, onClose }) {
                   UV Laser Marking Machine
                 </Link>
                 <Link href="/jewellerycuttingmachine" onClick={onClose}>
-                  Jewellery Cutting Machine
+                  Jewellery Laser Cutting Machine
                 </Link>
                 <Link href="/jewellerysolderingmachine" onClick={onClose}>
-                  Jewellery Soldering Machine
+                  Jewellery Laser Soldering Machine
                 </Link>
               </div>
             )}

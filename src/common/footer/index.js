@@ -135,12 +135,12 @@ export default function Footer() {
                 <li>
                   <Arrowicon />
                   <Link href="/jewellerycuttingmachine">
-                    Jewellery Cutting Machine
+                    Jewellery Laser Cutting Machine
                   </Link>
                 </li>
                 <li>
                   <Arrowicon />
-                  <Link href="/jewellerysolderingmachine">Jewellery Soldering Machine</Link>
+                  <Link href="/jewellerysolderingmachine">Jewellery Laser Soldering Machine</Link>
                 </li>
               </ul>
             </div>
