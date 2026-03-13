@@ -16,7 +16,7 @@ export default function Feature() {
       icon: <FaCogs />,
       title: "QUALITY",
       description:
-        "We have been delivering top-quality industrial products since 2010. Our commitment ensures premium and reliable solutions for clients.",
+        "We have been delivering top-quality industrial products since 2014. Our commitment ensures premium and reliable solutions for clients.",
     },
     {
       icon: <FaUsers />,

@@ -10,6 +10,7 @@ import jcm22 from "@/assests/images/jcm2.jpeg";
 import jcm33 from "@/assests/images/jcm3.jpeg";
 import jcm44 from "@/assests/images/jcm4.jpeg";
 import Image from "next/image";
+import Imagemodel from "../imagemodel";
 
 export default function Jewellerycutting() {
   // Main product images (thumbnails change the main image)
@@ -20,6 +21,7 @@ export default function Jewellerycutting() {
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
+  
   return (
     <>
       <section className={styles.machineSection}>

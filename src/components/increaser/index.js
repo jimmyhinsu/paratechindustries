@@ -5,7 +5,7 @@ import styles from "./increaser.module.scss";
 export default function Increaser() {
   const stats = [
     { label: "Projects Completed", value: 150 },
-    { label: "Happy Clients", value: 120 },
+    { label: "Happy Clients", value: 3800 },
     { label: "Years of Experience", value: 10 },
     { label: "Products", value: 20 },
   ];
@@ -28,7 +28,7 @@ export default function Increaser() {
     useEffect(() => {
       if (visible) {
         let start = 0;
-        const duration = 2000;
+        const duration = 5000;
         const step = Math.ceil(duration / end);
         const counter = setInterval(() => {
           start += 1;
