@@ -12,8 +12,8 @@ export default function Fiberlasercuttingmachine() {
   return (
     <>
       <Commonherobanner
-        title="Fiber Laser Cutting Machine"
-        subtitle="Solutions That Fit You."
+        title="Fiber Laser Cutting Machine - Precision Cutting "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
       <Fibercutting />

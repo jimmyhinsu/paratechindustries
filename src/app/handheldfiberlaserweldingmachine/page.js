@@ -12,7 +12,7 @@ export default function handheldfiberlaserweldingmachine() {
     <div>
       <Commonherobanner
         title="Handheld Fiber Laser Welding Machine"
-        subtitle="Solutions That Fit You."
+        subtitle="Paratech Industries"
         bgImage={common}
       />
 

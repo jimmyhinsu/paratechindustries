@@ -12,8 +12,8 @@ export default function Companyprofile() {
   return (
     <>
       <Commonherobanner
-        title="Company Profile"
-        subtitle="Engineering Excellence. Always."
+        title="Company Profile "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
       <Companyprofilesection />

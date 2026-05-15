@@ -12,8 +12,8 @@ export default function Jewellerycuttingmachine() {
     <>
       <div>
         <Commonherobanner
-          title="Jewellery Laser Cutting Machine"
-          subtitle="Solutions That Fit You."
+          title="Jewellery Laser Cutting Machine "
+          subtitle="Paratech Industries"
           bgImage={common}
         />
       </div>

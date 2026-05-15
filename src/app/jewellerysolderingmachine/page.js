@@ -12,8 +12,8 @@ export default function Jewellerysolderingmachine() {
   return (
     <>
       <Commonherobanner
-        title="Jewellery Laser Soldering Machine"
-        subtitle="Solutions That Fit You."
+        title="Jewellery Laser Soldering Machine "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
       <Jewellerysoldering />

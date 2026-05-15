@@ -14,8 +14,8 @@ export default function Aboutus() {
   return (
     <>
       <Commonherobanner
-        title="About Us"
-        subtitle="precision, passion, and performance."
+        title="About Paratech Industries"
+        subtitle="Laser Machine Manufacturer, Surat"
         bgImage={common}
       />
       <Aboutsection />

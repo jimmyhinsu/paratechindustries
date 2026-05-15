@@ -18,7 +18,7 @@ export default function HeroBanner() {
       <div className={styles.overlay}></div>
 
       <div className={styles.content}>
-        <h1>Empowering Industries Through Innovation</h1>
+        <h1>Laser Marking & Cutting Machine Manufacturer | Paratech Industries</h1>
         <p>
           Paratech Industries is committed to delivering reliable, innovative,
           and future-ready solutions for businesses worldwide.

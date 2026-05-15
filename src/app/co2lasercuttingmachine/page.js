@@ -12,8 +12,8 @@ export default function Co2lasercuttingmachine() {
   return (
     <>
       <Commonherobanner
-        title="Co2 Laser Cutting & Engraving Machine"
-        subtitle="Solutions That Fit You."
+        title="CO2 Laser Cutting & Engraving Machine "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
 

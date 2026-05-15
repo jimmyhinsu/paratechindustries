@@ -11,8 +11,8 @@ export default function Contactus() {
   return (
     <>
       <Commonherobanner
-        title="Contact Us"
-        subtitle="Solutions That Fit You."
+        title="Contact Paratech Industries "
+        subtitle="Get a Quote Today"
         bgImage="/images/contactbg.jpg"
       />
       <Contactinfo />

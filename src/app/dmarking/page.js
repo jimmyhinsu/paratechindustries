@@ -12,8 +12,8 @@ export default function Dmarking() {
   return (
     <div>
       <Commonherobanner
-        title="3d Marking"
-        subtitle="Solutions That Fit You."
+        title="3D Laser Marking Machine "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
 

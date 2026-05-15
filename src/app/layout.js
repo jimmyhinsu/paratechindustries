@@ -10,7 +10,7 @@ import Cataloguebubble from "@/components/cataloguebubble";
 export const metadata = {
   title: "Paratech Industries in Surat",
   description:
-    "Leading Laser Soldering Machine Manufacturer and Exporter, offering high-precision laser spot soldering machines designed for durability, accuracy, and superior performance for industrial applications.",
+    "Leading Laser Soldering Machine Manufacturer and Exporter, offering high-precision laser spot soldering machines...",
 };
 
 export default function RootLayout({ children }) {

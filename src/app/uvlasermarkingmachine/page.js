@@ -12,8 +12,8 @@ export default function Uvlasermarkingmachine() {
   return (
     <>
       <Commonherobanner
-        title="UV Laser Marking Machine"
-        subtitle="Solutions That Fit You."
+        title="UV Laser Marking Machine "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
       <Uvlasermarking />

@@ -12,8 +12,8 @@ export default function Onlinelasermarkingmachine() {
   return (
     <>
       <Commonherobanner
-        title="Online Laser Marking Machine"
-        subtitle="Solutions That Fit You."
+        title="Online Laser Marking Machine – Flying Laser "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
 

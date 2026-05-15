@@ -12,8 +12,8 @@ export default function Fiberlasermarkingmachine() {
   return (
     <>
       <Commonherobanner
-        title="Fiber Laser Marking Machine"
-        subtitle="Solutions That Fit You."
+        title="Fiber Laser Marking Machine - Metal & Plastic "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
       <Fiberlaser />

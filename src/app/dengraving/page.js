@@ -12,8 +12,8 @@ export default function Dengraving() {
   return (
     <>
       <Commonherobanner
-        title="3d engraving"
-        subtitle="Solutions That Fit You."
+        title="3D Laser Engraving Machine "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
 

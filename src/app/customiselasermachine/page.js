@@ -12,8 +12,8 @@ export default function Customiselasermachine() {
   return (
     <>
       <Commonherobanner
-        title="Customise Laser Marking Machine"
-        subtitle="Solutions That Fit You."
+        title="Custom Laser Marking Machine - Tailored Solutions "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
 

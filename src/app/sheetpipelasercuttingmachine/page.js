@@ -12,8 +12,8 @@ export default function Sheetpipelasercuttingmachine() {
   return (
     <>
       <Commonherobanner
-        title="Sheet + Pipe Laser Cutting Machine"
-        subtitle="Solutions That Fit You."
+        title="Sheet & Pipe Laser Cutting Machine "
+        subtitle="Paratech Industries"
         bgImage={common}
       />
 
