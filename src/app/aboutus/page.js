@@ -11,6 +11,7 @@ export default function Aboutus() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  
   return (
     <>
       <Commonherobanner
@@ -23,5 +24,5 @@ export default function Aboutus() {
       <Whychoose />
       <Contactsection />
     </>
-  );
+  );                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 }
