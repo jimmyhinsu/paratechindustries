@@ -26,6 +26,13 @@ export default function RootLayout({ children }) {
           gtag('js', new Date());
           gtag('config', 'G-B8KSCQ347V');`}
         </script>
+        <script>
+          {`(function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "x8fa5s5s75");`}
+        </script>
         <link rel="canonical" href="https://paratechindustries.com/PAGE-URL" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
