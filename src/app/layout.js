@@ -18,6 +18,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <title>Paratech Industries in Surat</title>
       <head>
+        <meta name="google-site-verification" content="e-90jYd2uPXF1AxE6fsRs24720yY_xQlQYI-pwUhmXM" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KSCQ347V"></script>
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-B8KSCQ347V');`}
+        </script>
         <link rel="canonical" href="https://paratechindustries.com/PAGE-URL" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
