@@ -72,6 +72,10 @@ export default function Header() {
                 Company Profile
               </Link>
 
+              <Link href="/blog" className={styles.ancer}>
+                Blog
+              </Link>
+
               <Link href="/contactus" className={styles.contactBtn}>
                 Contact Us
               </Link>

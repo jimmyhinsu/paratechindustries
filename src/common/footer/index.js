@@ -72,6 +72,10 @@ export default function Footer() {
                 </li>
                 <li>
                   <Arrowicon />
+                  <Link href="/blog">Blog</Link>
+                </li>
+                <li>
+                  <Arrowicon />
                   <Link href="/contactus">Contact Us</Link>
                 </li>
               </ul>

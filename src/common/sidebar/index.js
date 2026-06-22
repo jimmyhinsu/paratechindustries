@@ -99,6 +99,9 @@ export default function Sidebar({ isOpen, onClose }) {
           <Link href="/companyprofile" onClick={onClose}>
             Company Profile
           </Link>
+          <Link href="/blog" onClick={onClose}>
+            Blog
+          </Link>
           <Link
             href="/contactus"
             className={styles.contactBtn}

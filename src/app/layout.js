@@ -1,11 +1,6 @@
-import Header from "@/common/header";
 import "./globals.css";
-import Footer from "@/common/footer";
 import { AuthProvider } from "@/common/AuthProvider";
-import Whatsappbubble from "@/components/whatsappbubble";
-import Callbubble from "@/components/callbubble";
-import Mailbubble from "@/components/mainlbubble";
-import Cataloguebubble from "@/components/cataloguebubble";
+import ClientLayout from "@/components/ClientLayout";
 
 export const metadata = {
   title: "Paratech Industries in Surat",
@@ -33,7 +28,7 @@ export default function RootLayout({ children }) {
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "x8fa5s5s75");`}
         </script>
-        <link rel="canonical" href="https://paratechindustries.com/PAGE-URL" />
+        <link rel="canonical" href="https://paratechindustries.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
@@ -42,13 +37,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <AuthProvider>
-          <Header />
-          <main className="layout">{children}</main>
-          <Callbubble />
-          <Whatsappbubble />
-          <Mailbubble />
-          <Cataloguebubble />
-          <Footer />
+          <ClientLayout>{children}</ClientLayout>
         </AuthProvider>
       </body>
     </html>
