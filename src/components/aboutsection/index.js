@@ -16,25 +16,12 @@ export default function Aboutsection() {
             {/* Left Content */}
             <div className={styles.content}>
               <span>About Us</span>
-              <h2>The Best Laser Machine Manufacturer, in surat</h2>
+              <h2>The Best Laser Machine Manufacturer, in India</h2>
               <p>
-                Established as a company in the year 2014 we “Paratech
-                Industries” are a leading Manufacturer, supplier and exporter of
-                all types of Industrial Laser Machines like Marking, Cutting,
-                Engraving, Welding, soldering and Cleaning. With a dedicated
-                in-house R&D team and rigorous quality control adhering to ISO &
-                CE standards.
+                Established in 2014, Paratech Industries is a leading manufacturer, supplier and exporter of industrial laser machines, covering marking, cutting, engraving, welding, soldering and cleaning. We have an in-house R&D team and follow quality control aligned with ISO and CE standards, so our customers across India receive dependable machines backed by long-term support.
               </p>
               <p>
-                Paratech Industries offers a diverse range of machines,
-                including Fiber Laser Marking, Cutting, Welding, and Cleaning
-                Machines, along with UV and CO2 Laser Marking Machines and
-                custom SPM machines. These machines find applications in various
-                industries such as Automobiles,Pump, Valves, Bearing,
-                Engineering, Hardware, Pharma, Surgical, Tools, LED, Die-Mould,
-                Cable-Wire, Pipe, Jewellery, Optical, FMCG, Sheet Metal, Gift
-                Article, Fabric, Elevators, and more than 100 other
-                applications.
+                Our range includes fiber laser marking and fiber laser cutting machines, handheld laser welding, CO2 cutting and engraving, UV marking, and specialised jewellery laser systems. These machines are used across automobiles, pumps, valves, bearings, engineering, hardware, pharma, surgical, tools, LED, die and mould, cable and wire, pipe, jewellery, optical, FMCG, sheet metal, fabric, and more than 100 other applications throughout India.
               </p>
 
               {pathName !== "/aboutus" && (

@@ -3,7 +3,7 @@ import { AuthProvider } from "@/common/AuthProvider";
 import ClientLayout from "@/components/ClientLayout";
 
 export const metadata = {
-  title: "Paratech Industries in Surat",
+  title: "Paratech Industries in India",
   description:
     "Leading Laser Soldering Machine Manufacturer and Exporter, offering high-precision laser spot soldering machines...",
 };
@@ -11,8 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <title>Paratech Industries in Surat</title>
+      <title>Paratech Industries in India</title>
       <head>
+        <meta name="title" content="Laser Marking & Cutting Machine Manufacturer in India | Paratech Industries" />
+        <meta name="description" content="Looking for reliable laser machines? Paratech Industries offers fiber laser marking, cutting, welding, UV laser, CO2 laser, and customized industrial laser solutions across India." />
         <meta name="google-site-verification" content="e-90jYd2uPXF1AxE6fsRs24720yY_xQlQYI-pwUhmXM" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8KSCQ347V"></script>
         <script>
