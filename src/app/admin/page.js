@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
-import { blogs as staticBlogs, blogImageMap } from "@/data/blogs";
+import { blogImageMap } from "@/data/blogs";
 import styles from "./admin.module.scss";
 import {
   FiPlus,
@@ -30,6 +30,8 @@ const INITIAL_FORM_STATE = {
   image: "lasermarkingmachine.jpg",
   read_time: "5 min read",
   author: "Technical Specialist",
+  meta_title: "",
+  meta_description: "",
   content: []
 };
 
@@ -83,15 +85,10 @@ export default function AdminDashboard() {
         .order("id", { ascending: true });
 
       if (error) throw error;
-      if (data) setBlogs(data);
+      setBlogs(data || []);
     } catch (err) {
-      console.warn("Failed to load blogs from Supabase. Falling back to local data:", err);
-      const formattedStatic = staticBlogs.map(b => ({
-        ...b,
-        image: b.image.src ? b.slug + ".jpg" : b.image,
-        read_time: b.readTime || b.read_time
-      }));
-      setBlogs(formattedStatic);
+      console.warn("Failed to load blogs from Supabase:", err);
+      setBlogs([]);
     } finally {
       setLoading(false);
     }
@@ -424,9 +421,9 @@ export default function AdminDashboard() {
 
   // Filter Blogs
   const filteredBlogs = blogs.filter(blog =>
-    blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    blog.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+    (blog.title?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+    (blog.category?.toLowerCase() || "").includes(searchQuery.toLowerCase()) ||
+    (blog.excerpt?.toLowerCase() || "").includes(searchQuery.toLowerCase())
   );
 
   if (checkingSession) {
@@ -945,98 +942,58 @@ export default function AdminDashboard() {
                   </div>
 
                   <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                    <label>Excerpt</label>
+                    <label className={styles.introParagraphsLabel}>
+                      Intro Paragraphs
+                    </label>
+                    <p className={styles.introParagraphsHint}>
+                      Plain text or HTML allowed — use tags like{" "}
+                      <code>&lt;p&gt;</code>,{" "}
+                      <code>&lt;a href="..."&gt;</code>,{" "}
+                      <code>&lt;ul&gt;</code>,{" "}
+                      <code>&lt;strong&gt;</code>. Preview shows how it will look on the website.
+                    </p>
+                    <div className={styles.htmlEditorWrapper}>
+                      <textarea
+                        required
+                        rows={4}
+                        value={formData.excerpt}
+                        onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
+                        placeholder="A short summary description shown in the blog cards list..."
+                        className={styles.htmlTextarea}
+                      />
+                    </div>
+                    {formData.excerpt && (
+                      <div className={styles.previewSection}>
+                        <span className={styles.previewLabel}>WEBSITE PREVIEW</span>
+                        <div
+                          className={styles.previewBox}
+                          dangerouslySetInnerHTML={{ __html: formData.excerpt }}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                    <label>Meta title</label>
+                    <input
+                      type="text"
+                      value={formData.meta_title || ""}
+                      onChange={(e) => setFormData({ ...formData, meta_title: e.target.value })}
+                      placeholder="e.g. Laser Marking & Cutting Machine Manufacturer in India"
+                    />
+                  </div>
+
+                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                    <label>Meta description</label>
                     <textarea
-                      required
-                      rows={2}
-                      value={formData.excerpt}
-                      onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                      placeholder="A short summary description shown in the blog cards list..."
+                      rows={3}
+                      value={formData.meta_description || ""}
+                      onChange={(e) => setFormData({ ...formData, meta_description: e.target.value })}
+                      placeholder="Looking for reliable laser machines? Paratech Industries offers..."
                     />
                   </div>
                 </div>
 
-                {/* Dynamic Block Editor */}
-                <div className={styles.blockEditor}>
-                  <div className={styles.blockEditorHeader}>
-                    <h3>Article Content Blocks</h3>
-                    <div className={styles.blockActionBtns}>
-                      <button type="button" className={styles.addBlockBtn} onClick={() => addContentBlock("paragraph")}>
-                        + Add Paragraph
-                      </button>
-                      <button type="button" className={styles.addBlockBtn} onClick={() => addContentBlock("heading")}>
-                        + Add Heading
-                      </button>
-                      <button type="button" className={styles.addBlockBtn} onClick={() => addContentBlock("list")}>
-                        + Add Bullet List
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className={styles.blocksList}>
-                    {formData.content.length === 0 ? (
-                      <p className={styles.emptyBlocksText}>
-                        No content blocks added yet. Click one of the buttons above to start writing.
-                      </p>
-                    ) : (
-                      formData.content.map((block, bIdx) => (
-                        <div key={bIdx} className={styles.blockItem}>
-                          <div className={styles.blockItemHeader}>
-                            <span className={styles.blockType}>{block.type}</span>
-                            <button
-                              type="button"
-                              className={styles.removeBlockBtn}
-                              onClick={() => removeContentBlock(bIdx)}
-                            >
-                              Delete Block
-                            </button>
-                          </div>
-
-                          {block.type !== "list" ? (
-                            <textarea
-                              className={styles.blockInput}
-                              rows={block.type === "heading" ? 1 : 3}
-                              placeholder={block.type === "heading" ? "Heading text..." : "Paragraph body text..."}
-                              value={block.text || ""}
-                              onChange={(e) => handleBlockTextChange(bIdx, e.target.value)}
-                              required
-                            />
-                          ) : (
-                            <div className={styles.listItemInputs}>
-                              {block.items.map((item, itemIdx) => (
-                                <div key={itemIdx} className={styles.listItemRow}>
-                                  <input
-                                    type="text"
-                                    className={styles.blockInput}
-                                    placeholder="List item bullet text..."
-                                    value={item}
-                                    onChange={(e) => handleListItemChange(bIdx, itemIdx, e.target.value)}
-                                    required
-                                  />
-                                  <button
-                                    type="button"
-                                    style={{ background: "transparent", border: "none", color: "#e53e3e", cursor: "pointer" }}
-                                    onClick={() => removeListItem(bIdx, itemIdx)}
-                                    disabled={block.items.length <= 1}
-                                  >
-                                    <FiX />
-                                  </button>
-                                </div>
-                              ))}
-                              <button
-                                type="button"
-                                className={styles.addListItemBtn}
-                                onClick={() => addListItem(bIdx)}
-                              >
-                                + Add Bullet Point
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                      ))
-                    )}
-                  </div>
-                </div>
               </div>
 
               <footer className={styles.modalFooter}>

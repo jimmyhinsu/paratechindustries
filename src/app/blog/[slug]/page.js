@@ -1,54 +1,66 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { blogs as staticBlogs, blogImageMap } from "@/data/blogs";
+import { blogImageMap } from "@/data/blogs";
 import { supabase } from "@/lib/supabase";
 import styles from "../blog.module.scss";
 import { FiArrowLeft, FiUser, FiCalendar } from "react-icons/fi";
 import Contactsection from "@/components/contactsection";
+import ScrollToTop from "./ScrollToTop";
 
-export default function BlogDetail() {
-  const { slug } = useParams();
-  const [blog, setBlog] = useState(() => staticBlogs.find((b) => b.slug === slug));
-  const [loading, setLoading] = useState(true);
+// Helper to fetch blog data on the server
+async function getBlog(slug) {
+  try {
+    const { data, error } = await supabase
+      .from("blogs")
+      .select("*")
+      .eq("slug", slug)
+      .single();
 
-  useEffect(() => {
-    async function fetchBlog() {
-      try {
-        const { data, error } = await supabase
-          .from("blogs")
-          .select("*")
-          .eq("slug", slug)
-          .single();
+    if (error || !data) return null;
+    return {
+      ...data,
+      image: blogImageMap[data.image] || data.image,
+      readTime: data.read_time || data.readTime
+    };
+  } catch (err) {
+    console.error("Failed to load blog on server:", err);
+    return null;
+  }
+}
 
-        if (error) {
-          console.warn("Using local fallback due to database read error:", error);
-        } else if (data) {
-          setBlog({
-            ...data,
-            image: blogImageMap[data.image] || data.image,
-            readTime: data.read_time || data.readTime
-          });
-        }
-      } catch (err) {
-        console.warn("Using local fallback due to fetch error:", err);
-      } finally {
-        setLoading(false);
-      }
+// Generate metadata dynamically on the server for Search Engines / View Source
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const blog = await getBlog(resolvedParams.slug);
+
+  if (!blog) {
+    return {
+      title: "Blog Not Found | Paratech Industries",
+      description: "The article you are looking for does not exist."
+    };
+  }
+
+  const title = blog.meta_title || `${blog.title} | Paratech Industries`;
+  const description = blog.meta_description || blog.excerpt?.replace(/<[^>]*>/g, '')?.substring(0, 160) || "";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: blog.image ? [blog.image] : [],
     }
-    fetchBlog();
-  }, [slug]);
+  };
+}
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    if (blog) {
-      document.title = `${blog.title} | Paratech Industries`;
-    }
-  }, [blog]);
+// Main page component (Server Component)
+export default async function BlogDetail({ params }) {
+  const resolvedParams = await params;
+  const blog = await getBlog(resolvedParams.slug);
 
-  if (!blog && !loading) {
+  if (!blog) {
     return (
       <div className={styles.detailSection}>
         <div className={styles.detailContainer}>
@@ -56,17 +68,7 @@ export default function BlogDetail() {
             <FiArrowLeft /> Back to Blogs
           </Link>
           <h1 className={styles.detailTitle}>Blog Not Found</h1>
-          <p>The blog article you are looking for does not exist or has been moved.</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!blog) {
-    return (
-      <div className={styles.detailSection}>
-        <div className={styles.detailContainer}>
-          <p>Loading blog content...</p>
+          <p>The article you are looking for does not exist or has been moved.</p>
         </div>
       </div>
     );
@@ -74,6 +76,7 @@ export default function BlogDetail() {
 
   return (
     <>
+      <ScrollToTop />
       <section className={styles.detailSection}>
         <div className={styles.detailContainer}>
           <Link href="/blog" className={styles.backBtn}>
@@ -106,6 +109,9 @@ export default function BlogDetail() {
           </div>
 
           <div className={styles.detailContent}>
+            {blog.excerpt && (
+              <div dangerouslySetInnerHTML={{ __html: blog.excerpt }} />
+            )}
             {blog.content && Array.isArray(blog.content) && blog.content.map((block, idx) => {
               if (block.type === "paragraph") {
                 return <p key={idx}>{block.text}</p>;
