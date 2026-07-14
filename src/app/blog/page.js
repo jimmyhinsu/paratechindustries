@@ -33,7 +33,19 @@ export default function BlogList() {
           image: blogImageMap[blog.image] || blog.image,
           readTime: blog.read_time || blog.readTime
         }));
-        setBlogs(mapped);
+
+        const sorted = mapped.sort((a, b) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
+          const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
+          if (timeB !== timeA) {
+            return timeB - timeA;
+          }
+          return b.id - a.id;
+        });
+
+        setBlogs(sorted);
       } catch (err) {
         console.error("Failed to load blogs:", err);
         setError(true);

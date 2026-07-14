@@ -29,7 +29,7 @@ const INITIAL_FORM_STATE = {
   excerpt: "",
   image: "lasermarkingmachine.jpg",
   read_time: "5 min read",
-  author: "Technical Specialist",
+  author: "",
   meta_title: "",
   meta_description: "",
   content: []
@@ -85,7 +85,17 @@ export default function AdminDashboard() {
         .order("id", { ascending: true });
 
       if (error) throw error;
-      setBlogs(data || []);
+      const sorted = (data || []).sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
+        const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
+        if (timeB !== timeA) {
+          return timeB - timeA;
+        }
+        return b.id - a.id;
+      });
+      setBlogs(sorted);
     } catch (err) {
       console.warn("Failed to load blogs from Supabase:", err);
       setBlogs([]);
@@ -275,7 +285,7 @@ export default function AdminDashboard() {
     });
     setFormData({
       ...INITIAL_FORM_STATE,
-      category: categories.length > 0 ? categories[0].name : "Technology",
+      category: "",
       date: formattedDate
     });
     setIsModalOpen(true);
@@ -283,7 +293,10 @@ export default function AdminDashboard() {
 
   const handleOpenEditModal = (blog) => {
     setIsEditing(true);
-    setFormData(blog);
+    setFormData({
+      ...blog,
+      author: blog.author === "Technical Specialist" ? "" : (blog.author || "")
+    });
     setIsModalOpen(true);
   };
 
@@ -887,6 +900,7 @@ export default function AdminDashboard() {
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                       required
                     >
+                      <option value="" disabled>Select Category</option>
                       {categories.map((cat) => (
                         <option key={cat.id} value={cat.name}>
                           {cat.name}
@@ -902,6 +916,7 @@ export default function AdminDashboard() {
                       required
                       value={formData.author}
                       onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+                      placeholder="Author Name"
                     />
                   </div>
 
