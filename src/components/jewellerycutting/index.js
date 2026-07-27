@@ -11,6 +11,7 @@ import jcm33 from "@/assests/images/jcm3.jpeg";
 import jcm44 from "@/assests/images/jcm4.jpeg";
 import Image from "next/image";
 import Imagemodel from "../imagemodel";
+import QuoteModal from "../quotemodal";
 
 export default function Jewellerycutting() {
   // Main product images (thumbnails change the main image)
@@ -21,6 +22,7 @@ export default function Jewellerycutting() {
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   
   return (
     <>
@@ -61,16 +63,17 @@ export default function Jewellerycutting() {
               </div>
 
               <div className={styles.actions}>
-                <a href="mailto:info@paratechindustries.com" target="__blank">
-                <button className={styles.quoteBtn}>
+                <button
+                  className={styles.quoteBtn}
+                  onClick={() => setIsQuoteModalOpen(true)}
+                >
                   Request A Quote &nbsp; →
                 </button>
-                </a>
 
                 <a href="/catalogue.pdf" target="__blank">
-                <button className={styles.catalogBtn}>
-                  Download Catalogue &nbsp; →
-                </button>
+                  <button className={styles.catalogBtn}>
+                    Download Catalogue &nbsp; →
+                  </button>
                 </a>
               </div>
             </div>
@@ -141,6 +144,11 @@ export default function Jewellerycutting() {
         {modalImage && (
           <Imagemodel image={modalImage} onClose={() => setModalImage(null)} />
         )}
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+          productName="Jewellery Laser Cutting Machine"
+        />
       </section>
     </>
   );

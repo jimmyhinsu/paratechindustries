@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styles from "./dengravingsection.module.scss";
 import Imagemodel from "../imagemodel";
+import QuoteModal from "../quotemodal";
 import Image from "next/image";
 import drm1 from "@/assests/images/drm1.png";
 import drm2 from "@/assests/images/drm2.png";
@@ -17,6 +18,7 @@ export default function Dengravingsection() {
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   return (
     <div>
@@ -57,16 +59,17 @@ export default function Dengravingsection() {
               </div>
 
               <div className={styles.actions}>
-                <a href="mailto:info@paratechindustries.com" target="__blank">
-                  <button className={styles.quoteBtn}>
-                    Request A Quote &nbsp; →
-                  </button>
-                </a>
+                <button
+                  className={styles.quoteBtn}
+                  onClick={() => setIsQuoteModalOpen(true)}
+                >
+                  Request A Quote &nbsp; →
+                </button>
 
                 <a href="/catalogue.pdf" target="__blank">
-                <button className={styles.catalogBtn}>
-                  Download Catalogue &nbsp; →
-                </button>
+                  <button className={styles.catalogBtn}>
+                    Download Catalogue &nbsp; →
+                  </button>
                 </a>
               </div>
             </div>
@@ -128,6 +131,11 @@ export default function Dengravingsection() {
         {modalImage && (
           <Imagemodel image={modalImage} onClose={() => setModalImage(null)} />
         )}
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+          productName="3D Engraving Machine"
+        />
       </section>
     </div>
   );

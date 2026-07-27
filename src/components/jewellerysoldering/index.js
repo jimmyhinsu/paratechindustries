@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styles from "./jewellerysoldering.module.scss";
 import Imagemodel from "../imagemodel";
+import QuoteModal from "../quotemodal";
 import Image from "next/image";
 import jsm1 from "@/assests/images/jsm1.png";
 import jsm2 from "@/assests/images/jsm2.png";
@@ -44,6 +45,7 @@ export default function Jewellerysoldering() {
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   return (
     <>
       <div className={styles.jewellerysoldering}>
@@ -83,7 +85,10 @@ export default function Jewellerysoldering() {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.quoteBtn}>
+                <button
+                  className={styles.quoteBtn}
+                  onClick={() => setIsQuoteModalOpen(true)}
+                >
                   Request A Quote &nbsp; →
                 </button>
                 <button className={styles.catalogBtn}>
@@ -193,6 +198,11 @@ export default function Jewellerysoldering() {
         {modalImage && (
           <Imagemodel image={modalImage} onClose={() => setModalImage(null)} />
         )}
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+          productName="Jewellery Laser Soldering Machine"
+        />
       </div>
     </>
   );

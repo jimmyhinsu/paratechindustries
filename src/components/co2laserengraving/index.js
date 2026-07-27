@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import styles from "./co2laserengraving.module.scss";
 import Image from "next/image";
+import Imagemodel from "../imagemodel";
+import QuoteModal from "../quotemodal";
 import clem1 from "@/assests/images/clem1.png";
 import clem2 from "@/assests/images/clem2.png";
 import clem3 from "@/assests/images/clem3.png";
@@ -30,6 +32,7 @@ export default function Co2laserengraving() {
 
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   return (
     <>
       <section className={styles.machineSection}>
@@ -69,16 +72,17 @@ export default function Co2laserengraving() {
               </div>
 
               <div className={styles.actions}>
-                <a href="mailto:info@paratechindustries.com" target="__blank">
-                <button className={styles.quoteBtn}>
+                <button
+                  className={styles.quoteBtn}
+                  onClick={() => setIsQuoteModalOpen(true)}
+                >
                   Request A Quote &nbsp; →
                 </button>
-                </a>
 
                 <a href="/catalogue.pdf" target="__blank">
-                <button className={styles.catalogBtn}>
-                  Download Catalogue &nbsp; →
-                </button>
+                  <button className={styles.catalogBtn}>
+                    Download Catalogue &nbsp; →
+                  </button>
                 </a>
               </div>
             </div>
@@ -188,6 +192,11 @@ export default function Co2laserengraving() {
         {modalImage && (
           <Imagemodel image={modalImage} onClose={() => setModalImage(null)} />
         )}
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+          productName="CO2 Laser Engraving Machine"
+        />
       </section>
     </>
   );
