@@ -129,6 +129,28 @@ export default async function BlogDetail({ params }) {
               return null;
             })}
           </div>
+
+          {/* Blog Tags at bottom of detail page */}
+          {blog.tags && (
+            <div className={styles.detailTagsWrapper}>
+              <span className={styles.tagsTitle}>Tags:</span>
+              <div className={styles.tagsList}>
+                {(Array.isArray(blog.tags)
+                  ? blog.tags
+                  : typeof blog.tags === "string"
+                  ? blog.tags.split(",")
+                  : []
+                )
+                  .map((t) => t.trim())
+                  .filter(Boolean)
+                  .map((tag, idx) => (
+                    <span key={idx} className={styles.tagBadge}>
+                      #{tag}
+                    </span>
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
       <Contactsection />

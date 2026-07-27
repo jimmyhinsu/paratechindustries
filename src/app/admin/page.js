@@ -25,6 +25,7 @@ const INITIAL_FORM_STATE = {
   title: "",
   slug: "",
   category: "",
+  tags: "",
   date: "",
   excerpt: "",
   image: "lasermarkingmachine.jpg",
@@ -293,8 +294,12 @@ export default function AdminDashboard() {
 
   const handleOpenEditModal = (blog) => {
     setIsEditing(true);
+    const tagsString = Array.isArray(blog.tags)
+      ? blog.tags.join(", ")
+      : blog.tags || "";
     setFormData({
       ...blog,
+      tags: tagsString,
       author: blog.author === "Technical Specialist" ? "" : (blog.author || "")
     });
     setIsModalOpen(true);
@@ -325,17 +330,48 @@ export default function AdminDashboard() {
     try {
       if (isEditing) {
         const { id, created_at, ...updateData } = formData;
-        const { error } = await supabase
+        let { error } = await supabase
           .from("blogs")
           .update(updateData)
           .eq("id", id);
 
+        if (error && (error.message?.includes("tags") || error.code === "PGRST204")) {
+          const { tags, ...dataWithoutTags } = updateData;
+          const retry = await supabase
+            .from("blogs")
+            .update(dataWithoutTags)
+            .eq("id", id);
+          
+          if (!retry.error) {
+            showNotification("success", "Blog updated! Please add the 'tags' column in your Supabase database table.");
+            setIsModalOpen(false);
+            fetchBlogs();
+            return;
+          }
+          error = retry.error;
+        }
+
         if (error) throw error;
         showNotification("success", "Blog post updated successfully!");
       } else {
-        const { error } = await supabase
+        let { error } = await supabase
           .from("blogs")
           .insert([formData]);
+
+        if (error && (error.message?.includes("tags") || error.code === "PGRST204")) {
+          const { tags, ...dataWithoutTags } = formData;
+          const retry = await supabase
+            .from("blogs")
+            .insert([dataWithoutTags]);
+
+          if (!retry.error) {
+            showNotification("success", "Blog created! Please add the 'tags' column in your Supabase database table.");
+            setIsModalOpen(false);
+            fetchBlogs();
+            return;
+          }
+          error = retry.error;
+        }
 
         if (error) throw error;
         showNotification("success", "New blog post created successfully!");
@@ -930,6 +966,16 @@ export default function AdminDashboard() {
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                       placeholder="June 18, 2026"
+                    />
+                  </div>
+
+                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                    <label>Blog Tags</label>
+                    <input
+                      type="text"
+                      value={formData.tags || ""}
+                      onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
+                      placeholder="e.g. Laser Marking, Fiber Laser, Welding, Automation (comma separated)"
                     />
                   </div>
 
