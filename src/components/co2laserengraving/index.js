@@ -55,9 +55,8 @@ export default function Co2laserengraving() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >
@@ -89,7 +88,7 @@ export default function Co2laserengraving() {
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
-              <h2>Co2 Laser Engraving Machine</h2>
+              <h2>Co2 Laser Engraving Machine a</h2>
               <h3>Which Materials You Can Mark !!</h3>
               <p>
                 Fabrics, Wood, Jade, Acrylic, Glass Ceramic, Leather, Marble,

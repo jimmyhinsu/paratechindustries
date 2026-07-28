@@ -42,9 +42,8 @@ export default function Dengravingsection() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >

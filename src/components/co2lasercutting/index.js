@@ -63,9 +63,8 @@ export default function Co2lasercutting() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >
@@ -98,6 +97,15 @@ export default function Co2lasercutting() {
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
               <h2>Co2 Laser Cutting & Engraving Machine</h2>
+              <p className={styles.productDesc}>
+                Paratech Industries manufactures CO2 Laser Cutting Machines in Surat, Gujarat, India, built around a sealed glass CO2 laser tube for precision cutting and engraving of non-metal materials such as acrylic, wood, leather, MDF, and fabric. Laser tube power options range from 80W to 200W, with cutting areas from 600x900mm up to 1600x1000mm, or fully customized to your production needs.
+              </p>
+              <p className={styles.productDesc}>
+                Each CO2 laser cutting machine uses a water cooling system and supports either strip or honeycomb working tables depending on material type, along with an optional CCD camera for contour cutting accuracy on printed materials. File compatibility includes PLT, DXF, BMP, JPG, GLF, and PNG, with connectivity via USB, U-disk, or Ethernet.
+              </p>
+              <p className={styles.productDesc}>
+                Whether you need a CO2 laser cutting and engraving machine for signage, packaging, or textile production, Paratech Industries builds each unit to spec and supports it with catalogue documentation and after-sales service across India.
+              </p>
 
               <h4 className={styles.specHeading}>Specification</h4>
 

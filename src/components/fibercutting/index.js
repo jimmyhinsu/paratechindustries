@@ -62,9 +62,8 @@ export default function Fibercutting() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >
@@ -101,6 +100,15 @@ export default function Fibercutting() {
                 SS, MS,Aluminium, Cast Iron, Plastic, Gold, Silver, Platinum,
                 Coated Glass, Bronze, Titanium, Copper, Brass, Carbide, Non
                 Transparent Acrylic & More...
+              </p>
+              <p className={styles.productDesc}>
+                Paratech Industries manufactures and exports high-precision Fiber Laser Cutting Machines from Surat, Gujarat, India, engineered for industrial sheet metal cutting across a 500W to 5KW power range using IPG, Raycus, or Max fiber laser sources.
+              </p>
+              <p className={styles.productDesc}>
+                Each fiber laser cutting machine is built with a Swiss Raytools laser head, Cypcut control system, and dual-drive rack-and-pinion transmission on Taiwan Hiwin guide rails for stable, repeatable cuts. With a working area of 1500x3000mm and X/Y axis repeat positioning precision of ±0.02mm, our CNC fiber laser cutting machines handle SS, MS, aluminium, brass, copper, titanium, and carbide with clean edges and minimal material waste.
+              </p>
+              <p className={styles.productDesc}>
+                Powered by a three-phase 380V supply and fitted with auto lubrication, wireless handle control, and Japan Yaskawa servo motors, this metal laser cutting machine is built for continuous industrial production runs. Paratech Industries backs every fiber laser cutting machine with catalogue specs, installation support, and after-sales service across India.
               </p>
               <h4 className={styles.specHeading}>Specification</h4>
 

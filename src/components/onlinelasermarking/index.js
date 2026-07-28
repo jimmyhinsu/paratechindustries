@@ -64,9 +64,8 @@ export default function Onlinelasermarking() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >
@@ -99,6 +98,15 @@ export default function Onlinelasermarking() {
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
               <h2>Online Laser Marking Machine</h2>
+              <p className={styles.productDesc}>
+                Paratech Industries manufactures Online Laser Marking Machines in Surat, Gujarat, India, designed for flying laser marking on continuous production and packaging lines. Available with Fiber, CO2, or UV laser sources, each online laser marking machine marks products in motion without stopping the line, making it suited for date coding, batch numbers, and traceability marking at scale.
+              </p>
+              <p className={styles.productDesc}>
+                Power options range from 5W to 100W depending on laser type, with marking speeds up to 300 meters per minute and support for PLT, DXF, JPG, and PNG file formats. This flying laser marking machine runs on single-phase 220-230V power and is built to integrate directly into existing conveyor and packaging line setups.
+              </p>
+              <p className={styles.productDesc}>
+                Whether you need a CO2 flying laser coding machine for packaging lines or a fiber laser coding machine for metal components on a moving line, Paratech Industries builds each online laser marking machine to your line speed and integrates it with catalogue support and after-sales service across India.
+              </p>
 
               <h4 className={styles.specHeading}>Specification</h4>
 

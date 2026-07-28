@@ -65,7 +65,7 @@ export default function Footer() {
                   <Arrowicon />
                   <Link href="/industriesweserve">Industries We Serve</Link>
                 </li> */}
-                
+
                 <li>
                   <Arrowicon />
                   <Link href="/companyprofile">Company Profile</Link>
@@ -87,7 +87,7 @@ export default function Footer() {
                 <li>
                   <Arrowicon />
                   <Link href="/fiberlasermarkingmachine">
-                    Fiber Laser Marking Machine
+                    Fiber Laser Marking Machine a
                   </Link>
                 </li>
                 <li>

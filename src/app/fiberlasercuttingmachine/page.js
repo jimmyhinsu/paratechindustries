@@ -1,14 +1,27 @@
-"use client";
 import Commonherobanner from "@/components/commonherobanner";
 import Fibercutting from "@/components/fibercutting";
-import React, { useEffect } from "react";
+import React from "react";
 import common from "@/assests/images/common.jpg";
 
-export default function Fiberlasercuttingmachine() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+export const metadata = {
+  title: "Fiber Laser Cutting Machine Manufacturer in Surat, India",
+  description:
+    "500W-5KW CNC Fiber Laser Cutting Machines for SS, MS, aluminium & brass sheets. IPG/Raycus source, high precision. Manufacturer in Surat, Gujarat, India.",
+  keywords: [
+    "Fiber Laser Cutting Machine",
+    "CNC Fiber Laser Cutting Machine",
+    "Metal Laser Cutting Machine",
+    "Sheet Metal Laser Cutting Machine",
+    "Industrial Laser Cutting Machine",
+    "Fiber Laser Cutting Machine Manufacturer",
+    "Fiber Laser Cutting Machine for Stainless Steel",
+    "IPG Fiber Laser Cutting Machine",
+    "Raycus Fiber Laser Cutting Machine",
+    "High Power Fiber Laser Cutting Machine",
+  ],
+};
 
+export default function Fiberlasercuttingmachine() {
   return (
     <>
       <Commonherobanner

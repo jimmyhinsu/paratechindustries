@@ -64,9 +64,8 @@ export default function Customisemachine() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >
@@ -99,6 +98,15 @@ export default function Customisemachine() {
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
             <div className={styles.right}>
               <h2>Customise Laser Marking Machine</h2>
+              <p className={styles.productDesc}>
+                Paratech Industries designs Custom Fiber Laser Marking Machines in Surat, Gujarat, India, built for applications that outgrow standard desktop marking systems. Configurable working areas range from 600x600mm up to 1500x3000mm, or fully customized to your production line, with laser power options of 30W, 50W, 100W, and 200W.
+              </p>
+              <p className={styles.productDesc}>
+                Each custom fiber laser marking machine uses encoder-synced motion control to produce stitching-free large graphics, making it suited for continuous marking on long panels, conveyor-fed parts, or oversized components that a fixed-bed machine can't cover in a single pass. Pulse repetition rates of 2-500ns support fine detail even at large scale, and air cooling keeps the system running for extended production cycles.
+              </p>
+              <p className={styles.productDesc}>
+                Whether you need a large-size fiber laser marking machine for oversized components or a fully custom working-area configuration for your specific line, Paratech Industries builds each system to spec and supports it with catalogue documentation and after-sales service across India.
+              </p>
 
               <h4 className={styles.specHeading}>Specification</h4>
 

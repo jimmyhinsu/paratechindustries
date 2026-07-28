@@ -52,9 +52,8 @@ export default function Handheldfiber() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >
@@ -89,6 +88,15 @@ export default function Handheldfiber() {
               <h2>Handheld Fiber Laser Welding Machine</h2>
               <h3>Which Materials You Can Mark !!</h3>
               <p>STAINLESS STEEL, MILD STEEL, ALUMINUM</p>
+              <p className={styles.productDesc}>
+                Paratech Industries manufactures Handheld Fiber Laser Welding Machines in Surat, Gujarat, India, built for industrial welding of stainless steel, mild steel, and aluminium. Available in 1000W, 1500W, and 2000W laser source options, each handheld metal fiber laser welding machine delivers a stable 1070nm (±10nm) output with a 0-150mm cleaning width for combined welding and cleaning applications.
+              </p>
+              <p className={styles.productDesc}>
+                Our hand held fiber laser welding machine runs on both continuous and modulation working modes, with water cooling to maintain stable performance during extended industrial use. Built for 220V/380V input and rated for working environments up to 40°C, this industrial laser welding machine is engineered for flat, vibration-free production floors.
+              </p>
+              <p className={styles.productDesc}>
+                Whether you need a 1.5kW handheld fiber laser welding machine for fabrication shops or a 2000W fiber laser welding machine for heavy-duty metal joining, Paratech Industries backs every unit with catalogue documentation and after-sales support across India.
+              </p>
               <h4 className={styles.specHeading}>Specification</h4>
 
               <table className={styles.specTable}>

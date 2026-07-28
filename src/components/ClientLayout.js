@@ -7,6 +7,7 @@ import Whatsappbubble from "@/components/whatsappbubble";
 import Callbubble from "@/components/callbubble";
 import Mailbubble from "@/components/mainlbubble";
 import Cataloguebubble from "@/components/cataloguebubble";
+import WelcomeModal from "@/components/WelcomeModal";
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
@@ -24,6 +25,7 @@ export default function ClientLayout({ children }) {
       <Whatsappbubble />
       <Mailbubble />
       <Cataloguebubble />
+      <WelcomeModal />
       <Footer />
     </>
   );

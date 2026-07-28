@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { blogImageMap } from "@/data/blogs";
+import Image from "next/image";
+import logo from "@/assests/images/whitelogo.png";
 import styles from "./admin.module.scss";
 import {
   FiPlus,
@@ -18,7 +20,9 @@ import {
   FiGrid,
   FiUser,
   FiLogOut,
-  FiMenu
+  FiMenu,
+  FiEye,
+  FiEyeOff
 } from "react-icons/fi";
 
 const INITIAL_FORM_STATE = {
@@ -50,6 +54,8 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [blogPage, setBlogPage] = useState(1);
+  const blogPageSize = 10;
 
   // Navigation & Toggle states
   const [currentTab, setCurrentTab] = useState("dashboard"); // dashboard, categories, blogs
@@ -60,6 +66,7 @@ export default function AdminDashboard() {
   const [checkingSession, setCheckingSession] = useState(true);
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
 
@@ -138,6 +145,55 @@ export default function AdminDashboard() {
     }
   };
 
+  // Welcome Users state
+  const [welcomeUsers, setWelcomeUsers] = useState([]);
+  const [welcomeUsersLoading, setWelcomeUsersLoading] = useState(false);
+  const [welcomeSearch, setWelcomeSearch] = useState("");
+  const [welcomePage, setWelcomePage] = useState(1);
+  const welcomePageSize = 10;
+  const [deleteConfirmWelcomeUser, setDeleteConfirmWelcomeUser] = useState(null);
+
+  // Load welcome users from Supabase database
+  const fetchWelcomeUsers = async () => {
+    setWelcomeUsersLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from("welcome_users")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) throw error;
+      setWelcomeUsers(data || []);
+    } catch (err) {
+      console.warn("Welcome users table issue or not created yet:", err);
+      setWelcomeUsers([]);
+    } finally {
+      setWelcomeUsersLoading(false);
+    }
+  };
+
+  // Delete Welcome User
+  const handleDeleteWelcomeUser = async (id, name) => {
+    try {
+      const { error } = await supabase
+        .from("welcome_users")
+        .delete()
+        .eq("id", id);
+
+      if (error) throw error;
+
+      setWelcomeUsers(prev => prev.filter(item => item.id !== id));
+      setNotification({ type: "success", message: `Deleted submission for "${name || "User"}"` });
+      setTimeout(() => setNotification(null), 3000);
+    } catch (err) {
+      console.error("Error deleting welcome user:", err);
+      // If client-only array fallback
+      setWelcomeUsers(prev => prev.filter(item => item.id !== id));
+      setNotification({ type: "success", message: `Removed "${name || "User"}" from list` });
+      setTimeout(() => setNotification(null), 3000);
+    }
+  };
+
   useEffect(() => {
     // Check current session
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -146,6 +202,7 @@ export default function AdminDashboard() {
       if (session) {
         fetchBlogs();
         fetchCategories();
+        fetchWelcomeUsers();
       }
     });
 
@@ -155,6 +212,7 @@ export default function AdminDashboard() {
       if (session) {
         fetchBlogs();
         fetchCategories();
+        fetchWelcomeUsers();
       }
     });
 
@@ -341,7 +399,7 @@ export default function AdminDashboard() {
             .from("blogs")
             .update(dataWithoutTags)
             .eq("id", id);
-          
+
           if (!retry.error) {
             showNotification("success", "Blog updated! Please add the 'tags' column in your Supabase database table.");
             setIsModalOpen(false);
@@ -488,6 +546,9 @@ export default function AdminDashboard() {
       <div className={styles.loginWrapper}>
         <div className={styles.loginCard}>
           <header className={styles.loginHeader}>
+            <div className={styles.adminLogoWrapper}>
+              <Image src={logo} alt="Paratech Logo" priority width={160} height={45} style={{ objectFit: "contain" }} />
+            </div>
             <h1>Paratech Admin</h1>
           </header>
 
@@ -512,13 +573,23 @@ export default function AdminDashboard() {
 
             <div className={styles.formGroup}>
               <label>Password</label>
-              <input
-                type="password"
-                required
-                placeholder="••••••••"
-                value={loginPassword}
-                onChange={(e) => setLoginPassword(e.target.value)}
-              />
+              <div className={styles.passwordInputWrapper}>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  required
+                  placeholder="••••••••"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className={styles.passwordToggleBtn}
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
             </div>
 
             <button type="submit" className={styles.loginBtn} disabled={loginLoading}>
@@ -577,8 +648,10 @@ export default function AdminDashboard() {
         </button>
 
         <div className={styles.logoArea}>
-          <h2>Paratech Admin</h2>
-          <p>Blogs Management</p>
+          <div className={styles.sidebarLogoWrapper}>
+            <Image src={logo} alt="Paratech Logo" width={160} height={42} priority style={{ objectFit: "contain" }} />
+          </div>
+
         </div>
 
         <nav className={styles.navMenu}>
@@ -590,6 +663,15 @@ export default function AdminDashboard() {
             }}
           >
             <FiGrid /> Dashboard
+          </button>
+          <button
+            className={`${styles.navLink} ${currentTab === "welcome" ? styles.active : ""}`}
+            onClick={() => {
+              setCurrentTab("welcome");
+              setMobileSidebarOpen(false);
+            }}
+          >
+            <FiUser /> Welcome User
           </button>
           <button
             className={`${styles.navLink} ${currentTab === "categories" ? styles.active : ""}`}
@@ -641,6 +723,7 @@ export default function AdminDashboard() {
               {currentTab === "dashboard" && "Dashboard"}
               {currentTab === "categories" && "Blog Categories"}
               {currentTab === "blogs" && "Blogs List"}
+              {currentTab === "welcome" && "Welcome Users"}
             </span>
           </div>
           <button
@@ -739,8 +822,14 @@ export default function AdminDashboard() {
                     type="text"
                     placeholder="Search blogs..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setBlogPage(1);
+                    }}
                   />
+                </div>
+                <div style={{ fontSize: "14px", color: "#666", fontWeight: "600" }}>
+                  Total: {filteredBlogs.length} Articles
                 </div>
               </div>
 
@@ -752,49 +841,115 @@ export default function AdminDashboard() {
                 <div style={{ padding: "50px", textAlign: "center", color: "#666" }}>
                   <p>No blog articles found. Create one using the "+ Add New Blog" button.</p>
                 </div>
-              ) : (
-                <table className={styles.table}>
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Category</th>
-                      <th>Author</th>
-                      <th>Publish Date</th>
-                      <th style={{ width: "100px" }}>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredBlogs.map((blog) => (
-                      <tr key={blog.id || blog.slug}>
-                        <td className={styles.blogTitleCol}>{blog.title}</td>
-                        <td>
-                          <span className={styles.categoryBadge}>{blog.category}</span>
-                        </td>
-                        <td>{blog.author}</td>
-                        <td>{blog.date}</td>
-                        <td>
-                          <div className={styles.actionCell}>
-                            <button
-                              className={`${styles.iconBtn} ${styles.edit}`}
-                              title="Edit Post"
-                              onClick={() => handleOpenEditModal(blog)}
-                            >
-                              <FiEdit />
-                            </button>
-                            <button
-                              className={`${styles.iconBtn} ${styles.delete}`}
-                              title="Delete Post"
-                              onClick={() => setDeleteConfirmBlog(blog)}
-                            >
-                              <FiTrash2 />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              )}
+              ) : (() => {
+                const totalBlogPages = Math.ceil(filteredBlogs.length / blogPageSize) || 1;
+                const currentBlogPage = Math.min(blogPage, totalBlogPages);
+                const blogStartIndex = (currentBlogPage - 1) * blogPageSize;
+                const paginatedBlogs = filteredBlogs.slice(blogStartIndex, blogStartIndex + blogPageSize);
+
+                return (
+                  <>
+                    <div style={{ overflowX: "auto" }}>
+                      <table className={styles.table}>
+                        <thead>
+                          <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Publish Date</th>
+                            <th style={{ width: "100px", textAlign: "center" }}>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {paginatedBlogs.map((blog) => (
+                            <tr key={blog.id || blog.slug}>
+                              <td className={styles.blogTitleCol}>{blog.title}</td>
+                              <td>
+                                <span className={styles.categoryBadge}>{blog.category}</span>
+                              </td>
+                              <td>{blog.author}</td>
+                              <td>{blog.date}</td>
+                              <td>
+                                <div className={styles.actionCell}>
+                                  <button
+                                    className={`${styles.iconBtn} ${styles.edit}`}
+                                    title="Edit Post"
+                                    onClick={() => handleOpenEditModal(blog)}
+                                  >
+                                    <FiEdit />
+                                  </button>
+                                  <button
+                                    className={`${styles.iconBtn} ${styles.delete}`}
+                                    title="Delete Post"
+                                    onClick={() => setDeleteConfirmBlog(blog)}
+                                  >
+                                    <FiTrash2 />
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* Blog List Pagination Controls */}
+                    {totalBlogPages > 1 && (
+                      <div style={{
+                        display: "flex",
+                        justify: "space-between",
+                        alignItems: "center",
+                        padding: "16px 24px",
+                        borderTop: "1px solid #f0f0f0",
+                        background: "#fafafa"
+                      }}>
+                        <div style={{ fontSize: "13px", color: "#666" }}>
+                          Showing {blogStartIndex + 1} to {Math.min(blogStartIndex + blogPageSize, filteredBlogs.length)} of {filteredBlogs.length} entries
+                        </div>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                          <button
+                            type="button"
+                            disabled={currentBlogPage <= 1}
+                            onClick={() => setBlogPage(prev => Math.max(prev - 1, 1))}
+                            style={{
+                              padding: "6px 12px",
+                              border: "1px solid #dcdcdc",
+                              borderRadius: "6px",
+                              background: currentBlogPage <= 1 ? "#f5f5f5" : "#ffffff",
+                              color: currentBlogPage <= 1 ? "#aaa" : "#333",
+                              cursor: currentBlogPage <= 1 ? "not-allowed" : "pointer",
+                              fontSize: "13px",
+                              fontWeight: "500"
+                            }}
+                          >
+                            Previous
+                          </button>
+                          <span style={{ fontSize: "13px", color: "#444", fontWeight: "600", padding: "0 8px" }}>
+                            Page {currentBlogPage} of {totalBlogPages}
+                          </span>
+                          <button
+                            type="button"
+                            disabled={currentBlogPage >= totalBlogPages}
+                            onClick={() => setBlogPage(prev => Math.min(prev + 1, totalBlogPages))}
+                            style={{
+                              padding: "6px 12px",
+                              border: "1px solid #dcdcdc",
+                              borderRadius: "6px",
+                              background: currentBlogPage >= totalBlogPages ? "#f5f5f5" : "#ffffff",
+                              color: currentBlogPage >= totalBlogPages ? "#aaa" : "#333",
+                              cursor: currentBlogPage >= totalBlogPages ? "not-allowed" : "pointer",
+                              fontSize: "13px",
+                              fontWeight: "500"
+                            }}
+                          >
+                            Next
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           </>
         )}
@@ -884,6 +1039,195 @@ export default function AdminDashboard() {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* WELCOME USERS TAB */}
+        {currentTab === "welcome" && (
+          <div className={styles.categoryManagement}>
+            <div className={styles.headerRow}>
+              <div className={styles.titleArea}>
+                <h1>Welcome Users Submissions</h1>
+                <p>Manage and view inquiries submitted from the website Welcome Popup.</p>
+              </div>
+              <button
+                type="button"
+                className={styles.primaryBtn}
+                onClick={fetchWelcomeUsers}
+              >
+                Refresh List
+              </button>
+            </div>
+
+            <div className={styles.tableWrapper} style={{ marginTop: "24px" }}>
+              <div className={styles.tableHeader}>
+                <div className={styles.searchBox}>
+                  <FiSearch />
+                  <input
+                    type="text"
+                    placeholder="Search by name, phone, email..."
+                    value={welcomeSearch}
+                    onChange={(e) => {
+                      setWelcomeSearch(e.target.value);
+                      setWelcomePage(1);
+                    }}
+                  />
+                </div>
+                <div style={{ fontSize: "14px", color: "#666", fontWeight: "600" }}>
+                  Total: {welcomeUsers.length} Submissions
+                </div>
+              </div>
+
+              {welcomeUsersLoading ? (
+                <div style={{ padding: "40px", textAlign: "center", color: "#888" }}>
+                  Loading welcome users submissions...
+                </div>
+              ) : welcomeUsers.length === 0 ? (
+                <div style={{ padding: "40px", textAlign: "center", color: "#666" }}>
+                  <FiUser style={{ fontSize: "40px", marginBottom: "12px", color: "#aaa" }} />
+                  <p style={{ fontSize: "16px", fontWeight: "600" }}>No Welcome Submissions Yet</p>
+                  <p style={{ fontSize: "13px", color: "#888", marginTop: "4px" }}>
+                    Submissions from the front-end Welcome Popup will appear here and be emailed to info.paratechindustries@gmail.com.
+                  </p>
+                </div>
+              ) : (() => {
+                const filtered = welcomeUsers.filter((u) =>
+                  (u.full_name || "").toLowerCase().includes(welcomeSearch.toLowerCase()) ||
+                  (u.mobile_number || "").includes(welcomeSearch) ||
+                  (u.email || "").toLowerCase().includes(welcomeSearch.toLowerCase())
+                );
+                const totalPages = Math.ceil(filtered.length / welcomePageSize) || 1;
+                const currentPage = Math.min(welcomePage, totalPages);
+                const startIndex = (currentPage - 1) * welcomePageSize;
+                const paginatedUsers = filtered.slice(startIndex, startIndex + welcomePageSize);
+
+                return (
+                  <>
+                    <div style={{ overflowX: "auto" }}>
+                      <table className={styles.table}>
+                        <thead>
+                          <tr>
+                            <th style={{ width: "60px" }}>#</th>
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
+                            <th>Email Address</th>
+                            <th>Submitted At</th>
+                            <th style={{ width: "100px", textAlign: "center" }}>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {paginatedUsers.length === 0 ? (
+                            <tr>
+                              <td colSpan={6} style={{ textAlign: "center", color: "#888", padding: "30px" }}>
+                                No matching records found.
+                              </td>
+                            </tr>
+                          ) : (
+                            paginatedUsers.map((user, idx) => (
+                              <tr key={user.id || idx}>
+                                <td>{startIndex + idx + 1}</td>
+                                <td style={{ fontWeight: "600", color: "#111" }}>{user.full_name || "N/A"}</td>
+                                <td>
+                                  <a href={`tel:${user.mobile_number}`} style={{ color: "#2563eb", textDecoration: "none", fontWeight: "500" }}>
+                                    {user.mobile_number}
+                                  </a>
+                                </td>
+                                <td>
+                                  {user.email ? (
+                                    <a href={`mailto:${user.email}`} style={{ color: "#2563eb", textDecoration: "none" }}>
+                                      {user.email}
+                                    </a>
+                                  ) : (
+                                    <span style={{ color: "#999", fontStyle: "italic" }}>Not provided</span>
+                                  )}
+                                </td>
+                                <td style={{ color: "#666", fontSize: "13px" }}>
+                                  {user.created_at ? new Date(user.created_at).toLocaleString() : "N/A"}
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                  <button
+                                    type="button"
+                                    title="Delete Submission"
+                                    onClick={() => setDeleteConfirmWelcomeUser(user)}
+                                    style={{
+                                      background: "transparent",
+                                      border: "none",
+                                      color: "#e53e3e",
+                                      cursor: "pointer",
+                                      fontSize: "16px",
+                                      padding: "6px",
+                                      borderRadius: "4px",
+                                      transition: "background 0.2s"
+                                    }}
+                                  >
+                                    <FiTrash2 />
+                                  </button>
+                                </td>
+                              </tr>
+                            ))
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
+                      <div style={{
+                        display: "flex",
+                        justify: "space-between",
+                        alignItems: "center",
+                        padding: "16px 24px",
+                        borderTop: "1px solid #f0f0f0",
+                        background: "#fafafa"
+                      }}>
+                        <div style={{ fontSize: "13px", color: "#666" }}>
+                          Showing {startIndex + 1} to {Math.min(startIndex + welcomePageSize, filtered.length)} of {filtered.length} entries
+                        </div>
+                        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                          <button
+                            type="button"
+                            disabled={currentPage <= 1}
+                            onClick={() => setWelcomePage(prev => Math.max(prev - 1, 1))}
+                            style={{
+                              padding: "6px 12px",
+                              border: "1px solid #dcdcdc",
+                              borderRadius: "6px",
+                              background: currentPage <= 1 ? "#f5f5f5" : "#ffffff",
+                              color: currentPage <= 1 ? "#aaa" : "#333",
+                              cursor: currentPage <= 1 ? "not-allowed" : "pointer",
+                              fontSize: "13px",
+                              fontWeight: "500"
+                            }}
+                          >
+                            Previous
+                          </button>
+                          <span style={{ fontSize: "13px", color: "#444", fontWeight: "600", padding: "0 8px" }}>
+                            Page {currentPage} of {totalPages}
+                          </span>
+                          <button
+                            type="button"
+                            disabled={currentPage >= totalPages}
+                            onClick={() => setWelcomePage(prev => Math.min(prev + 1, totalPages))}
+                            style={{
+                              padding: "6px 12px",
+                              border: "1px solid #dcdcdc",
+                              borderRadius: "6px",
+                              background: currentPage >= totalPages ? "#f5f5f5" : "#ffffff",
+                              color: currentPage >= totalPages ? "#aaa" : "#333",
+                              cursor: currentPage >= totalPages ? "not-allowed" : "pointer",
+                              fontSize: "13px",
+                              fontWeight: "500"
+                            }}
+                          >
+                            Next
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           </div>
         )}
@@ -1107,6 +1451,49 @@ export default function AdminDashboard() {
                 }}
               >
                 Delete Post
+              </button>
+            </footer>
+          </div>
+        </div>
+      )}
+
+      {/* Custom Delete Confirmation Modal for Welcome Users */}
+      {deleteConfirmWelcomeUser && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent} style={{ maxWidth: "450px" }}>
+            <header className={styles.modalHeader}>
+              <h2>Confirm Deletion</h2>
+              <button className={styles.closeBtn} onClick={() => setDeleteConfirmWelcomeUser(null)}>
+                <FiX />
+              </button>
+            </header>
+            <div className={styles.modalBody} style={{ padding: "30px 24px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
+              <div style={{ fontSize: "50px", color: "#e53e3e", display: "flex", justifyContent: "center" }}>
+                <FiTrash2 />
+              </div>
+              <div>
+                <p style={{ fontSize: "16px", fontWeight: "700", color: "#1f1f1f", marginBottom: "8px" }}>
+                  Delete User Submission?
+                </p>
+                <p style={{ fontSize: "14px", color: "#666", lineHeight: "1.5" }}>
+                  Are you sure you want to delete submission for <strong>"{deleteConfirmWelcomeUser.full_name || "User"}"</strong> ({deleteConfirmWelcomeUser.mobile_number})? This action cannot be undone.
+                </p>
+              </div>
+            </div>
+            <footer className={styles.modalFooter}>
+              <button type="button" className={styles.secondaryBtn} onClick={() => setDeleteConfirmWelcomeUser(null)}>
+                Cancel
+              </button>
+              <button
+                type="button"
+                className={styles.primaryBtn}
+                style={{ background: "#e53e3e", color: "#ffffff", borderColor: "transparent" }}
+                onClick={() => {
+                  handleDeleteWelcomeUser(deleteConfirmWelcomeUser.id, deleteConfirmWelcomeUser.full_name);
+                  setDeleteConfirmWelcomeUser(null);
+                }}
+              >
+                Delete Record
               </button>
             </footer>
           </div>

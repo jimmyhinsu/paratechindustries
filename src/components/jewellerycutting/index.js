@@ -15,7 +15,7 @@ import QuoteModal from "../quotemodal";
 
 export default function Jewellerycutting() {
   // Main product images (thumbnails change the main image)
-  const productImages = [jcm44, jcm, jcm22, jcm33 ];
+  const productImages = [jcm44, jcm, jcm22, jcm33];
 
   // Application images (click opens modal)
   const applicationImages = [jcm1, jcm2, jcm3, jcm4];
@@ -23,7 +23,7 @@ export default function Jewellerycutting() {
   const [mainImage, setMainImage] = useState(productImages[0]);
   const [modalImage, setModalImage] = useState(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  
+
   return (
     <>
       <section className={styles.machineSection}>
@@ -46,9 +46,8 @@ export default function Jewellerycutting() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >

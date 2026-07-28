@@ -64,9 +64,8 @@ export default function Fiberlaser() {
                 {productImages.map((img, i) => (
                   <button
                     key={i}
-                    className={`${styles.thumbBtn} ${
-                      mainImage === img ? styles.active : ""
-                    }`}
+                    className={`${styles.thumbBtn} ${mainImage === img ? styles.active : ""
+                      }`}
                     onClick={() => setMainImage(img)}
                     aria-label={`Select image ${i + 1}`}
                   >
@@ -104,6 +103,15 @@ export default function Fiberlaser() {
                 SS, MS,Aluminium, Cast Iron, Plastic, Gold, Silver, Platinum,
                 Coated Glass, Bronze, Titanium, Copper, Brass, Carbide, Non
                 Transparent Acrylic & More...
+              </p>
+              <p className={styles.productDesc}>
+                Paratech Industries is a leading Fiber Laser Marking Machine manufacturer and exporter based in Surat, Gujarat, India. Our fiber laser marker range covers 20W, 30W, 50W, 60W, and 100W power options, built for industrial-grade metal laser marking on SS, MS, aluminium, cast iron, brass, copper, titanium, carbide, and coated glass, as well as gold, silver, and platinum for jewelry marking applications.
+              </p>
+              <p className={styles.productDesc}>
+                Available in desktop, handheld, portable, and mini fiber laser marking machine formats, our machines support working areas from 100x100mm up to 300x300mm (fully customizable), with a max linear marking speed of 12000mm/s and 0.1mm minimum character height. Each fiber laser marking machine runs on a 1064nm wavelength pulsed fiber laser and is compatible with PLT, DXF, BMP, JPG, GLF, and PNG file formats on Windows 7/8/10/11.
+              </p>
+              <p className={styles.productDesc}>
+                Whether you need a handheld fiber laser marking machine for on-site metal marking or a desktop fiber laser marking machine for high-volume industrial production, Paratech Industries delivers precision, durability, and after-sales support across India.
               </p>
               <h4 className={styles.specHeading}>Specification</h4>
 
