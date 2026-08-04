@@ -140,6 +140,55 @@
       }
     }
 
+    .headerRight {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contactPhone {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 9px 18px;
+      border-radius: 30px;
+      background: #1f1f1f;
+      border: 1px solid #1f1f1f;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+
+      .phoneIcon {
+        font-size: 15px;
+        color: #ffffff;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      &:hover {
+        background: #fff;
+        color: #1f1f1f;
+        border-color: #1f1f1f;
+
+        .phoneIcon {
+          color: #1f1f1f;
+          transform: rotate(12deg) scale(1.1);
+        }
+      }
+
+      @media (max-width: 576px) {
+        font-size: 13px;
+        padding: 6px 12px;
+        gap: 6px;
+
+        .phoneIcon {
+          font-size: 13px;
+        }
+      }
+    }
+
     .menuIcon {
       display: none;
       cursor: pointer;

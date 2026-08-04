@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./ourservices.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -85,6 +87,7 @@ const services = [
 
 export default function Ourservices() {
   const { setScrollCategory } = useAuth();
+  const swiperRef = useRef(null);
 
   return (
     <div className={styles.servicesSection}>
@@ -94,40 +97,61 @@ export default function Ourservices() {
           <h2>Explore Our Products</h2>
         </div>
 
-        <Swiper
-          modules={[Autoplay]}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop
-          spaceBetween={20}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          className={styles.slider}
-        >
-          {services.map((service, i) => (
-            <SwiperSlide key={i}>
-              <Link href={service.Link}>
-                <div
-                  className={styles.card}
-                  onClick={() => setScrollCategory(service.title.toLowerCase())}
-                >
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      src={service.img}
-                      alt={service.title}
-                      className={styles.image}
-                    />
+        <div className={styles.sliderWrapper}>
+          <button
+            className={`${styles.navBtn} ${styles.prevBtn}`}
+            onClick={() => swiperRef.current?.slidePrev()}
+            aria-label="Previous slide"
+          >
+            <FaChevronLeft />
+          </button>
+
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            modules={[Autoplay, Navigation]}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop
+            spaceBetween={20}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className={styles.slider}
+          >
+            {services.map((service, i) => (
+              <SwiperSlide key={i}>
+                <Link href={service.Link}>
+                  <div
+                    className={styles.card}
+                    onClick={() => setScrollCategory(service.title.toLowerCase())}
+                  >
+                    <div className={styles.imageWrapper}>
+                      <Image
+                        src={service.img}
+                        alt={service.title}
+                        className={styles.image}
+                      />
+                    </div>
+                    <div className={styles.content}>
+                      <h3>{service.title}</h3>
+                    </div>
                   </div>
-                  <div className={styles.content}>
-                    <h3>{service.title}</h3>
-                  </div>
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <button
+            className={`${styles.navBtn} ${styles.nextBtn}`}
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Next slide"
+          >
+            <FaChevronRight />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assests/images/paratechlogo.png";
 import { FiMenu } from "react-icons/fi";
+import { FaPhoneAlt } from "react-icons/fa";
 import Sidebar from "../sidebar";
 import Downarrowicon from "@/assests/svg/downarrowicon";
 
@@ -81,12 +82,19 @@ export default function Header() {
               </Link>
             </nav>
 
-            {/* Mobile Menu Icon */}
-            <div
-              className={styles.menuIcon}
-              onClick={() => setIsSidebarOpen(true)}
-            >
-              <FiMenu />
+            {/* Right Section: Contact Number & Mobile Menu */}
+            <div className={styles.headerRight}>
+              <a href="tel:+919879533323" className={styles.contactPhone}>
+                <FaPhoneAlt className={styles.phoneIcon} />
+                <span>+91 9879533323</span>
+              </a>
+
+              <div
+                className={styles.menuIcon}
+                onClick={() => setIsSidebarOpen(true)}
+              >
+                <FiMenu />
+              </div>
             </div>
           </div>
         </div>
