@@ -10,7 +10,7 @@ const nextConfig = {
       },
     ],
   },
-  async redirects() {
+  async rewrites() {
     const legacyProductSlugs = [
       "co2lasercuttingmachine",
       "co2laserengravingmachine",
@@ -30,7 +30,6 @@ const nextConfig = {
     return legacyProductSlugs.map((slug) => ({
       source: `/${slug}`,
       destination: `/products/${slug}`,
-      permanent: true,
     }));
   },
 };
