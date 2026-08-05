@@ -299,7 +299,7 @@ export default function AdminDashboard() {
   const fetchProductsAdmin = async () => {
     setProductsLoading(true);
     try {
-      const data = await fetchProductsFromSupabase();
+      const data = await fetchProductsFromSupabase(true);
       setProductsState(data || []);
     } catch (err) {
       console.warn("Error loading products from Supabase:", err);

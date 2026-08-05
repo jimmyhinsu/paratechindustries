@@ -170,7 +170,16 @@ export const defaultProductsList = [
   { id: "jewellerysolderingmachine", slug: "jewellerysolderingmachine", name: "Jewellery Laser Soldering Machine", heroTitle: "Jewellery Laser Soldering Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Soldering Machine" }
 ];
 
-export async function fetchProductsFromSupabase() {
+let cachedProducts = null;
+let lastFetchTime = 0;
+const CACHE_TTL_MS = 60 * 1000; // 60 seconds in-memory cache
+
+export async function fetchProductsFromSupabase(forceRefresh = false) {
+  const now = Date.now();
+  if (!forceRefresh && cachedProducts && (now - lastFetchTime < CACHE_TTL_MS)) {
+    return cachedProducts;
+  }
+
   try {
     const { data, error } = await supabase
       .from("products")
@@ -178,10 +187,12 @@ export async function fetchProductsFromSupabase() {
       .order("id", { ascending: true });
 
     if (error || !data || data.length === 0) {
+      cachedProducts = defaultProductsList;
+      lastFetchTime = now;
       return defaultProductsList;
     }
 
-    return data.map((item) => ({
+    const mapped = data.map((item) => ({
       id: item.id,
       db_id: item.id,
       slug: item.slug,
@@ -204,6 +215,10 @@ export async function fetchProductsFromSupabase() {
       metaDescription: item.meta_description || null,
       metaKeywords: item.meta_keywords || []
     }));
+
+    cachedProducts = mapped;
+    lastFetchTime = now;
+    return mapped;
   } catch (err) {
     console.error("Failed to fetch products from Supabase:", err);
     return defaultProductsList;
