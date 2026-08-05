@@ -155,19 +155,19 @@ export function getProductHref(slug) {
 }
 
 export const defaultProductsList = [
-  { id: "fiberlasermarkingmachine", slug: "fiberlasermarkingmachine", name: "Fiber Laser Marking Machine", heroTitle: "Fiber Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Marking Machine" },
-  { id: "fiberlasercuttingmachine", slug: "fiberlasercuttingmachine", name: "Fiber Laser Cutting Machine", heroTitle: "Fiber Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Cutting Machine" },
-  { id: "handheldfiberlaserweldingmachine", slug: "handheldfiberlaserweldingmachine", name: "Handheld Fiber Laser Welding Machine", heroTitle: "Handheld Laser Welding Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Handheld Fiber Laser Welding Machine" },
-  { id: "customiselasermachine", slug: "customiselasermachine", name: "Customise Laser Marking Machine", heroTitle: "Customise Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Customise Laser Machine" },
-  { id: "sheetpipelasercuttingmachine", slug: "sheetpipelasercuttingmachine", name: "Sheet + Pipe Laser Cutting Machine", heroTitle: "Sheet & Pipe Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Sheet + Pipe Laser Cutting Machine" },
-  { id: "onlinelasermarkingmachine", slug: "onlinelasermarkingmachine", name: "Online Laser Marking Machine", heroTitle: "Online Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Online Laser Marking Machine" },
-  { id: "co2lasercuttingmachine", slug: "co2lasercuttingmachine", name: "Co2 Laser Cutting & Engraving Machine", heroTitle: "Co2 Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Cutting Machine" },
-  { id: "co2laserengravingmachine", slug: "co2laserengravingmachine", name: "Co2 Laser Engraving Machine", heroTitle: "Co2 Laser Engraving Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Engraving Machine" },
-  { id: "dengraving", slug: "dengraving", name: "3D Engraving", heroTitle: "3D Engraving", heroSubtitle: "Paratech Industries", quoteProductName: "3D Engraving Machine" },
-  { id: "dmarking", slug: "dmarking", name: "3D Marking", heroTitle: "3D Marking", heroSubtitle: "Paratech Industries", quoteProductName: "3D Engraving Machine" },
-  { id: "uvlasermarkingmachine", slug: "uvlasermarkingmachine", name: "UV Laser Marking Machine", heroTitle: "UV Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Uv Laser Marking/Engraving Machine" },
-  { id: "jewellerycuttingmachine", slug: "jewellerycuttingmachine", name: "Jewellery Laser Cutting Machine", heroTitle: "Jewellery Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Cutting Machine" },
-  { id: "jewellerysolderingmachine", slug: "jewellerysolderingmachine", name: "Jewellery Laser Soldering Machine", heroTitle: "Jewellery Laser Soldering Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Soldering Machine" }
+  { id: "fiberlasermarkingmachine", slug: "fiberlasermarkingmachine", name: "Fiber Laser Marking Machine", tag: "FIBER LASER MARKING MACHINE, BUY FIBER LASER MARKING MACHINE, FIBER LASER MARKING MACHINES", heroTitle: "Fiber Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Marking Machine" },
+  { id: "fiberlasercuttingmachine", slug: "fiberlasercuttingmachine", name: "Fiber Laser Cutting Machine", tag: "FIBER LASER CUTTING MACHINE, BUY FIBER LASER CUTTING MACHINE, FIBER LASER CUTTER", heroTitle: "Fiber Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Cutting Machine" },
+  { id: "handheldfiberlaserweldingmachine", slug: "handheldfiberlaserweldingmachine", name: "Handheld Fiber Laser Welding Machine", tag: "HANDHELD FIBER LASER WELDING MACHINE, LASER WELDING MACHINE, PORTABLE LASER WELDER", heroTitle: "Handheld Laser Welding Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Handheld Fiber Laser Welding Machine" },
+  { id: "customiselasermachine", slug: "customiselasermachine", name: "Customise Laser Marking Machine", tag: "CUSTOMISE LASER MARKING MACHINE, CUSTOM LASER MARKING, TAILORED LASER MACHINE", heroTitle: "Customise Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Customise Laser Machine" },
+  { id: "sheetpipelasercuttingmachine", slug: "sheetpipelasercuttingmachine", name: "Sheet + Pipe Laser Cutting Machine", tag: "SHEET PIPE LASER CUTTING MACHINE, PIPE LASER CUTTER, SHEET METAL LASER CUTTING", heroTitle: "Sheet & Pipe Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Sheet + Pipe Laser Cutting Machine" },
+  { id: "onlinelasermarkingmachine", slug: "onlinelasermarkingmachine", name: "Online Laser Marking Machine", tag: "ONLINE LASER MARKING MACHINE, FLYING LASER MARKING, CONTINUOUS MARKING LASER", heroTitle: "Online Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Online Laser Marking Machine" },
+  { id: "co2lasercuttingmachine", slug: "co2lasercuttingmachine", name: "Co2 Laser Cutting & Engraving Machine", tag: "CO2 LASER CUTTING MACHINE, CO2 LASER ENGRAVER, CO2 CUTTER AND ENGRAVER", heroTitle: "Co2 Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Cutting Machine" },
+  { id: "co2laserengravingmachine", slug: "co2laserengravingmachine", name: "Co2 Laser Engraving Machine", tag: "CO2 LASER ENGRAVING MACHINE, CO2 MARKING MACHINE, NON-METAL LASER ENGRAVER", heroTitle: "Co2 Laser Engraving Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Engraving Machine" },
+  { id: "dengraving", slug: "dengraving", name: "3D Engraving", tag: "3D ENGRAVING MACHINE, 3D LASER ENGRAVER, 3D SURFACE MARKING", heroTitle: "3D Engraving", heroSubtitle: "Paratech Industries", quoteProductName: "3D Engraving Machine" },
+  { id: "dmarking", slug: "dmarking", name: "3D Marking", tag: "3D MARKING MACHINE, 3D LASER MARKER, CURVED SURFACE LASER MARKING", heroTitle: "3D Marking", heroSubtitle: "Paratech Industries", quoteProductName: "3D Engraving Machine" },
+  { id: "uvlasermarkingmachine", slug: "uvlasermarkingmachine", name: "UV Laser Marking Machine", tag: "UV LASER MARKING MACHINE, UV LASER ENGRAVER, COLD LASER MARKING", heroTitle: "UV Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Uv Laser Marking/Engraving Machine" },
+  { id: "jewellerycuttingmachine", slug: "jewellerycuttingmachine", name: "Jewellery Laser Cutting Machine", tag: "JEWELLERY LASER CUTTING MACHINE, GOLD LASER CUTTER, SILVER LASER CUTTING", heroTitle: "Jewellery Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Cutting Machine" },
+  { id: "jewellerysolderingmachine", slug: "jewellerysolderingmachine", name: "Jewellery Laser Soldering Machine", tag: "JEWELLERY LASER SOLDERING MACHINE, JEWELLERY LASER WELDER, PRECISION LASER SOLDERING", heroTitle: "Jewellery Laser Soldering Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Soldering Machine" }
 ];
 
 let cachedProducts = null;
@@ -210,7 +210,8 @@ export async function fetchProductsFromSupabase(forceRefresh = false) {
       applicationImages: resolveImageArray(item.application_images),
       rawApplicationImages: item.application_images || [],
       quoteProductName: item.quote_product_name || item.name,
-      tag: item.tag || null,
+      tag: item.tag || item.tags || null,
+      tags: item.tags || item.tag || null,
       metaTitle: item.meta_title || null,
       metaDescription: item.meta_description || null,
       metaKeywords: item.meta_keywords || []
@@ -227,42 +228,45 @@ export async function fetchProductsFromSupabase(forceRefresh = false) {
 
 export async function fetchProductBySlugFromSupabase(slug) {
   if (!slug) return null;
+  const normalizedSlug = String(slug).trim().toLowerCase();
   try {
     const { data, error } = await supabase
       .from("products")
       .select("*")
-      .eq("slug", slug)
+      .eq("slug", normalizedSlug)
       .single();
 
-    if (error || !data) {
-      return null;
+    if (!error && data) {
+      return {
+        id: data.id,
+        db_id: data.id,
+        slug: data.slug,
+        name: data.name,
+        heroTitle: data.hero_title || data.name,
+        heroSubtitle: data.hero_subtitle || "Paratech Industries",
+        cardImage: resolveImage(data.card_image),
+        rawCardImage: data.card_image || "",
+        productImages: resolveImageArray(data.product_images),
+        rawProductImages: data.product_images || [],
+        materialsTitle: data.materials_title || null,
+        materialsText: data.materials_text || null,
+        descriptions: data.descriptions || [],
+        specifications: data.specifications || [],
+        applicationImages: resolveImageArray(data.application_images),
+        rawApplicationImages: data.application_images || [],
+        quoteProductName: data.quote_product_name || data.name,
+        tag: data.tag || data.tags || null,
+        tags: data.tags || data.tag || null,
+        metaTitle: data.meta_title || null,
+        metaDescription: data.meta_description || null,
+        metaKeywords: data.meta_keywords || []
+      };
     }
-
-    return {
-      id: data.id,
-      db_id: data.id,
-      slug: data.slug,
-      name: data.name,
-      heroTitle: data.hero_title || data.name,
-      heroSubtitle: data.hero_subtitle || "Paratech Industries",
-      cardImage: resolveImage(data.card_image),
-      rawCardImage: data.card_image || "",
-      productImages: resolveImageArray(data.product_images),
-      rawProductImages: data.product_images || [],
-      materialsTitle: data.materials_title || null,
-      materialsText: data.materials_text || null,
-      descriptions: data.descriptions || [],
-      specifications: data.specifications || [],
-      applicationImages: resolveImageArray(data.application_images),
-      rawApplicationImages: data.application_images || [],
-      quoteProductName: data.quote_product_name || data.name,
-      tag: data.tag || null,
-      metaTitle: data.meta_title || null,
-      metaDescription: data.meta_description || null,
-      metaKeywords: data.meta_keywords || []
-    };
   } catch (err) {
     console.error("Failed to fetch product by slug from Supabase:", err);
-    return null;
   }
+
+  // Fallback to default product if Supabase query returned no data or error
+  const fallback = defaultProductsList.find(p => p.slug.toLowerCase() === normalizedSlug);
+  return fallback || null;
 }

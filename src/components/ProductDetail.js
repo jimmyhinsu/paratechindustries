@@ -183,19 +183,34 @@ export default function ProductDetail({ product: initialProduct, slug }) {
                 </a>
               </div>
 
-              {product.tag && (
-                <div className={styles.tagWrapper}>
-                  <span className={styles.tagLabel}>Tags:</span>
-                  {(typeof product.tag === "string" ? product.tag.split(",") : Array.isArray(product.tag) ? product.tag : [product.tag])
-                    .map(t => String(t).trim())
-                    .filter(Boolean)
-                    .map((tagText, idx) => (
+              {(() => {
+                const rawTags = product?.tag || product?.tags;
+                const tagsList = rawTags
+                  ? (Array.isArray(rawTags)
+                      ? rawTags
+                      : typeof rawTags === "string"
+                      ? rawTags.split(",")
+                      : [rawTags]
+                    )
+                      .map(t => String(t).trim())
+                      .filter(Boolean)
+                  : (Array.isArray(product?.metaKeywords) && product.metaKeywords.length > 0)
+                  ? product.metaKeywords
+                  : [];
+
+                if (tagsList.length === 0) return null;
+
+                return (
+                  <div className={styles.tagWrapper}>
+                    <span className={styles.tagLabel}>Tags:</span>
+                    {tagsList.map((tagText, idx) => (
                       <span key={idx} className={styles.productTag}>
                         {tagText}
                       </span>
                     ))}
-                </div>
-              )}
+                  </div>
+                );
+              })()}
             </div>
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}
