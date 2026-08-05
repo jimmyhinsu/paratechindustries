@@ -10,7 +10,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/common/AuthProvider";
-import { fetchProductsFromSupabase } from "@/data/products";
+import { fetchProductsFromSupabase, getProductHref } from "@/data/products";
 
 export default function Ourservices() {
   const { setScrollCategory } = useAuth();
@@ -68,20 +68,30 @@ export default function Ourservices() {
             >
               {productsList.map((product) => (
                 <SwiperSlide key={product.id}>
-                  <Link href={`/${product.slug}`}>
+                  <Link href={getProductHref(product.slug)}>
                     <div
                       className={styles.card}
                       onClick={() => setScrollCategory(product.name.toLowerCase())}
                     >
                       <div className={styles.imageWrapper}>
                         {product.cardImage && (
-                          <Image
-                            src={product.cardImage}
-                            alt={product.name}
-                            className={styles.image}
-                            width={400}
-                            height={300}
-                          />
+                          typeof product.cardImage === "string" ? (
+                            <img
+                              src={product.cardImage}
+                              alt={product.name}
+                              className={styles.image}
+                              loading="lazy"
+                            />
+                          ) : (
+                            <Image
+                              src={product.cardImage}
+                              alt={product.name}
+                              className={styles.image}
+                              width={400}
+                              height={300}
+                              unoptimized
+                            />
+                          )
                         )}
                       </div>
                       <div className={styles.content}>

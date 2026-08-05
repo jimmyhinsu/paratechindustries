@@ -13,6 +13,7 @@ export default function HeroBanner() {
         alt="Paratech Industry"
         className={styles.bgImage}
         priority
+        unoptimized
       />
 
       <div className={styles.overlay}></div>
