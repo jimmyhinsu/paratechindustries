@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import styles from "./footer.module.scss";
 import Link from "next/link";
 import Mailicon from "@/assests/svg/mailicon";
@@ -10,8 +11,25 @@ import Image from "next/image";
 import Facebook from "@/assests/svg/facebook";
 import Instagram from "@/assests/svg/instagram";
 import Youtube from "@/assests/svg/youtube";
+import { fetchProductsFromSupabase, getProductHref } from "@/data/products";
 
 export default function Footer() {
+  const [footerProducts, setFooterProducts] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadProducts() {
+      const data = await fetchProductsFromSupabase();
+      if (isMounted) {
+        setFooterProducts(data || []);
+      }
+    }
+    loadProducts();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <>
       <footer className={styles.footer}>
@@ -23,7 +41,6 @@ export default function Footer() {
           </Link>
           <div className={styles.footerGrid}>
             <div className={styles.brand}>
-              {/* <h3>Mr GAURAV DESAI</h3> */}
               <h4>GST : 24BRAPD4073J1Z2</h4>
               <p>
                 <Location />
@@ -60,12 +77,6 @@ export default function Footer() {
                   <Arrowicon />
                   <Link href="/aboutus">About Us</Link>
                 </li>
-
-                {/* <li>
-                  <Arrowicon />
-                  <Link href="/industriesweserve">Industries We Serve</Link>
-                </li> */}
-
                 <li>
                   <Arrowicon />
                   <Link href="/companyprofile">Company Profile</Link>
@@ -84,68 +95,12 @@ export default function Footer() {
             <div className={styles.products}>
               <h4>Our Products</h4>
               <ul>
-                <li>
-                  <Arrowicon />
-                  <Link href="/fiberlasermarkingmachine">
-                    Fiber Laser Marking Machine a
-                  </Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/fiberlasercuttingmachine">
-                    Fiber Laser Cutting Machine
-                  </Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/handheldfiberlaserweldingmachine">Handheld Fiber Laser Welding Machine</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/customiselasermachine">Customise Laser Marking Machine</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/sheetpipelasercuttingmachine">Sheet + Pipe Laser Cutting Machine</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/onlinelasermarkingmachine">Online Laser Marking Machine</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/co2lasercuttingmachine">Co2 Laser Cutting & Engraving Machine</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/co2laserengravingmachine">
-                    Co2 Laser Engraving Machine
-                  </Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/dengraving">3D Engraving</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/dmarking">3D Marking</Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/uvlasermarkingmachine">
-                    UV Laser Marking Machine
-                  </Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/jewellerycuttingmachine">
-                    Jewellery Laser Cutting Machine
-                  </Link>
-                </li>
-                <li>
-                  <Arrowicon />
-                  <Link href="/jewellerysolderingmachine">Jewellery Laser Soldering Machine</Link>
-                </li>
+                {footerProducts.map((prod) => (
+                  <li key={prod.id}>
+                    <Arrowicon />
+                    <Link href={getProductHref(prod.slug)}>{prod.name}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

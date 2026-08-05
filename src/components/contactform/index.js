@@ -95,7 +95,7 @@ export default function Contactform() {
                 <textarea
                   className={styles.name}
                   rows="6"
-                  placeholder="Tell us your requirements"
+                  placeholder="Enter message"
                   required
                 ></textarea>
               </div>

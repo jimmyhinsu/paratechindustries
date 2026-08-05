@@ -1,14 +1,29 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./sidebar.module.scss";
 import Link from "next/link";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoChevronDown, IoChevronUp } from "react-icons/io5";
 import Image from "next/image";
 import logo from "@/assests/images/paratechlogo.png";
-import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+import { fetchProductsFromSupabase, getProductHref } from "@/data/products";
 
 export default function Sidebar({ isOpen, onClose }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [sidebarProducts, setSidebarProducts] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadProducts() {
+      const data = await fetchProductsFromSupabase();
+      if (isMounted) {
+        setSidebarProducts(data || []);
+      }
+    }
+    loadProducts();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
@@ -46,55 +61,14 @@ export default function Sidebar({ isOpen, onClose }) {
 
             {isDropdownOpen && (
               <div className={styles.dropdownMenu}>
-                <Link href="/fiberlasermarkingmachine" onClick={onClose}>
-                  Fiber Laser Marking Machine
-                </Link>
-                <Link href="/fiberlasercuttingmachine" onClick={onClose}>
-                  Fiber Laser Cutting Machine
-                </Link>
-                <Link
-                  href="/handheldfiberlaserweldingmachine"
-                  onClick={onClose}
-                >
-                  Handheld Fiber Laser Welding Machine
-                </Link>
-                <Link href="/customiselasermachine" onClick={onClose}>
-                  Customise Laser Marking Machine
-                </Link>
-                <Link href="/sheetpipelasercuttingmachine" onClick={onClose}>
-                  Sheet + Pipe Laser Cutting Machine
-                </Link>
-                <Link href="/onlinelasermarkingmachine" onClick={onClose}>
-                  Online Laser Marking Machine
-                </Link>
-                <Link href="/co2lasercuttingmachine" onClick={onClose}>
-                  Co2 Laser Cutting & Engraving Machine
-                </Link>
-                <Link href="/co2laserengravingmachine" onClick={onClose}>
-                  Co2 Laser Engraving Machine
-                </Link>
-                <Link href="/dengraving" onClick={onClose}>
-                  3D Engraving
-                </Link>
-                <Link href="/dmarking" onClick={onClose}>
-                  3D Marking
-                </Link>
-                <Link href="/uvlasermarkingmachine" onClick={onClose}>
-                  UV Laser Marking Machine
-                </Link>
-                <Link href="/jewellerycuttingmachine" onClick={onClose}>
-                  Jewellery Laser Cutting Machine
-                </Link>
-                <Link href="/jewellerysolderingmachine" onClick={onClose}>
-                  Jewellery Laser Soldering Machine
-                </Link>
+                {sidebarProducts.map((prod) => (
+                  <Link key={prod.id} href={getProductHref(prod.slug)} onClick={onClose}>
+                    {prod.name}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
-
-          {/* <Link href="/industriesweserve" className={styles.ancer}>
-            Industries We Serve
-          </Link> */}
 
           <Link href="/companyprofile" onClick={onClose}>
             Company Profile
@@ -102,11 +76,7 @@ export default function Sidebar({ isOpen, onClose }) {
           <Link href="/blog" onClick={onClose}>
             Blog
           </Link>
-          <Link
-            href="/contactus"
-            className={styles.contactBtn}
-            onClick={onClose}
-          >
+          <Link href="/contactus" onClick={onClose}>
             Contact Us
           </Link>
         </nav>

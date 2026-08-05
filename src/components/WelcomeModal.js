@@ -112,7 +112,7 @@ export default function WelcomeModal() {
                   id="welcomeFullName"
                   type="text"
                   required
-                  placeholder="Enter your full name"
+                  placeholder="Enter full name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                 />
@@ -128,7 +128,7 @@ export default function WelcomeModal() {
                   type="tel"
                   required
                   maxLength={10}
-                  placeholder="10-digit phone number"
+                  placeholder="Enter phone number"
                   value={mobileNumber}
                   onChange={(e) => setMobileNumber(e.target.value.replace(/\D/g, ""))}
                 />
@@ -142,7 +142,7 @@ export default function WelcomeModal() {
                 <input
                   id="welcomeEmail"
                   type="email"
-                  placeholder="your.email@example.com (optional)"
+                  placeholder="Enter email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />

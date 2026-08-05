@@ -54,7 +54,6 @@
           color: #2a2a2a;
           transform: scale(1.08);
 
-
           &::after {
             width: 100%;
           }
@@ -78,7 +77,6 @@
           gap: 6px;
 
           .icon {
-
             svg {
               width: 15px;
               height: 15px;
@@ -119,22 +117,6 @@
         }
       }
 
-      .contactBtn {
-        background: linear-gradient(135deg, #1f1f1f, #393939);
-        color: #fff;
-        padding: 10px 26px;
-        border-radius: 35px;
-        font-weight: 600;
-        border: 1px solid transparent;
-        transition: all 0.3s ease;
-
-        &:hover {
-          background: #fff;
-          color: #000;
-          border-color: #000;
-        }
-      }
-
       @media (max-width: 1024px) {
         display: none;
       }
@@ -144,68 +126,92 @@
       display: flex;
       align-items: center;
       gap: 16px;
-    }
 
-    .contactPhone {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 16px;
-      padding: 9px 18px;
-      border-radius: 30px;
-      background: #1f1f1f;
-      border: 1px solid #1f1f1f;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-
-      .phoneIcon {
-        font-size: 15px;
+      .contactBtn {
+        background: #232529;
         color: #ffffff;
-        transition: transform 0.3s ease, color 0.3s ease;
-      }
+        padding: 10px 24px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+        border: 1.5px solid #232529;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
 
-      &:hover {
-        background: #fff;
-        color: #1f1f1f;
-        border-color: #1f1f1f;
-
-        .phoneIcon {
-          color: #1f1f1f;
-          transform: rotate(12deg) scale(1.1);
+        &:hover {
+          background: #ffffff;
+          color: #232529;
+          border-color: #232529;
+          transform: translateY(-1px);
         }
       }
 
-      @media (max-width: 576px) {
-        font-size: 13px;
-        padding: 6px 12px;
-        gap: 6px;
+      .contactPhone {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 10px 22px;
+        border-radius: 30px;
+        background: #232529;
+        border: 1.5px solid #232529;
+        transition: all 0.3s ease;
+        white-space: nowrap;
 
         .phoneIcon {
-          font-size: 13px;
+          font-size: 14px;
+          color: #ffffff;
+          transition: transform 0.3s ease, color 0.3s ease;
         }
-      }
-    }
 
-    .menuIcon {
-      display: none;
-      cursor: pointer;
+        &:hover {
+          background: #ffffff;
+          color: #232529;
+          border-color: #232529;
+          transform: translateY(-1px);
 
-      svg {
-        width: 32px;
-        height: 32px;
-        color: #1f1f1f;
+          .phoneIcon {
+            color: #232529;
+            transform: rotate(12deg) scale(1.1);
+          }
+        }
 
         @media (max-width: 576px) {
-          width: 26px;
-          height: 26px;
+          font-size: 13px;
+          padding: 7px 14px;
+          gap: 6px;
+
+          .phoneIcon {
+            font-size: 12px;
+          }
         }
       }
 
-      @media (max-width: 1024px) {
-        display: block;
+      .menuIcon {
+        display: none;
+        cursor: pointer;
+
+        svg {
+          width: 30px;
+          height: 30px;
+          color: #1f1f1f;
+
+          @media (max-width: 576px) {
+            width: 26px;
+            height: 26px;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          display: block;
+        }
       }
     }
   }

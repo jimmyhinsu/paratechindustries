@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <title>Paratech Industries in India</title>
       <head>
         <meta name="title" content="Laser Marking & Cutting Machine Manufacturer in India | Paratech Industries" />
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
         ></link>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <AuthProvider>
           <ClientLayout>{children}</ClientLayout>
         </AuthProvider>

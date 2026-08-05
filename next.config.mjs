@@ -9,6 +9,29 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    const legacyProductSlugs = [
+      "co2lasercuttingmachine",
+      "co2laserengravingmachine",
+      "customiselasermachine",
+      "dengraving",
+      "dmarking",
+      "fiberlasercuttingmachine",
+      "fiberlasermarkingmachine",
+      "fiberlaserweldingmachine",
+      "handheldfiberlaserweldingmachine",
+      "jewellerycuttingmachine",
+      "jewellerysolderingmachine",
+      "onlinelasermarkingmachine",
+      "sheetpipelasercuttingmachine",
+      "uvlasermarkingmachine",
+    ];
+    return legacyProductSlugs.map((slug) => ({
+      source: `/${slug}`,
+      destination: `/products/${slug}`,
+      permanent: true,
+    }));
+  },
 };
 
 export default nextConfig;
