@@ -2060,16 +2060,6 @@ export default function AdminDashboard() {
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label>Product Tag</label>
-                    <input
-                      type="text"
-                      value={productFormData.tag || ""}
-                      onChange={(e) => setProductFormData({ ...productFormData, tag: e.target.value })}
-                      placeholder="Enter product tag"
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
                     <label>Quote Product Name</label>
                     <input
                       type="text"

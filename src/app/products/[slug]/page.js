@@ -23,7 +23,13 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const keywords = (Array.isArray(product.metaKeywords) && product.metaKeywords.length > 0)
+  const tagsList = product.tag
+    ? (typeof product.tag === "string" ? product.tag.split(",") : Array.isArray(product.tag) ? product.tag : [product.tag])
+        .map(t => String(t).trim())
+        .filter(Boolean)
+    : [];
+
+  const metaKeywords = (Array.isArray(product.metaKeywords) && product.metaKeywords.length > 0)
     ? product.metaKeywords
     : (typeof product.metaKeywords === "string" && product.metaKeywords.trim())
     ? product.metaKeywords.split(",").map(k => k.trim()).filter(Boolean)
@@ -35,10 +41,17 @@ export async function generateMetadata({ params }) {
         `Paratech Industries ${product.name}`
       ];
 
+  const otherMeta = {};
+  if (tagsList.length > 0) {
+    otherMeta["tags"] = tagsList.join(", ");
+    otherMeta["product:tag"] = tagsList.join(", ");
+  }
+
   return {
     title: product.metaTitle || `${product.heroTitle || product.name} Manufacturer, Surat | Paratech Industries`,
     description: product.metaDescription || product.descriptions?.[0] || `${product.name} manufacturer and exporter in Surat, Gujarat, India.`,
-    keywords: keywords,
+    keywords: metaKeywords,
+    other: otherMeta,
   };
 }
 
