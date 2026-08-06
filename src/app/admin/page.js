@@ -1634,11 +1634,6 @@ export default function AdminDashboard() {
                                   <div>
                                     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                                       <span style={{ fontWeight: "600", color: "#1f1f1f" }}>{prod.name}</span>
-                                      {prod.tag && (
-                                        <span style={{ background: "#e53e3e", color: "#ffffff", padding: "2px 8px", borderRadius: "10px", fontSize: "10px", fontWeight: "700", textTransform: "uppercase" }}>
-                                          {prod.tag}
-                                        </span>
-                                      )}
                                     </div>
                                     <div style={{ fontSize: "12px", color: "#777" }}>{prod.heroSubtitle || "Paratech Industries"}</div>
                                   </div>

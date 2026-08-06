@@ -78,13 +78,13 @@ export default function ProductDetail({ product: initialProduct, slug }) {
     if (initialProduct) {
       setupProductData(initialProduct);
       setLoading(false);
-      return;
+    } else {
+      setLoading(true);
     }
 
     if (slug) {
-      setLoading(true);
       fetchProductBySlugFromSupabase(slug).then((data) => {
-        if (isMounted) {
+        if (isMounted && data) {
           setupProductData(data);
           setLoading(false);
         }

@@ -2,6 +2,9 @@ import React from "react";
 import ProductDetail from "@/components/ProductDetail";
 import { fetchProductBySlugFromSupabase, fetchProductsFromSupabase } from "@/data/products";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const allProducts = await fetchProductsFromSupabase();
   return (allProducts || []).map((product) => ({
