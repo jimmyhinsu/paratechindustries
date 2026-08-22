@@ -190,15 +190,17 @@ export default function ProductDetail({ product: initialProduct, slug }) {
               {product.materialsText && (
                 <>
                   <h3>{product.materialsTitle || "Which Materials You Can Mark !!"}</h3>
-                  <p>{product.materialsText}</p>
+                  <p dangerouslySetInnerHTML={{ __html: product.materialsText }} />
                 </>
               )}
 
               {product.descriptions && product.descriptions.length > 0 && (
                 product.descriptions.map((desc, idx) => (
-                  <p key={idx} className={styles.productDesc}>
-                    {desc}
-                  </p>
+                  <p
+                    key={idx}
+                    className={styles.productDesc}
+                    dangerouslySetInnerHTML={{ __html: desc }}
+                  />
                 ))
               )}
 

@@ -201,10 +201,34 @@
         color: #222;
         line-height: 1.4;
         letter-spacing: 0.8px;
+
+        a {
+          color: #243b7a;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #000;
+            text-decoration: none;
+          }
+        }
       }
 
       .productDesc {
         margin-top: 10px;
+
+        a {
+          color: #243b7a;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: #000;
+            text-decoration: none;
+          }
+        }
       }
 
       h4 {

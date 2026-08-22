@@ -49,7 +49,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: product.metaTitle || `${product.heroTitle || product.name} Manufacturer, Surat | Paratech Industries`,
-    description: product.metaDescription || product.descriptions?.[0] || `${product.name} manufacturer and exporter in Surat, Gujarat, India.`,
+    description: product.metaDescription || product.descriptions?.[0]?.replace(/<[^>]*>/g, '') || `${product.name} manufacturer and exporter in Surat, Gujarat, India.`,
     keywords: metaKeywords,
     other: otherMeta,
   };

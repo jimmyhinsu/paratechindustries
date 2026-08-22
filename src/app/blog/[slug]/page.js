@@ -114,14 +114,14 @@ export default async function BlogDetail({ params }) {
             )}
             {blog.content && Array.isArray(blog.content) && blog.content.map((block, idx) => {
               if (block.type === "paragraph") {
-                return <p key={idx}>{block.text}</p>;
+                return <p key={idx} dangerouslySetInnerHTML={{ __html: block.text }} />;
               } else if (block.type === "heading") {
-                return <h2 key={idx}>{block.text}</h2>;
+                return <h2 key={idx} dangerouslySetInnerHTML={{ __html: block.text }} />;
               } else if (block.type === "list") {
                 return (
                   <ul key={idx}>
                     {block.items && Array.isArray(block.items) && block.items.map((item, itemIdx) => (
-                      <li key={itemIdx}>{item}</li>
+                      <li key={itemIdx} dangerouslySetInnerHTML={{ __html: item }} />
                     ))}
                   </ul>
                 );
