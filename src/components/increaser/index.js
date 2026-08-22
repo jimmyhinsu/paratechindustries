@@ -26,19 +26,30 @@ export default function Increaser() {
   const Counter = ({ end }) => {
     const [count, setCount] = useState(0);
     useEffect(() => {
-      if (visible) {
-        let start = 0;
-        const duration = 5000;
-        const step = Math.ceil(duration / end);
-        const counter = setInterval(() => {
-          start += 1;
-          if (start >= end) {
-            setCount(end);
-            clearInterval(counter);
-          } else setCount(start);
-        }, step);
-      }
-    }, [visible]);
+      if (!visible) return;
+      let animationFrameId;
+      let startTime = null;
+      const duration = 1800;
+
+      const easeOutQuad = (t) => t * (2 - t);
+
+      const step = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const eased = easeOutQuad(progress);
+        setCount(Math.floor(eased * end));
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(step);
+        } else {
+          setCount(end);
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(animationFrameId);
+    }, [visible, end]);
+
     return <>{count}</>;
   };
 

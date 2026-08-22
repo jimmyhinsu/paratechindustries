@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
 import Header from "@/common/header";
 import Footer from "@/common/footer";
-import Whatsappbubble from "@/components/whatsappbubble";
-import Callbubble from "@/components/callbubble";
-import Mailbubble from "@/components/mainlbubble";
-import Cataloguebubble from "@/components/cataloguebubble";
-import WelcomeModal from "@/components/WelcomeModal";
+
+const Whatsappbubble = dynamic(() => import("@/components/whatsappbubble"), { ssr: false });
+const Callbubble = dynamic(() => import("@/components/callbubble"), { ssr: false });
+const Mailbubble = dynamic(() => import("@/components/mainlbubble"), { ssr: false });
+const Cataloguebubble = dynamic(() => import("@/components/cataloguebubble"), { ssr: false });
+const WelcomeModal = dynamic(() => import("@/components/WelcomeModal"), { ssr: false });
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();

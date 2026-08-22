@@ -89,7 +89,7 @@ export default function Ourservices() {
                               className={styles.image}
                               width={400}
                               height={300}
-                              unoptimized
+                              loading="lazy"
                             />
                           )
                         )}

@@ -20,7 +20,6 @@ const SmartImage = ({ src, alt, width, height, className, style, priority = fals
         className={className}
         style={style}
         priority={priority}
-        unoptimized
       />
     );
   }
