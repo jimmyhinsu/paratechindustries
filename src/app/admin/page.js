@@ -309,6 +309,21 @@ export default function AdminDashboard() {
     }
   };
 
+  const triggerSitemapSync = async (showFeedback = false) => {
+    try {
+      const res = await fetch("/api/sitemap", { method: "POST" });
+      const data = await res.json();
+      if (showFeedback && data.success) {
+        setNotification({ type: "success", message: `Sitemap updated! (${data.count} URLs synchronized)` });
+      }
+    } catch (err) {
+      console.warn("Auto sitemap update notice:", err);
+      if (showFeedback) {
+        setNotification({ type: "error", message: `Failed to update sitemap: ${err.message}` });
+      }
+    }
+  };
+
   const handleOpenProductModal = (prod = null) => {
     if (prod) {
       setIsEditingProduct(true);
@@ -462,6 +477,7 @@ export default function AdminDashboard() {
 
       setIsProductModalOpen(false);
       await fetchProductsAdmin();
+      triggerSitemapSync();
     } catch (err) {
       console.error("Save product error:", err);
       setNotification({ type: "error", message: `Database save error: ${err.message || "Failed to update product"}` });
@@ -478,6 +494,7 @@ export default function AdminDashboard() {
       if (error) throw error;
       setProductsState(prev => prev.filter(p => p.slug !== slug));
       setNotification({ type: "success", message: `Deleted product "${name}" from database` });
+      triggerSitemapSync();
     } catch (err) {
       console.error("Delete product error:", err);
       setNotification({ type: "error", message: `Failed to delete product: ${err.message || err}` });
@@ -605,7 +622,38 @@ export default function AdminDashboard() {
         .from("blog-images")
         .upload(filePath, file);
 
-      if (uploadError) throw uploadError;
+      if (uploadError) {
+        if (
+          uploadError.message &&
+          (uploadError.message.includes("Bucket not found") ||
+            uploadError.message.includes("bucket") ||
+            uploadError.message.includes("row-level security") ||
+            uploadError.message.includes("policy") ||
+            uploadError.statusCode === 404)
+        ) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            setFormData((prev) => ({
+              ...prev,
+              image: reader.result,
+            }));
+            if (uploadError.message?.includes("row-level security") || uploadError.message?.includes("policy")) {
+              showNotification(
+                "warning",
+                "Storage RLS Policy required: Please add an INSERT policy for 'blog-images' in Supabase SQL Editor."
+              );
+            } else {
+              showNotification(
+                "warning",
+                "Supabase bucket 'blog-images' not found. Stored preview image! Please create a public bucket named 'blog-images' in Supabase Dashboard."
+              );
+            }
+          };
+          reader.readAsDataURL(file);
+          return;
+        }
+        throw uploadError;
+      }
 
       // Get public URL
       const { data } = supabase.storage
@@ -670,6 +718,7 @@ export default function AdminDashboard() {
 
       showNotification("success", "Blog post deleted successfully!");
       fetchBlogs();
+      triggerSitemapSync();
     } catch (err) {
       console.error("Delete error:", err);
       setBlogs(prev => prev.filter(b => b.id !== id));
@@ -698,6 +747,7 @@ export default function AdminDashboard() {
             showNotification("success", "Blog updated! Please add the 'tags' column in your Supabase database table.");
             setIsModalOpen(false);
             fetchBlogs();
+            triggerSitemapSync();
             return;
           }
           error = retry.error;
@@ -720,6 +770,7 @@ export default function AdminDashboard() {
             showNotification("success", "Blog created! Please add the 'tags' column in your Supabase database table.");
             setIsModalOpen(false);
             fetchBlogs();
+            triggerSitemapSync();
             return;
           }
           error = retry.error;
@@ -730,6 +781,7 @@ export default function AdminDashboard() {
       }
       setIsModalOpen(false);
       fetchBlogs();
+      triggerSitemapSync();
     } catch (err) {
       console.error("Save error:", err);
       showNotification("error", `Failed to save changes: ${err.message || err}`);
@@ -1030,13 +1082,24 @@ export default function AdminDashboard() {
               {currentTab === "welcome" && "Welcome Users"}
             </span>
           </div>
-          <button
-            type="button"
-            className={styles.signOutHeaderBtn}
-            onClick={handleSignOut}
-          >
-            <FiLogOut /> Sign Out
-          </button>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <button
+              type="button"
+              className={styles.signOutHeaderBtn}
+              style={{ borderColor: "#0070f3", color: "#0070f3" }}
+              onClick={() => triggerSitemapSync(true)}
+              title="Sync latest products and blogs to sitemap.xml"
+            >
+              <FiGlobe /> Sync Sitemap
+            </button>
+            <button
+              type="button"
+              className={styles.signOutHeaderBtn}
+              onClick={handleSignOut}
+            >
+              <FiLogOut /> Sign Out
+            </button>
+          </div>
         </header>
 
         {/* DASHBOARD TAB */}
