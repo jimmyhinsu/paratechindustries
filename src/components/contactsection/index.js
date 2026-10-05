@@ -8,13 +8,12 @@ export default function Contactsection() {
         <div className={styles.contactimg}>
           <div className={styles.overlay}>
             <div className={styles.allmain}>
-              <h2>Let's Build Something Great Together</h2>
+              <h2>Looking for a Laser Machine Manufacturer in India?</h2>
               <p>
-                Connect with our team today and discover how we can help you
-                accelerate growth and achieve success.
+                Tell us about your material, application, production requirements, and desired output. Our team will help you find a suitable laser machine for your business.
               </p>
               <a href="/contactus">
-                <button className={styles.cta}>Contact Us</button>
+                <button className={styles.cta}>Get a Quote</button>
               </a>
             </div>
           </div>

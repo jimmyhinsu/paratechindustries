@@ -59,6 +59,9 @@ export default function Header() {
                 </Link>
 
                 <div className={styles.dropdownMenu}>
+                  <Link href="/laser-marking-machine">
+                    Laser Marking Machine
+                  </Link>
                   {headerProducts.map((prod) => (
                     <Link key={prod.id} href={getProductHref(prod.slug)}>
                       {prod.name}

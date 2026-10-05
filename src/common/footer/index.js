@@ -93,8 +93,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.products}>
-              <h4>OUR LASER MACHINES
-              </h4>
+              <h4>OUR LASER MACHINES</h4>
               <ul>
                 {footerProducts.map((prod) => (
                   <li key={prod.id}>
@@ -102,6 +101,10 @@ export default function Footer() {
                     <Link href={getProductHref(prod.slug)}>{prod.name}</Link>
                   </li>
                 ))}
+                <li>
+                  <Arrowicon />
+                  <Link href="/laser-marking-machine">Laser Marking Machine</Link>
+                </li>
               </ul>
             </div>
           </div>

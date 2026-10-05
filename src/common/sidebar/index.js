@@ -61,6 +61,9 @@ export default function Sidebar({ isOpen, onClose }) {
 
             {isDropdownOpen && (
               <div className={styles.dropdownMenu}>
+                <Link href="/laser-marking-machine" onClick={onClose}>
+                  Laser Marking Machine
+                </Link>
                 {sidebarProducts.map((prod) => (
                   <Link key={prod.id} href={getProductHref(prod.slug)} onClick={onClose}>
                     {prod.name}

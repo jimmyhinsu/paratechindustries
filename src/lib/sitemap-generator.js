@@ -21,6 +21,7 @@ export async function getSitemapData() {
   // 1. Static Core Pages
   const staticPages = [
     { url: `${BASE_URL}/`, lastmod: today, priority: 1.0 },
+    { url: `${BASE_URL}/laser-marking-machine`, lastmod: today, priority: 0.9 },
     { url: `${BASE_URL}/aboutus`, lastmod: today, priority: 0.9 },
     { url: `${BASE_URL}/companyprofile`, lastmod: today, priority: 0.9 },
     { url: `${BASE_URL}/blog`, lastmod: today, priority: 0.9 },
