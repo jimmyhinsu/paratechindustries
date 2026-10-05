@@ -16,17 +16,20 @@ export default function Aboutsection() {
             {/* Left Content */}
             <div className={styles.content}>
               <span>About Us</span>
-              <h2>The Best Laser Machine Manufacturer, in India</h2>
+              <h2>Laser Machine Manufacturer in India</h2>
               <p>
-                Established in 2014, Paratech Industries is a leading manufacturer, supplier and exporter of industrial laser machines, covering marking, cutting, engraving, welding, soldering and cleaning. We have an in-house R&D team and follow quality control aligned with ISO and CE standards, so our customers across India receive dependable machines backed by long-term support.
+                Established in 2014, Paratech Industries is a laser machine manufacturer in India specialising in reliable and precision-driven laser solutions for modern manufacturing. We manufacture and supply laser marking, cutting, engraving, welding, and specialised laser machines for businesses across diverse industries.
               </p>
               <p>
-                Our range includes fiber laser marking and fiber laser cutting machines, handheld laser welding, CO2 cutting and engraving, UV marking, and specialised jewellery laser systems. These machines are used across automobiles, pumps, valves, bearings, engineering, hardware, pharma, surgical, tools, LED, die and mould, cable and wire, pipe, jewellery, optical, FMCG, sheet metal, fabric, and more than 100 other applications throughout India.
+                Our laser machines are designed to support accurate processing, permanent marking, efficient production, and consistent results. From fiber laser marking and cutting machines to UV, CO₂, welding, and jewellery laser solutions, we help businesses choose the right technology for their application.
+              </p>
+              <p>
+                With a focus on quality manufacturing, application expertise, and dependable after-sales support, we serve customers across India with practical laser solutions built for industrial requirements.
               </p>
 
               {pathName !== "/aboutus" && (
                 <a href="/aboutus" className={styles.btn}>
-                  <button> Explore More</button>
+                  <button> Explore About Us</button>
                 </a>
               )}
             </div>

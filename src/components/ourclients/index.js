@@ -58,10 +58,10 @@ export default function OurClients() {
     <section className={styles.clientSection} id="our-clients">
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span>TRUSTED PARTNERS</span>
+          <span>TRUSTED BY INDUSTRIES</span>
           <h2>Our Clients</h2>
           <p>
-            Proud to power leading manufacturing and industrial enterprises across India with precision laser technology.
+            Businesses across manufacturing and industrial sectors rely on Paratech Industries for precision laser machinery and application-focused solutions.
           </p>
         </div>
 

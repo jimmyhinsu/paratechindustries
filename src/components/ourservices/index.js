@@ -37,8 +37,11 @@ export default function Ourservices() {
     <div className={styles.servicesSection}>
       <div className={styles.container}>
         <div className={styles.heading}>
-          <span>OUR PRODUCTS</span>
-          <h2>Explore Our Products</h2>
+          <span>OUR LASER MACHINES</span>
+          <h2>Explore Our Laser Machines</h2>
+          <p>
+            Explore precision-engineered laser machines designed for marking, cutting, engraving, welding, and specialised industrial applications.
+          </p>
         </div>
 
         <div className={styles.sliderWrapper}>

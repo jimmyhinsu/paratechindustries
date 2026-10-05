@@ -56,7 +56,7 @@ export default function Review() {
     <section className={styles.reviewSection}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
-          <span>Client's Testimonials</span>
+          <span>CUSTOMER TESTIMONIALS</span>
           <h2>What Our Customers Say</h2>
         </div>
 

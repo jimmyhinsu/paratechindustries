@@ -19,18 +19,17 @@ export default function HeroBanner() {
       <div className={styles.overlay}></div>
 
       <div className={styles.content}>
-        <h1>Laser Marking & Cutting Machine Manufacturer | Paratech Industries</h1>
+        <h1>Laser Machine Manufacturer in India | Paratech Industries</h1>
         <p>
-          Paratech Industries is committed to delivering reliable, innovative, and future-ready solutions for businesses worldwide.
-
+          Paratech Industries is a trusted laser machine manufacturer in India, delivering reliable laser marking, cutting, engraving, welding, and specialised laser solutions for industries across India.
 
         </p>
         <div className={styles.buttons}>
           <Link href="/aboutus">
-            <button className={styles.primaryBtn}>Explore More</button>
+            <button className={styles.primaryBtn}>Explore Laser Machines</button>
           </Link>
           <Link href="/contactus">
-            <button className={styles.secondaryBtn}>Contact Us</button>
+            <button className={styles.secondaryBtn}>Get a Quote</button>
           </Link>
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function Increaser() {
     { label: "Projects Completed", value: 150 },
     { label: "Happy Clients", value: 3800 },
     { label: "Years of Experience", value: 10 },
-    { label: "Products", value: 20 },
+    { label: "Laser Products", value: 20 },
   ];
 
   const [visible, setVisible] = useState(false);

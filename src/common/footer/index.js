@@ -93,7 +93,8 @@ export default function Footer() {
             </div>
 
             <div className={styles.products}>
-              <h4>Our Products</h4>
+              <h4>OUR LASER MACHINES
+              </h4>
               <ul>
                 {footerProducts.map((prod) => (
                   <li key={prod.id}>

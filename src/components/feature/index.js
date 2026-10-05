@@ -14,39 +14,45 @@ export default function Feature() {
   const features = [
     {
       icon: <FaCogs />,
-      title: "QUALITY",
+      tag: "QUALITY",
+      title: "Quality Laser Machines",
       description:
-        "We have been delivering top-quality industrial products since 2014. Our commitment ensures premium and reliable solutions for clients.",
+        "We manufacture laser machines with a focus on precision, durability, performance, and consistent results for industrial applications.",
     },
     {
       icon: <FaUsers />,
-      title: "TEAM",
+      tag: "TEAM",
+      title: "Experienced Team",
       description:
-        "Our experienced and dedicated team of engineers consistently meet customer expectations with precision and innovation.",
+        "Our experienced engineering team understands different laser applications and helps customers identify suitable machine solutions.",
     },
     {
       icon: <FaTruck />,
-      title: "DELIVERY",
+      tag: "DELIVERY",
+      title: "Reliable Delivery",
       description:
-        "We deliver on time with efficiency, ensuring every order reaches our clients promptly and securely.",
+        "We follow an organised manufacturing and delivery process to help customers receive their laser machines on time.",
     },
     {
       icon: <FaHandshake />,
-      title: "CLIENTELE",
+      tag: "CLIENTELE",
+      title: "Trusted by Industries",
       description:
-        "We value long-term relationships and are dedicated to providing the best industrial machinery and service to our customers.",
+        "Our laser solutions support businesses across automotive, engineering, jewellery, electronics, pharmaceutical, and other industries.",
     },
     {
       icon: <FaInfoCircle />,
-      title: "ABOUT US",
+      tag: "ABOUT US",
+      title: "Industrial Expertise",
       description:
-        "Paratech Industries specializes in manufacturing and exporting high-quality laser and industrial machinery worldwide.",
+        "Since 2014, Paratech Industries has been developing and supplying laser machinery for diverse manufacturing requirements.",
     },
     {
       icon: <FaHeadset />,
-      title: "AFTER SALES SERVICE",
+      tag: "AFTER SALES SERVICE",
+      title: "After-Sales Support",
       description:
-        "Our support team is available anytime, ensuring our customers receive quick and reliable service whenever needed.",
+        "From installation and machine guidance to technical assistance, our team supports customers beyond the initial purchase.",
     },
   ];
 
@@ -58,6 +64,7 @@ export default function Feature() {
             {features.map((item, index) => (
               <div key={index} className={styles.card}>
                 <div className={styles.icon}>{item.icon}</div>
+                <span className={styles.tag}>{item.tag}</span>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </div>
