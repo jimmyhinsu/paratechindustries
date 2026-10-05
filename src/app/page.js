@@ -6,6 +6,7 @@ import Herobanner from "@/components/herobanner";
 import Increaser from "@/components/increaser";
 import Ourservices from "@/components/ourservices";
 import Review from "@/components/review";
+import OurClients from "@/components/ourclients";
 import FAQ from "@/components/faq";
 import { useEffect } from "react";
 
@@ -51,6 +52,7 @@ export default function Home() {
       <Increaser />
       <Feature />
       <Review />
+      <OurClients />
       <FAQ />
       <Contactsection />
     </>

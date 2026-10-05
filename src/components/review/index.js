@@ -15,6 +15,7 @@ const reviews = [
     state: "Uttarakhand",
     product: "Fiber lase cutting machine",
     rating: 5,
+    image: "/images/ravish.webp",
     review:
       "Excellent quality with elegant texture. The color consistency and finish are truly professional!",
   },
@@ -24,6 +25,7 @@ const reviews = [
     state: "Rajasthan",
     product: "Co2 laser engraving machine",
     rating: 4,
+    image: "/images/priya.jpeg",
     review:
       "Beautiful designs with smooth shine. Installation was easy and the product feels very durable.",
   },
@@ -33,6 +35,7 @@ const reviews = [
     state: "Gujarat",
     product: "Jewellry cutting machine",
     rating: 5,
+    image: "/images/rahul.jpeg",
     review:
       "Superb product! Gives a rich wood finish look. Customer service was also great. Highly recommend!",
   },
@@ -42,6 +45,7 @@ const reviews = [
     state: "Gujarat",
     product: "Fiber laser marking machine",
     rating: 5,
+    image: "/images/sneha.jpg",
     review:
       "This laminate totally changed the vibe of my kitchen! Glossy, premium, and easy to clean. Love it!",
   },
@@ -79,7 +83,16 @@ export default function Review() {
               <div className={styles.card}>
                 <div className={styles.header}>
                   <div className={styles.avatar}>
-                    {review.name.charAt(0).toUpperCase()}
+                    {review.image ? (
+                      <img
+                        src={review.image}
+                        alt={review.name}
+                        className={styles.avatarImg}
+                        loading="lazy"
+                      />
+                    ) : (
+                      review.name.charAt(0).toUpperCase()
+                    )}
                   </div>
 
                   <div className={styles.userInfo}>
