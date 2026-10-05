@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Commonherobanner from "@/components/commonherobanner";
@@ -9,55 +8,69 @@ import { supabase } from "@/lib/supabase";
 import styles from "./blog.module.scss";
 import { FiArrowRight } from "react-icons/fi";
 import Contactsection from "@/components/contactsection";
+import ScrollToTop from "@/common/ScrollToTop";
 
-export default function BlogList() {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+export const metadata = {
+  title: "Insights & Technical Blog",
+  description:
+    "Read Paratech Industries’ latest insights on laser marking, cutting, engraving, welding and industrial laser machine technology and applications.",
+  keywords: [
+    "laser machine blog",
+    "laser marking insights",
+    "fiber laser technology",
+    "laser cutting articles",
+    "Paratech Industries blog",
+  ],
+  alternates: {
+    canonical: "https://paratechindustries.com/blog",
+  },
+  openGraph: {
+    title: "Insights & Technical Blog | Paratech Industries",
+    description:
+      "Read Paratech Industries’ latest insights on laser marking, cutting, engraving, welding and industrial laser machine technology and applications.",
+    url: "https://paratechindustries.com/blog",
+    siteName: "Paratech Industries",
+    type: "website",
+  },
+};
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    document.title = "Insights & Technical Blog | Paratech Industries";
+async function getBlogs() {
+  try {
+    const { data, error } = await supabase
+      .from("blogs")
+      .select("*")
+      .order("id", { ascending: true });
 
-    async function fetchBlogs() {
-      try {
-        const { data, error } = await supabase
-          .from("blogs")
-          .select("*")
-          .order("id", { ascending: true });
+    if (error) throw error;
 
-        if (error) throw error;
+    const mapped = (data || []).map((blog) => ({
+      ...blog,
+      image: blogImageMap[blog.image] || blog.image,
+      readTime: blog.read_time || blog.readTime,
+    }));
 
-        const mapped = (data || []).map((blog) => ({
-          ...blog,
-          image: blogImageMap[blog.image] || blog.image,
-          readTime: blog.read_time || blog.readTime
-        }));
-
-        const sorted = mapped.sort((a, b) => {
-          const dateA = new Date(a.date);
-          const dateB = new Date(b.date);
-          const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
-          const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
-          if (timeB !== timeA) {
-            return timeB - timeA;
-          }
-          return b.id - a.id;
-        });
-
-        setBlogs(sorted);
-      } catch (err) {
-        console.error("Failed to load blogs:", err);
-        setError(true);
-      } finally {
-        setLoading(false);
+    return mapped.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
+      const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
+      if (timeB !== timeA) {
+        return timeB - timeA;
       }
-    }
-    fetchBlogs();
-  }, []);
+      return b.id - a.id;
+    });
+  } catch (err) {
+    console.error("Failed to load blogs on server:", err);
+    return [];
+  }
+}
+
+export default async function BlogList() {
+  const blogs = await getBlogs();
 
   return (
     <>
+      <ScrollToTop />
       <Commonherobanner
         title="Insights & Technical Blog"
         subtitle="Stay updated with the latest in laser technology and industrial manufacturing"
@@ -66,18 +79,11 @@ export default function BlogList() {
 
       <section className={styles.blogSection}>
         <div className={styles.container}>
-          {loading ? (
+          {blogs.length === 0 ? (
             <div className={styles.statusBox}>
-              <div className={styles.spinner} />
-              <p>Loading articles...</p>
-            </div>
-          ) : error ? (
-            <div className={styles.statusBox}>
-              <p className={styles.errorText}>Failed to load blogs. Please try again later.</p>
-            </div>
-          ) : blogs.length === 0 ? (
-            <div className={styles.statusBox}>
-              <p className={styles.emptyText}>No blog articles have been published yet. Check back soon!</p>
+              <p className={styles.emptyText}>
+                No blog articles have been published yet. Check back soon!
+              </p>
             </div>
           ) : (
             <div className={styles.grid}>
@@ -90,7 +96,7 @@ export default function BlogList() {
                         alt={blog.title}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        priority={blog.id === 1}
+                        priority={blog.id === 1 || blog.id === 12}
                       />
                     )}
                   </div>
@@ -100,8 +106,14 @@ export default function BlogList() {
                       <span className={styles.date}>{blog.date}</span>
                     </div>
                     <h2 className={styles.cardTitle}>{blog.title}</h2>
-                    <div className={styles.excerpt} dangerouslySetInnerHTML={{ __html: blog.excerpt }} />
-                    <Link href={`/blog/${blog.slug}`} className={styles.readMoreBtn}>
+                    <div
+                      className={styles.excerpt}
+                      dangerouslySetInnerHTML={{ __html: blog.excerpt }}
+                    />
+                    <Link
+                      href={`/blog/${blog.slug}`}
+                      className={styles.readMoreBtn}
+                    >
                       Read More <FiArrowRight />
                     </Link>
                   </div>

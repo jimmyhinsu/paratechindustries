@@ -155,19 +155,19 @@ export function getProductHref(slug) {
 }
 
 export const defaultProductsList = [
-  { id: "fiberlasermarkingmachine", slug: "fiberlasermarkingmachine", name: "Fiber Laser Marking Machine", heroTitle: "Fiber Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Marking Machine" },
-  { id: "fiberlasercuttingmachine", slug: "fiberlasercuttingmachine", name: "Fiber Laser Cutting Machine", heroTitle: "Fiber Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Cutting Machine" },
-  { id: "handheldfiberlaserweldingmachine", slug: "handheldfiberlaserweldingmachine", name: "Handheld Fiber Laser Welding Machine", heroTitle: "Handheld Laser Welding Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Handheld Fiber Laser Welding Machine" },
-  { id: "customiselasermachine", slug: "customiselasermachine", name: "Customise Laser Marking Machine", heroTitle: "Customise Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Customise Laser Machine" },
-  { id: "sheetpipelasercuttingmachine", slug: "sheetpipelasercuttingmachine", name: "Sheet + Pipe Laser Cutting Machine", heroTitle: "Sheet & Pipe Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Sheet + Pipe Laser Cutting Machine" },
-  { id: "onlinelasermarkingmachine", slug: "onlinelasermarkingmachine", name: "Online Laser Marking Machine", heroTitle: "Online Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Online Laser Marking Machine" },
-  { id: "co2lasercuttingmachine", slug: "co2lasercuttingmachine", name: "Co2 Laser Cutting & Engraving Machine", heroTitle: "Co2 Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Cutting Machine" },
-  { id: "co2laserengravingmachine", slug: "co2laserengravingmachine", name: "Co2 Laser Engraving Machine", heroTitle: "Co2 Laser Engraving Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Engraving Machine" },
-  { id: "dengraving", slug: "dengraving", name: "3D Engraving", heroTitle: "3D Engraving", heroSubtitle: "Paratech Industries", quoteProductName: "3D Engraving Machine" },
-  { id: "dmarking", slug: "dmarking", name: "3D Marking", heroTitle: "3D Marking", heroSubtitle: "Paratech Industries", quoteProductName: "3D Engraving Machine" },
-  { id: "uvlasermarkingmachine", slug: "uvlasermarkingmachine", name: "UV Laser Marking Machine", heroTitle: "UV Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Uv Laser Marking/Engraving Machine" },
-  { id: "jewellerycuttingmachine", slug: "jewellerycuttingmachine", name: "Jewellery Laser Cutting Machine", heroTitle: "Jewellery Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Cutting Machine" },
-  { id: "jewellerysolderingmachine", slug: "jewellerysolderingmachine", name: "Jewellery Laser Soldering Machine", heroTitle: "Jewellery Laser Soldering Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Soldering Machine" }
+  { id: "fiber-laser-marking-machine", slug: "fiber-laser-marking-machine", name: "Fiber Laser Marking Machine", heroTitle: "Fiber Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Marking Machine" },
+  { id: "fiber-laser-cutting-machine", slug: "fiber-laser-cutting-machine", name: "Fiber Laser Cutting Machine", heroTitle: "Fiber Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Fiber Laser Cutting Machine" },
+  { id: "handheld-fiber-laser-welding-machine", slug: "handheld-fiber-laser-welding-machine", name: "Handheld Fiber Laser Welding Machine", heroTitle: "Handheld Laser Welding Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Handheld Fiber Laser Welding Machine" },
+  { id: "customise-laser-machine", slug: "customise-laser-machine", name: "Customise Laser Marking Machine", heroTitle: "Customise Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Customise Laser Machine" },
+  { id: "sheet-pipe-laser-cutting-machine", slug: "sheet-pipe-laser-cutting-machine", name: "Sheet + Pipe Laser Cutting Machine", heroTitle: "Sheet & Pipe Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Sheet + Pipe Laser Cutting Machine" },
+  { id: "online-laser-marking-machine", slug: "online-laser-marking-machine", name: "Online Laser Marking Machine", heroTitle: "Online Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Online Laser Marking Machine" },
+  { id: "co2-laser-cutting-machine", slug: "co2-laser-cutting-machine", name: "Co2 Laser Cutting Machine", heroTitle: "Co2 Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Cutting Machine" },
+  { id: "co2-laser-engraving-machine", slug: "co2-laser-engraving-machine", name: "Co2 Laser Engraving Machine", heroTitle: "Co2 Laser Engraving Machine", heroSubtitle: "Paratech Industries", quoteProductName: "CO2 Laser Engraving Machine" },
+  { id: "3d-engraving", slug: "3d-engraving", name: "3D Engraving", heroTitle: "3D Engraving", heroSubtitle: "Paratech Industries", quoteProductName: "3D Engraving Machine" },
+  { id: "3d-marking", slug: "3d-marking", name: "3D Marking", heroTitle: "3D Marking", heroSubtitle: "Paratech Industries", quoteProductName: "3D Marking Machine" },
+  { id: "uv-laser-marking-machine", slug: "uv-laser-marking-machine", name: "UV Laser Marking Machine", heroTitle: "UV Laser Marking Machine", heroSubtitle: "Paratech Industries", quoteProductName: "UV Laser Marking Machine" },
+  { id: "jewellery-laser-cutting-machine", slug: "jewellery-laser-cutting-machine", name: "Jewellery Laser Cutting Machine", heroTitle: "Jewellery Laser Cutting Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Cutting Machine" },
+  { id: "jewellery-laser-soldering-machine", slug: "jewellery-laser-soldering-machine", name: "Jewellery Laser Soldering Machine", heroTitle: "Jewellery Laser Soldering Machine", heroSubtitle: "Paratech Industries", quoteProductName: "Jewellery Laser Soldering Machine" }
 ];
 
 let cachedProducts = null;

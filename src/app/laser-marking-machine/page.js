@@ -48,7 +48,7 @@ import {
 } from "react-icons/fa";
 
 export const metadata = {
-  title: "Laser Marking Machine Manufacturer in India | Paratech Industries",
+  title: "Laser Marking Machine Manufacturer in India",
   description:
     "Explore laser marking machines from Paratech Industries for precise, permanent marking on metals, plastics and other materials. Get a quote today.",
   keywords: [
@@ -265,7 +265,7 @@ export default function LaserMarkingMachinePage() {
                     <li>Traceability</li>
                   </ul>
                 </div>
-                <Link href="/products/fiberlasermarkingmachine" className={styles.exploreLink}>
+                <Link href="/products/fiber-laser-marking-machine" className={styles.exploreLink}>
                   <span>Explore Fiber Laser Marking Machine</span>
                   <FaArrowRight />
                 </Link>
@@ -293,7 +293,7 @@ export default function LaserMarkingMachinePage() {
                     <li>Precision parts</li>
                   </ul>
                 </div>
-                <Link href="/products/uvlasermarkingmachine" className={styles.exploreLink}>
+                <Link href="/products/uv-laser-marking-machine" className={styles.exploreLink}>
                   <span>Explore UV Laser Marking Machine</span>
                   <FaArrowRight />
                 </Link>
@@ -319,7 +319,7 @@ export default function LaserMarkingMachinePage() {
                     <li>Batch traceability</li>
                   </ul>
                 </div>
-                <Link href="/products/onlinelasermarkingmachine" className={styles.exploreLink}>
+                <Link href="/products/online-laser-marking-machine" className={styles.exploreLink}>
                   <span>Explore Online Laser Marking Machine</span>
                   <FaArrowRight />
                 </Link>
@@ -345,7 +345,7 @@ export default function LaserMarkingMachinePage() {
                     <li>Rotary indexing</li>
                   </ul>
                 </div>
-                <Link href="/products/customiselasermachine" className={styles.exploreLink}>
+                <Link href="/products/customise-laser-machine" className={styles.exploreLink}>
                   <span>Enquire About Custom Laser Marking</span>
                   <FaArrowRight />
                 </Link>
@@ -373,7 +373,7 @@ export default function LaserMarkingMachinePage() {
                     <li>Detailed logos</li>
                   </ul>
                 </div>
-                <Link href="/products/dmarking" className={styles.exploreLink}>
+                <Link href="/products/3d-marking" className={styles.exploreLink}>
                   <span>Explore 3D Laser Marking Machine</span>
                   <FaArrowRight />
                 </Link>
@@ -841,48 +841,6 @@ export default function LaserMarkingMachinePage() {
           <p className={styles.compNote}>
             <strong>Important:</strong> Final machine selection should be based on actual material testing and application requirements rather than this general comparison alone.
           </p>
-        </div>
-      </section>
-
-      {/* 13. INTERNAL PRODUCT NAVIGATION */}
-      <section className={styles.productNavSection}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.tag}>Category Hub</span>
-            <h2>Explore Our Laser Marking Solutions</h2>
-          </div>
-
-          <div className={styles.navGrid}>
-            <Link href="/products/fiberlasermarkingmachine" className={styles.navCard}>
-              <span>Fiber Laser Marking Machine</span>
-              <FaArrowRight className={styles.arrow} />
-            </Link>
-
-            <Link href="/products/uvlasermarkingmachine" className={styles.navCard}>
-              <span>UV Laser Marking Machine</span>
-              <FaArrowRight className={styles.arrow} />
-            </Link>
-
-            <Link href="/products/onlinelasermarkingmachine" className={styles.navCard}>
-              <span>Online Laser Marking Machine</span>
-              <FaArrowRight className={styles.arrow} />
-            </Link>
-
-            <Link href="/products/customiselasermachine" className={styles.navCard}>
-              <span>Customised Laser Marking Machine</span>
-              <FaArrowRight className={styles.arrow} />
-            </Link>
-
-            <Link href="/products/jewellerycuttingmachine" className={styles.navCard}>
-              <span>Jewellery Laser Marking Machine</span>
-              <FaArrowRight className={styles.arrow} />
-            </Link>
-
-            <Link href="/products/dmarking" className={styles.navCard}>
-              <span>3D Laser Marking Machine</span>
-              <FaArrowRight className={styles.arrow} />
-            </Link>
-          </div>
         </div>
       </section>
 

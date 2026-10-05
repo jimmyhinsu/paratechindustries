@@ -5,7 +5,7 @@ import Industriessection from "@/components/industriessection";
 import ScrollToTop from "@/common/ScrollToTop";
 
 export const metadata = {
-  title: "Industries We Serve | Laser Machinery Applications | Paratech Industries",
+  title: "Industries We Serve | Laser Machinery Applications",
   description:
     "Explore the diverse industries served by Paratech Industries laser machinery, including jewellery, automotive, electronics, medical, utensils, and manufacturing.",
   alternates: {
