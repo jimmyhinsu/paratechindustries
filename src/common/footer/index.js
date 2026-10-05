@@ -13,6 +13,71 @@ import Instagram from "@/assests/svg/instagram";
 import Youtube from "@/assests/svg/youtube";
 import { fetchProductsFromSupabase, getProductHref } from "@/data/products";
 
+const footerKeywords = [
+  "UV laser marking machine in surat",
+  "UV laser marking machine in india",
+  "UV laser marking machine in gujarat",
+  "UV laser marking machine manufacturer",
+  "UV laser marking machine manufacturer in india",
+  "UV laser marking machine manufacturer in surat",
+  "UV laser marking machine manufacturer in gujarat",
+  "CO2 laser marking machine manufacturer in surat",
+  "CO2 laser marking machine manufacturer in Gujarat",
+  "CO2 laser marking machine manufacturer in India",
+  "Best CO2 laser marking machine manufacturer in surat",
+  "Best CO2 laser marking machine manufacturer in Gujarat",
+  "Best CO2 laser marking machine manufacturer in India",
+  "fiber laser marking machine in surat",
+  "fiber laser marking machine manufacturer in surat",
+  "fiber laser marking machine in india",
+  "metal laser marking machine in surat",
+  "metal laser marking machine in india",
+  "Metal laser marking machine in gujarat",
+  "Metal laser marking machine manufacturer in surat",
+  "Metal laser marking machine manufacturer in gujarat",
+  "laser marking machine in surat",
+  "laser marking machine in gujarat",
+  "laser marking machine in india",
+  "laser marking machine manufacturer in surat",
+  "laser marking machine manufacturer in gujarat",
+  "laser marking machine manufacturer in India",
+  "Jewellery Laser Solder Machine for Silver",
+  "Jewellery Laser Solder Machine for Gold",
+  "20W Jewellery Laser Engraving Machine",
+  "Laser Marking Engraving Machine for SS Bottle",
+  "Laser Marking Engraving Machine for SS",
+  "QR Code Laser Marking Machine",
+  "Metal Portable Laser Marking Machine",
+  "Handheld laser marking machine",
+  "Handheld laser marking machine near me",
+  "Handheld laser marking machine manufacturer",
+  "Handheld laser marking machine manufacturer near me",
+  "Plastic laser marking machine near me",
+  "Jewellery laser marking machine",
+  "Jewellery laser marking machine near me",
+  "Jewellery laser marking machine manufacturer",
+  "Jewellery laser marking machine manufacturer near me",
+  "Laser Marking Machine for Steel Utensil",
+  "Mechanical Seal Laser Marking Machine",
+  "AUTOMATIC FIBER LASER MARKING AND ENGRAVING MACHINE",
+  "AUTOMATIC FIBER LASER MARKING MACHINE",
+  "METAL PORTABLE LASER MARKING MACHINE",
+  "Mopa Colour Fiber Laser Marking Machine",
+  "Jewellery Laser Welding Machine Supplier In Surat",
+  "Jewellery Laser Welding Machine Supplier In India",
+  "Jewellery Laser Welding Machine Supplier In Gujarat",
+  "Jewellery Laser Welder Manufacturer Near Me",
+  "Jewellery Laser Welder Manufacturer In Surat",
+  "Jewellery Laser Welder Manufacturer In Gujarat",
+  "Jewellery Laser Welder Manufacturer In India",
+  "Laser Soldering Machine In India",
+  "Laser Soldering Machine In Gujarat",
+  "Laser Soldering Machine In Surat",
+  "Laser Soldering Machine Manufacturer In India",
+  "Laser Soldering Machine Manufacturer In Surat",
+  "Laser Soldering Machine Manufacturer In Gujarat"
+];
+
 export default function Footer() {
   const [footerProducts, setFooterProducts] = useState([]);
 
@@ -34,7 +99,7 @@ export default function Footer() {
     <>
       <footer className={styles.footer}>
         <div className={styles.container}>
-          <Link href={"/"}>
+          <Link href="/" className={styles.logoLink}>
             <div className={styles.logo}>
               <Image src={logo} alt="logo" />
             </div>
@@ -124,8 +189,19 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Keywords Section */}
+          <div className={styles.keywordsSection}>
+            <div className={styles.keywordsList}>
+              {footerKeywords.map((keyword, index) => (
+                <span key={index} className={styles.keywordItem}>
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <div className={styles.footerBottom}>
-            <p>© 2025 Paratech Industrial Company. All rights reserved.</p>
+            <p>© 2026 Paratech Industrial Company. All rights reserved.</p>
           </div>
         </div>
       </footer>
