@@ -1,4 +1,3 @@
-"use client";
 import Aboutsection from "@/components/aboutsection";
 import Contactsection from "@/components/contactsection";
 import Feature from "@/components/feature";
@@ -8,14 +7,36 @@ import Ourservices from "@/components/ourservices";
 import Review from "@/components/review";
 import OurClients from "@/components/ourclients";
 import FAQ from "@/components/faq";
-import { useEffect } from "react";
+import ScrollToTop from "@/common/ScrollToTop";
+
+export const metadata = {
+  title: "Laser Machine Manufacturer in Surat, India",
+  description:
+    "Paratech Industries is a laser machine manufacturer in India with 10+ years of experience in fiber laser marking, cutting, engraving and welding machines.",
+  keywords: [
+    "industrial laser machine manufacturer in India",
+    "laser machine manufacturer in India",
+    "fiber laser marking machine",
+    "laser cutting machine manufacturer Surat",
+    "Paratech Industries",
+  ],
+  alternates: {
+    canonical: "https://paratechindustries.com/",
+  },
+  openGraph: {
+    title: "Laser Machine Manufacturer in Surat, India",
+    description:
+      "Paratech Industries is a laser machine manufacturer in India with 10+ years of experience in fiber laser marking, cutting, engraving and welding machines.",
+    url: "https://paratechindustries.com/",
+    siteName: "Paratech Industries",
+    type: "website",
+  },
+};
 
 export default function Home() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
   return (
     <>
+      <ScrollToTop />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

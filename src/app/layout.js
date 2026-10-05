@@ -12,9 +12,12 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Laser Marking & Cutting Machine Manufacturer in India | Paratech Industries",
+  title: {
+    default: "Laser Machine Manufacturer in Surat, India | Paratech Industries",
+    template: "%s | Paratech Industries",
+  },
   description:
-    "Looking for reliable laser machines? Paratech Industries offers fiber laser marking, cutting, welding, UV laser, CO2 laser, and customized industrial laser solutions across India.",
+    "Paratech Industries is a laser machine manufacturer in India with 10+ years of experience in fiber laser marking, cutting, engraving and welding machines.",
   verification: {
     google: "e-90jYd2uPXF1AxE6fsRs24720yY_xQlQYI-pwUhmXM",
   },
