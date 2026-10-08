@@ -756,12 +756,40 @@ export default function AdminDashboard() {
         if (error) throw error;
         showNotification("success", "Blog post updated successfully!");
       } else {
+        let insertData = { ...formData };
+        delete insertData.id;
+
+        // Auto-assign next sequential ID to avoid "duplicate key value violates unique constraint blogs_pkey"
+        // caused when the PostgreSQL sequence is out of sync with imported records.
+        const { data: maxRows } = await supabase
+          .from("blogs")
+          .select("id")
+          .order("id", { ascending: false })
+          .limit(1);
+
+        let nextId = (maxRows && maxRows[0] && maxRows[0].id ? Number(maxRows[0].id) : 0) + 1;
+        insertData.id = nextId;
+
         let { error } = await supabase
           .from("blogs")
-          .insert([formData]);
+          .insert([insertData]);
+
+        // If duplicate primary key is still encountered, query again and retry with next available ID
+        if (error && (error.code === "23505" || error.message?.includes("blogs_pkey"))) {
+          const { data: retryMax } = await supabase
+            .from("blogs")
+            .select("id")
+            .order("id", { ascending: false })
+            .limit(1);
+          insertData.id = (retryMax && retryMax[0] && retryMax[0].id ? Number(retryMax[0].id) : nextId) + 1;
+          const retryRes = await supabase
+            .from("blogs")
+            .insert([insertData]);
+          error = retryRes.error;
+        }
 
         if (error && (error.message?.includes("tags") || error.code === "PGRST204")) {
-          const { tags, ...dataWithoutTags } = formData;
+          const { tags, ...dataWithoutTags } = insertData;
           const retry = await supabase
             .from("blogs")
             .insert([dataWithoutTags]);

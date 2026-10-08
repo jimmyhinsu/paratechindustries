@@ -5,8 +5,10 @@ import { blogImageMap } from "@/data/blogs";
 import { supabase } from "@/lib/supabase";
 import styles from "../blog.module.scss";
 import { FiArrowLeft, FiUser, FiCalendar } from "react-icons/fi";
-import Contactsection from "@/components/contactsection";
 import ScrollToTop from "./ScrollToTop";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 // Helper to fetch blog data on the server
 async function getBlog(slug) {

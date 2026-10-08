@@ -9,6 +9,8 @@ import styles from "./blog.module.scss";
 import { FiArrowRight } from "react-icons/fi";
 import Contactsection from "@/components/contactsection";
 import ScrollToTop from "@/common/ScrollToTop";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata = {
   title: "Insights & Technical Blog",
