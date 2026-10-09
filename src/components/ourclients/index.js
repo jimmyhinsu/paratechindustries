@@ -11,16 +11,12 @@ import "swiper/css/navigation";
 
 const clients = [
   {
-    name: "Apar Industries",
-    image: "/images/apar-industrie-1785996254259.jpeg",
+    name: "Indian Air Force",
+    image: "/images/Indian airforce.png",
   },
   {
-    name: "Arvin",
-    image: "/images/Arvin-1785996195160.jpeg",
-  },
-  {
-    name: "Arvind",
-    image: "/images/Arvind-1785996221700.jpeg",
+    name: "Indian Army",
+    image: "/images/Indian army.webp",
   },
   {
     name: "BHEL",
@@ -31,8 +27,64 @@ const clients = [
     image: "/images/siemens-lt-1785996273704.jpeg",
   },
   {
+    name: "Apar Industries",
+    image: "/images/apar-industrie-1785996254259.jpeg",
+  },
+  {
+    name: "Kirloskar",
+    image: "/images/KIRLOSKAR.jpg",
+  },
+  {
+    name: "Polycab India",
+    image: "/images/Polycab India limited.png",
+  },
+  {
+    name: "Unilever",
+    image: "/images/Unilever.svg",
+  },
+  {
+    name: "Liebherr",
+    image: "/images/logo_ci_liebherr.svg",
+  },
+  {
+    name: "FIEM Industries",
+    image: "/images/Fiem industries.png",
+  },
+  {
+    name: "Ralson Tyres",
+    image: "/images/ralson-new-logo.png",
+  },
+  {
+    name: "Reise Moto",
+    image: "/images/Reise tyre.png",
+  },
+  {
+    name: "Jayaswal Neco",
+    image: "/images/Jayaswal.svg",
+  },
+  {
+    name: "Shish Jewels",
+    image: "/images/Shish_Jewels_Logo_R-scaled.png",
+  },
+  {
+    name: "GOCL",
+    image: "/images/cropped-logo@2x.png",
+  },
+  {
+    name: "Mitas",
+    image: "/images/Logo_MITAS_white.svg",
+  },
+  {
+    name: "Arvind",
+    image: "/images/Arvind-1785996221700.jpeg",
+  },
+  {
     name: "Hind Rectifiers",
     image: "/images/trectifie-1785996296276.jpeg",
+  },
+  {
+    name: "Aditya Birla Group",
+    image: "/images/Arvin-1785996195160.jpeg",
   },
 ];
 
