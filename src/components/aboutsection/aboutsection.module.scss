@@ -97,6 +97,17 @@
                 font-size: 16px;
                 line-height: 1.4;
             }
+
+            .brandLink {
+                color: #000000;
+                font-weight: 600;
+                text-decoration: underline;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: #1a73e8;
+                }
+            }
         }
 
         .btn {

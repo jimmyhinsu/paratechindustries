@@ -174,9 +174,6 @@ export default function Review() {
                     ))}
                   </div>
                 </div>
-                <span className={styles.ratingCount}>
-                  Based on 32 verified Google Reviews
-                </span>
               </div>
             </div>
 
