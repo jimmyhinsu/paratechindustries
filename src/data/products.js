@@ -10,7 +10,7 @@ export function getResolvedFaqs(itemFaqs, slug) {
   if (productFaqsJson && Array.isArray(productFaqsJson[cleanSlug]) && productFaqsJson[cleanSlug].length > 0) {
     return productFaqsJson[cleanSlug];
   }
-  return getDefaultFaqsForSlug(cleanSlug);
+  return [];
 }
 
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";

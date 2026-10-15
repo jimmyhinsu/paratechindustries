@@ -55,8 +55,8 @@ export async function GET(request) {
     // Column might not exist in Supabase yet
   }
 
-  // 2. Fallback to local storage or defaults
-  const faqs = localMap[cleanSlug] || getDefaultFaqsForSlug(cleanSlug);
+  // 2. Fallback to local storage (only returns FAQs if user added them)
+  const faqs = localMap[cleanSlug] || [];
   return NextResponse.json({ success: true, slug: cleanSlug, faqs, source: "local" });
 }
 
