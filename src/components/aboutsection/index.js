@@ -26,7 +26,49 @@ export default function Aboutsection() {
                 is a laser machine manufacturer in India specialising in reliable and precision-driven laser solutions for modern manufacturing. We manufacture and supply laser marking, cutting, engraving, welding, and specialised laser machines for businesses across diverse industries.
               </p>
               <p>
-                Our laser machines are designed to support accurate processing, permanent marking, efficient production, and consistent results. From fiber laser marking and cutting machines to UV, CO₂, welding, and jewellery laser solutions, we help businesses choose the right technology for their application.
+                Our laser machines are designed to support accurate processing, permanent marking, efficient production, and consistent results. From{" "}
+                <Link
+                  href="https://paratechindustries.com/products/fiber-laser-marking-machine"
+                  className={styles.brandLink}
+                >
+                  fiber laser marking
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="https://paratechindustries.com/products/fiber-laser-cutting-machine"
+                  className={styles.brandLink}
+                >
+                  cutting machines
+                </Link>{" "}
+                to{" "}
+                <Link
+                  href="https://paratechindustries.com/products/uv-laser-marking-machine"
+                  className={styles.brandLink}
+                >
+                  UV
+                </Link>
+                ,{" "}
+                <Link
+                  href="https://paratechindustries.com/products/co2-laser-cutting-machine"
+                  className={styles.brandLink}
+                >
+                  CO₂
+                </Link>
+                ,{" "}
+                <Link
+                  href="https://paratechindustries.com/products/handheld-fiber-laser-welding-machine"
+                  className={styles.brandLink}
+                >
+                  welding
+                </Link>
+                , and{" "}
+                <Link
+                  href="https://paratechindustries.com/products/jewellery-laser-cutting-machine"
+                  className={styles.brandLink}
+                >
+                  jewellery laser solutions
+                </Link>
+                , we help businesses choose the right technology for their application.
               </p>
               <p>
                 With a focus on quality manufacturing, application expertise, and dependable after-sales support, we serve customers across India with practical laser solutions built for industrial requirements.

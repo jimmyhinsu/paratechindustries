@@ -44,15 +44,22 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const slug = resolvedParams.slug;
+  const canonicalUrl = `https://paratechindustries.com/blog/${slug}`;
   const title = blog.meta_title || `${blog.title} | Paratech Industries`;
   const description = blog.meta_description || blog.excerpt?.replace(/<[^>]*>/g, '')?.substring(0, 160) || "";
 
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title,
       description,
+      url: canonicalUrl,
+      type: "article",
       images: blog.image ? [blog.image] : [],
     }
   };

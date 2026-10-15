@@ -47,10 +47,23 @@ export async function generateMetadata({ params }) {
     otherMeta["product:tag"] = tagsList.join(", ");
   }
 
+  const canonicalUrl = `https://paratechindustries.com/products/${slug}`;
+  const title = product.metaTitle || `${product.heroTitle || product.name} Manufacturer, Surat | Paratech Industries`;
+  const description = product.metaDescription || product.descriptions?.[0]?.replace(/<[^>]*>/g, '') || `${product.name} manufacturer and exporter in Surat, Gujarat, India.`;
+
   return {
-    title: product.metaTitle || `${product.heroTitle || product.name} Manufacturer, Surat | Paratech Industries`,
-    description: product.metaDescription || product.descriptions?.[0]?.replace(/<[^>]*>/g, '') || `${product.name} manufacturer and exporter in Surat, Gujarat, India.`,
+    title,
+    description,
     keywords: metaKeywords,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      type: "website",
+    },
     other: otherMeta,
   };
 }

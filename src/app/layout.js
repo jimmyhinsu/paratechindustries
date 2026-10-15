@@ -12,6 +12,7 @@ const roboto = Roboto({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://paratechindustries.com"),
   title: {
     default: "Laser Machine Manufacturer in Surat, India | Paratech Industries",
     template: "%s | Paratech Industries",
@@ -20,9 +21,6 @@ export const metadata = {
     "Paratech Industries is a laser machine manufacturer in India with 10+ years of experience in fiber laser marking, cutting, engraving and welding machines.",
   verification: {
     google: "e-90jYd2uPXF1AxE6fsRs24720yY_xQlQYI-pwUhmXM",
-  },
-  alternates: {
-    canonical: "https://paratechindustries.com",
   },
 };
 

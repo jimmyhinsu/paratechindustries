@@ -6,7 +6,9 @@ import Companyprofilesection from "@/components/companyprofilesection";
 import ScrollToTop from "@/common/ScrollToTop";
 
 export const metadata = {
-  title: "Company Profile | Laser Machine Manufacturer in India",
+  title: {
+    absolute: "Industrial Laser Solutions | Company Profile",
+  },
   description:
     "Explore Paratech Industries' company profile, manufacturing capabilities, product expertise and industrial laser solutions.",
   keywords: [
@@ -20,7 +22,7 @@ export const metadata = {
     canonical: "https://paratechindustries.com/companyprofile",
   },
   openGraph: {
-    title: "Company Profile | Laser Machine Manufacturer in India",
+    title: "Industrial Laser Solutions | Company Profile",
     description:
       "Explore Paratech Industries' company profile, manufacturing capabilities, product expertise and industrial laser solutions.",
     url: "https://paratechindustries.com/companyprofile",

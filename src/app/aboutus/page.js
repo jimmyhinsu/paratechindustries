@@ -8,9 +8,11 @@ import Aboutsection from "@/components/aboutsection";
 import ScrollToTop from "@/common/ScrollToTop";
 
 export const metadata = {
-  title: "About Paratech Industries | Laser Machine Manufacturer in India",
+  title: {
+    absolute: "About Paratech Industries | Our Story & Expertise",
+  },
   description:
-    "Learn about Paratech Industries, a laser machine manufacturer in India offering marking, cutting, engraving, welding and industrial laser solutions.",
+    "Learn about Paratech Industries, established in 2014 in Surat, India. Discover our industrial laser marking, cutting, engraving and welding solutions.",
   keywords: [
     "laser machine manufacturer",
     "about Paratech Industries",
@@ -22,9 +24,9 @@ export const metadata = {
     canonical: "https://paratechindustries.com/aboutus",
   },
   openGraph: {
-    title: "About Paratech Industries | Laser Machine Manufacturer in India",
+    title: "About Paratech Industries | Our Story & Expertise",
     description:
-      "Learn about Paratech Industries, a laser machine manufacturer in India offering marking, cutting, engraving, welding and industrial laser solutions.",
+      "Learn about Paratech Industries, established in 2014 in Surat, India. Discover our industrial laser marking, cutting, engraving and welding solutions.",
     url: "https://paratechindustries.com/aboutus",
     siteName: "Paratech Industries",
     type: "website",
