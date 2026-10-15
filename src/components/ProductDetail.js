@@ -6,6 +6,7 @@ import QuoteModal from "./quotemodal";
 import Image from "next/image";
 import Commonherobanner from "./commonherobanner";
 import common from "@/assests/images/common.jpg";
+import ProductFaq from "./ProductFaq";
 import { fetchProductBySlugFromSupabase, resolveImage, resolveImageArray } from "@/data/products";
 
 const SmartImage = ({ src, alt, width, height, className, style, priority = false }) => {
@@ -181,6 +182,11 @@ export default function ProductDetail({ product: initialProduct, slug }) {
                   </button>
                 </a>
               </div>
+
+              {/* Product FAQs Section placed right below buttons on the left */}
+              {product.faqs && product.faqs.length > 0 && (
+                <ProductFaq faqs={product.faqs} productName={product.name} />
+              )}
             </div>
 
             {/* RIGHT: Title, Materials, Specification table, Application grid */}

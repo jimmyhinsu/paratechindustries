@@ -26,7 +26,8 @@ import {
   FiEyeOff,
   FiBox,
   FiLayers,
-  FiUpload
+  FiUpload,
+  FiHelpCircle
 } from "react-icons/fi";
 
 const getAdminImagePreviewSrc = (img) => {
@@ -230,6 +231,7 @@ export default function AdminDashboard() {
     materialsText: "",
     descriptionsText: "",
     specificationsList: [{ label: "", value: "" }],
+    faqsList: [],
     applicationImages: [],
     quoteProductName: "",
     metaTitle: "",
@@ -246,6 +248,9 @@ export default function AdminDashboard() {
   const [isEditingProduct, setIsEditingProduct] = useState(false);
   const [productFormData, setProductFormData] = useState(INITIAL_PRODUCT_FORM);
   const [deleteConfirmProduct, setDeleteConfirmProduct] = useState(null);
+  const [faqModalProduct, setFaqModalProduct] = useState(null);
+  const [quickFaqs, setQuickFaqs] = useState([]);
+  const [savingQuickFaqs, setSavingQuickFaqs] = useState(false);
 
   const handleProductImageFileUpload = (e, fieldType) => {
     const files = Array.from(e.target.files || []);
@@ -294,6 +299,107 @@ export default function AdminDashboard() {
       ...prev,
       specificationsList: (prev.specificationsList || []).filter((_, idx) => idx !== indexToRemove)
     }));
+  };
+
+  // FAQ row handlers for Product Edit Modal
+  const handleFaqChange = (index, field, value) => {
+    setProductFormData(prev => {
+      const updated = [...(prev.faqsList || [])];
+      updated[index] = { ...updated[index], [field]: value };
+      return { ...prev, faqsList: updated };
+    });
+  };
+
+  const addFaqRow = () => {
+    setProductFormData(prev => ({
+      ...prev,
+      faqsList: [
+        ...(prev.faqsList || []),
+        { id: `faq-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`, question: "", answer: "" }
+      ]
+    }));
+  };
+
+  const removeFaqRow = (indexToRemove) => {
+    setProductFormData(prev => ({
+      ...prev,
+      faqsList: (prev.faqsList || []).filter((_, idx) => idx !== indexToRemove)
+    }));
+  };
+
+  // Quick FAQ modal handlers
+  const handleOpenQuickFaqModal = (prod) => {
+    setFaqModalProduct(prod);
+    const existingFaqs = Array.isArray(prod.faqs) && prod.faqs.length > 0
+      ? prod.faqs.map(f => ({
+          id: f.id || `faq-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
+          question: f.question || "",
+          answer: f.answer || ""
+        }))
+      : [];
+    setQuickFaqs(existingFaqs);
+  };
+
+  const handleQuickFaqChange = (index, field, value) => {
+    setQuickFaqs(prev => {
+      const updated = [...prev];
+      updated[index] = { ...updated[index], [field]: value };
+      return updated;
+    });
+  };
+
+  const addQuickFaqRow = () => {
+    setQuickFaqs(prev => [
+      ...prev,
+      { id: `faq-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`, question: "", answer: "" }
+    ]);
+  };
+
+  const removeQuickFaqRow = (indexToRemove) => {
+    setQuickFaqs(prev => prev.filter((_, idx) => idx !== indexToRemove));
+  };
+
+  const handleSaveQuickFaqs = async () => {
+    if (!faqModalProduct) return;
+    setSavingQuickFaqs(true);
+    try {
+      const cleaned = quickFaqs
+        .map(f => ({
+          id: f.id || `faq-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
+          question: String(f.question || "").trim(),
+          answer: String(f.answer || "").trim()
+        }))
+        .filter(f => f.question || f.answer);
+
+      // 1. Save to local JSON API
+      await fetch("/api/product-faqs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: faqModalProduct.slug, faqs: cleaned })
+      });
+
+      // 2. Try Supabase
+      try {
+        await supabase
+          .from("products")
+          .update({ faqs: cleaned })
+          .eq("slug", faqModalProduct.slug);
+      } catch (e) {
+        // column may not exist yet in Supabase
+      }
+
+      setNotification({
+        type: "success",
+        message: `Updated FAQs for "${faqModalProduct.name}" successfully!`
+      });
+      setFaqModalProduct(null);
+      await fetchProductsAdmin();
+    } catch (err) {
+      console.error("Failed to save quick FAQs:", err);
+      setNotification({ type: "error", message: `Failed to save FAQs: ${err.message}` });
+    } finally {
+      setSavingQuickFaqs(false);
+    }
   };
 
   const fetchProductsAdmin = async () => {
@@ -365,6 +471,14 @@ export default function AdminDashboard() {
         specList = [{ label: "", value: "" }];
       }
 
+      const prodFaqs = Array.isArray(prod.faqs) && prod.faqs.length > 0
+        ? prod.faqs.map(f => ({
+            id: f.id || `faq-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
+            question: f.question || "",
+            answer: f.answer || ""
+          }))
+        : [];
+
       setProductFormData({
         id: prod.id,
         slug: prod.slug || "",
@@ -378,6 +492,7 @@ export default function AdminDashboard() {
         materialsText: prod.materialsText || "",
         descriptionsText: Array.isArray(prod.descriptions) ? prod.descriptions.join("\n\n") : "",
         specificationsList: specList,
+        faqsList: prodFaqs,
         applicationImages: appImgs,
         quoteProductName: prod.quoteProductName || prod.name || "",
         metaTitle: prod.metaTitle || "",
@@ -402,6 +517,14 @@ export default function AdminDashboard() {
       const specifications = (productFormData.specificationsList || [])
         .map(s => ({ label: String(s.label || "").trim(), value: String(s.value || "").trim() }))
         .filter(s => s.label || s.value);
+
+      const faqs = (productFormData.faqsList || [])
+        .map(f => ({
+          id: f.id || `faq-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
+          question: String(f.question || "").trim(),
+          answer: String(f.answer || "").trim()
+        }))
+        .filter(f => f.question || f.answer);
 
       const productImages = (productFormData.productImages || [])
         .map(u => String(u).trim())
@@ -428,6 +551,7 @@ export default function AdminDashboard() {
         materials_text: productFormData.materialsText || null,
         descriptions,
         specifications,
+        faqs,
         application_images: applicationImages,
         quote_product_name: productFormData.quoteProductName || productFormData.name,
         meta_title: productFormData.metaTitle || null,
@@ -435,6 +559,18 @@ export default function AdminDashboard() {
         meta_keywords: metaKeywords
       };
 
+      // 1. Sync FAQs to persistent API
+      try {
+        await fetch("/api/product-faqs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: payload.slug, faqs })
+        });
+      } catch (faqApiErr) {
+        console.warn("Product FAQ API sync error:", faqApiErr);
+      }
+
+      // 2. Save Product to Supabase
       if (isEditingProduct) {
         let query = supabase.from("products").update(payload);
         if (productFormData.id && typeof productFormData.id === "number") {
@@ -443,7 +579,8 @@ export default function AdminDashboard() {
           query = query.eq("slug", payload.slug);
         }
         let { error } = await query;
-        if (error && error.message && error.message.includes("column")) {
+        if (error && error.message && (error.message.includes("column") || error.message.includes("faqs"))) {
+          delete payload.faqs;
           delete payload.meta_title;
           delete payload.meta_description;
           delete payload.meta_keywords;
@@ -457,12 +594,13 @@ export default function AdminDashboard() {
           error = retryError;
         }
         if (error) throw error;
-        setNotification({ type: "success", message: `Updated product "${productFormData.name}" in database!` });
+        setNotification({ type: "success", message: `Updated product "${productFormData.name}" successfully!` });
       } else {
         let { error } = await supabase
           .from("products")
           .upsert([payload], { onConflict: "slug" });
-        if (error && error.message && error.message.includes("column")) {
+        if (error && error.message && (error.message.includes("column") || error.message.includes("faqs"))) {
+          delete payload.faqs;
           delete payload.meta_title;
           delete payload.meta_description;
           delete payload.meta_keywords;
@@ -472,7 +610,7 @@ export default function AdminDashboard() {
           error = retryError;
         }
         if (error) throw error;
-        setNotification({ type: "success", message: `Added product "${productFormData.name}" to database!` });
+        setNotification({ type: "success", message: `Added product "${productFormData.name}" successfully!` });
       }
 
       setIsProductModalOpen(false);
@@ -1736,9 +1874,29 @@ export default function AdminDashboard() {
                                 </code>
                               </td>
                               <td>
-                                <span className={styles.categoryBadge}>
-                                  {prod.specifications ? prod.specifications.length : 0} Specifications
-                                </span>
+                                <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+                                  <span className={styles.categoryBadge}>
+                                    {prod.specifications ? prod.specifications.length : 0} Specs
+                                  </span>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleOpenQuickFaqModal(prod)}
+                                    className={styles.categoryBadge}
+                                    style={{
+                                      background: "#ebf8ff",
+                                      color: "#2b6cb0",
+                                      border: "1px solid #bee3f8",
+                                      cursor: "pointer",
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      padding: "3px 8px"
+                                    }}
+                                    title="Click to manage FAQs for this product"
+                                  >
+                                    <FiHelpCircle /> {prod.faqs ? prod.faqs.length : 0} FAQs
+                                  </button>
+                                </div>
                               </td>
                               <td style={{ fontSize: "13px", color: "#555" }}>
                                 {prod.quoteProductName || prod.name}
@@ -1754,6 +1912,15 @@ export default function AdminDashboard() {
                                   >
                                     <FiGlobe />
                                   </Link>
+                                  <button
+                                    type="button"
+                                    className={`${styles.iconBtn} ${styles.edit}`}
+                                    onClick={() => handleOpenQuickFaqModal(prod)}
+                                    title="Manage Product FAQs"
+                                    style={{ color: "#2b6cb0", background: "#ebf8ff" }}
+                                  >
+                                    <FiHelpCircle />
+                                  </button>
                                   <button
                                     type="button"
                                     className={`${styles.iconBtn} ${styles.edit}`}
@@ -2412,6 +2579,66 @@ export default function AdminDashboard() {
                       placeholder="Enter seo meta keywords"
                     />
                   </div>
+
+                  {/* PRODUCT FAQS EDITOR */}
+                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+                      <label style={{ margin: 0, fontWeight: "700" }}>Product FAQs (Frequently Asked Questions)</label>
+                      <span style={{ fontSize: "12px", color: "#666" }}>
+                        {(productFormData.faqsList || []).length} Question{productFormData.faqsList?.length === 1 ? "" : "s"}
+                      </span>
+                    </div>
+                    <p style={{ fontSize: "12px", color: "#777", marginBottom: "10px" }}>
+                      Each product has its own separate FAQs displayed under the quote buttons on the product page.
+                    </p>
+                    <div className={styles.faqEditorContainer}>
+                      <div className={styles.faqHeaderRow}>
+                        <div>Question & Answer Editor</div>
+                        <div>{(productFormData.faqsList || []).length} items</div>
+                      </div>
+                      <div className={styles.faqRowList}>
+                        {(productFormData.faqsList || []).length === 0 ? (
+                          <div style={{ textAlign: "center", padding: "24px", color: "#888", fontSize: "13px" }}>
+                            No FAQs added for this product yet. Click "+ Add FAQ Item" below to create one.
+                          </div>
+                        ) : (
+                          (productFormData.faqsList || []).map((faq, idx) => (
+                            <div key={faq.id || idx} className={styles.faqCardItem}>
+                              <div className={styles.faqTopBar}>
+                                <span className={styles.faqNumber}>FAQ #{idx + 1}</span>
+                                <button
+                                  type="button"
+                                  className={`${styles.iconBtn} ${styles.delete}`}
+                                  onClick={() => removeFaqRow(idx)}
+                                  title="Remove this FAQ"
+                                >
+                                  <FiTrash2 />
+                                </button>
+                              </div>
+                              <input
+                                type="text"
+                                placeholder="Enter Question (e.g. What materials can be marked?)"
+                                value={faq.question}
+                                onChange={(e) => handleFaqChange(idx, "question", e.target.value)}
+                              />
+                              <textarea
+                                placeholder="Enter detailed Answer..."
+                                value={faq.answer}
+                                onChange={(e) => handleFaqChange(idx, "answer", e.target.value)}
+                              />
+                            </div>
+                          ))
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        className={styles.addFaqBtn}
+                        onClick={addFaqRow}
+                      >
+                        <FiPlus /> Add FAQ Item
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -2462,6 +2689,94 @@ export default function AdminDashboard() {
                 onClick={() => handleDeleteProduct(deleteConfirmProduct.id, deleteConfirmProduct.slug, deleteConfirmProduct.name)}
               >
                 Delete Product
+              </button>
+            </footer>
+          </div>
+        </div>
+      )}
+
+      {/* Quick Dedicated FAQs Modal */}
+      {faqModalProduct && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent} style={{ maxWidth: "750px", height: "85vh" }}>
+            <header className={styles.modalHeader}>
+              <div>
+                <h2>Manage FAQs: {faqModalProduct.name}</h2>
+                <p style={{ fontSize: "12px", color: "#666", margin: "4px 0 0 0" }}>
+                  Add, edit, or delete questions and answers specifically for this product page.
+                </p>
+              </div>
+              <button className={styles.closeBtn} onClick={() => setFaqModalProduct(null)}>
+                <FiX />
+              </button>
+            </header>
+
+            <div className={styles.modalBody} style={{ overflowY: "auto", flex: 1, padding: "20px 24px" }}>
+              <div className={styles.faqEditorContainer}>
+                <div className={styles.faqHeaderRow}>
+                  <div>Questions & Answers</div>
+                  <div>{quickFaqs.length} total</div>
+                </div>
+                <div className={styles.faqRowList} style={{ maxHeight: "none" }}>
+                  {quickFaqs.length === 0 ? (
+                    <div style={{ textAlign: "center", padding: "36px", color: "#888", fontSize: "14px" }}>
+                      No FAQs for this product yet. Click "+ Add FAQ Item" below to create the first one.
+                    </div>
+                  ) : (
+                    quickFaqs.map((faq, idx) => (
+                      <div key={faq.id || idx} className={styles.faqCardItem}>
+                        <div className={styles.faqTopBar}>
+                          <span className={styles.faqNumber}>FAQ #{idx + 1}</span>
+                          <button
+                            type="button"
+                            className={`${styles.iconBtn} ${styles.delete}`}
+                            onClick={() => removeQuickFaqRow(idx)}
+                            title="Delete this FAQ"
+                          >
+                            <FiTrash2 />
+                          </button>
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="Enter Question (e.g. What materials can be marked?)"
+                          value={faq.question}
+                          onChange={(e) => handleQuickFaqChange(idx, "question", e.target.value)}
+                        />
+                        <textarea
+                          placeholder="Enter detailed Answer..."
+                          value={faq.answer}
+                          onChange={(e) => handleQuickFaqChange(idx, "answer", e.target.value)}
+                        />
+                      </div>
+                    ))
+                  )}
+                </div>
+                <button
+                  type="button"
+                  className={styles.addFaqBtn}
+                  onClick={addQuickFaqRow}
+                >
+                  <FiPlus /> Add FAQ Item
+                </button>
+              </div>
+            </div>
+
+            <footer className={styles.modalFooter}>
+              <button
+                type="button"
+                className={styles.secondaryBtn}
+                onClick={() => setFaqModalProduct(null)}
+                disabled={savingQuickFaqs}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className={styles.primaryBtn}
+                onClick={handleSaveQuickFaqs}
+                disabled={savingQuickFaqs}
+              >
+                {savingQuickFaqs ? "Saving FAQs..." : "Save FAQs"}
               </button>
             </footer>
           </div>

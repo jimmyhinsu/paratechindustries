@@ -540,6 +540,111 @@
   }
 }
 
+// FAQ Editor inside Admin Modal
+.faqEditorContainer {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 6px;
+  background: #ffffff;
+}
+
+.faqHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1F1F1F;
+  color: #ffffff;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.faqRowList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.faqCardItem {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #cbd5e0;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .faqTopBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .faqNumber {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2b6cb0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 9px 14px;
+    font-size: 13px;
+    color: #1f1f1f;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #ffffff;
+    font-family: inherit;
+    transition: all 0.2s ease;
+
+    &:focus {
+      border-color: #1F1F1F;
+      box-shadow: 0 0 0 2px rgba(31, 31, 31, 0.1);
+      outline: none;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+}
+
+.addFaqBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 16px 16px 16px;
+  padding: 10px 20px;
+  background: #f8f9fa;
+  color: #1F1F1F;
+  border: 1px dashed #1F1F1F;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #1F1F1F;
+    color: #ffffff;
+  }
+}
+
 // Image Gallery Preview Grid
 .imageGalleryContainer {
   display: flex;

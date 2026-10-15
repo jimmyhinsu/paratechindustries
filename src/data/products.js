@@ -1,4 +1,18 @@
 import { supabase } from "@/lib/supabase";
+import { getDefaultFaqsForSlug } from "./productFaqs";
+import productFaqsJson from "./product-faqs.json";
+
+export function getResolvedFaqs(itemFaqs, slug) {
+  if (Array.isArray(itemFaqs) && itemFaqs.length > 0) {
+    return itemFaqs;
+  }
+  const cleanSlug = String(slug || "").trim().toLowerCase();
+  if (productFaqsJson && Array.isArray(productFaqsJson[cleanSlug]) && productFaqsJson[cleanSlug].length > 0) {
+    return productFaqsJson[cleanSlug];
+  }
+  return getDefaultFaqsForSlug(cleanSlug);
+}
+
 import lasermarkingmachine from "@/assests/images/lasermarkingmachine.jpg";
 import flm1 from "@/assests/images/flm1.png";
 import flm2 from "@/assests/images/flm2.png";
@@ -213,7 +227,8 @@ export async function fetchProductsFromSupabase(forceRefresh = false) {
       tag: item.tag || null,
       metaTitle: item.meta_title || null,
       metaDescription: item.meta_description || null,
-      metaKeywords: item.meta_keywords || []
+      metaKeywords: item.meta_keywords || [],
+      faqs: getResolvedFaqs(item.faqs, item.slug)
     }));
 
     cachedProducts = mapped;
@@ -259,7 +274,8 @@ export async function fetchProductBySlugFromSupabase(slug) {
       tag: data.tag || null,
       metaTitle: data.meta_title || null,
       metaDescription: data.meta_description || null,
-      metaKeywords: data.meta_keywords || []
+      metaKeywords: data.meta_keywords || [],
+      faqs: getResolvedFaqs(data.faqs, data.slug)
     };
   } catch (err) {
     console.error("Failed to fetch product by slug from Supabase:", err);

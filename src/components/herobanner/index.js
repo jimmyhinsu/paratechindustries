@@ -26,7 +26,7 @@ export default function HeroBanner() {
         </p>
         <div className={styles.buttons}>
           <Link href="/aboutus">
-            <button className={styles.primaryBtn}>Explore Laser Machines</button>
+            <button className={styles.primaryBtn}>Explore More</button>
           </Link>
           <Link href="/contactus">
             <button className={styles.secondaryBtn}>Get a Quote</button>
