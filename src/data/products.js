@@ -1,6 +1,26 @@
 import { supabase } from "@/lib/supabase";
 import { getDefaultFaqsForSlug } from "./productFaqs";
 import productFaqsJson from "./product-faqs.json";
+import productSchemasJson from "./product-schemas.json";
+
+export function getResolvedCustomSchema(itemSchema, slug) {
+  if (itemSchema && typeof itemSchema === "string" && itemSchema.trim()) {
+    return itemSchema.trim();
+  }
+  if (itemSchema && typeof itemSchema === "object") {
+    try {
+      return JSON.stringify(itemSchema, null, 2);
+    } catch {
+      return "";
+    }
+  }
+  const cleanSlug = String(slug || "").trim().toLowerCase();
+  if (productSchemasJson && productSchemasJson[cleanSlug]) {
+    const local = productSchemasJson[cleanSlug];
+    return typeof local === "string" ? local.trim() : JSON.stringify(local, null, 2);
+  }
+  return "";
+}
 
 export function getResolvedFaqs(itemFaqs, slug) {
   if (Array.isArray(itemFaqs) && itemFaqs.length > 0) {
@@ -228,7 +248,8 @@ export async function fetchProductsFromSupabase(forceRefresh = false) {
       metaTitle: item.meta_title || null,
       metaDescription: item.meta_description || null,
       metaKeywords: item.meta_keywords || [],
-      faqs: getResolvedFaqs(item.faqs, item.slug)
+      faqs: getResolvedFaqs(item.faqs, item.slug),
+      customSchema: getResolvedCustomSchema(item.custom_schema, item.slug)
     }));
 
     cachedProducts = mapped;
@@ -275,7 +296,8 @@ export async function fetchProductBySlugFromSupabase(slug) {
       metaTitle: data.meta_title || null,
       metaDescription: data.meta_description || null,
       metaKeywords: data.meta_keywords || [],
-      faqs: getResolvedFaqs(data.faqs, data.slug)
+      faqs: getResolvedFaqs(data.faqs, data.slug),
+      customSchema: getResolvedCustomSchema(data.custom_schema, data.slug)
     };
   } catch (err) {
     console.error("Failed to fetch product by slug from Supabase:", err);

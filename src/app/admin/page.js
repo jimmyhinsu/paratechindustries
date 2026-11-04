@@ -234,6 +234,7 @@ export default function AdminDashboard() {
     faqsList: [],
     applicationImages: [],
     quoteProductName: "",
+    customSchema: "",
     metaTitle: "",
     metaDescription: "",
     metaKeywordsText: ""
@@ -497,7 +498,8 @@ export default function AdminDashboard() {
         quoteProductName: prod.quoteProductName || prod.name || "",
         metaTitle: prod.metaTitle || "",
         metaDescription: prod.metaDescription || "",
-        metaKeywordsText: Array.isArray(prod.metaKeywords) ? prod.metaKeywords.join(", ") : (prod.metaKeywords || "")
+        metaKeywordsText: Array.isArray(prod.metaKeywords) ? prod.metaKeywords.join(", ") : (prod.metaKeywords || ""),
+        customSchema: prod.customSchema || ""
       });
     } else {
       setIsEditingProduct(false);
@@ -556,7 +558,8 @@ export default function AdminDashboard() {
         quote_product_name: productFormData.quoteProductName || productFormData.name,
         meta_title: productFormData.metaTitle || null,
         meta_description: productFormData.metaDescription || null,
-        meta_keywords: metaKeywords
+        meta_keywords: metaKeywords,
+        custom_schema: productFormData.customSchema || ""
       };
 
       // 1. Sync FAQs to persistent API
@@ -570,6 +573,16 @@ export default function AdminDashboard() {
         console.warn("Product FAQ API sync error:", faqApiErr);
       }
 
+      // 1.1 Sync Custom Schema to persistent API
+      try {
+        await fetch("/api/product-schema", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: payload.slug, customSchema: productFormData.customSchema || "" })
+        });
+      } catch (schemaApiErr) {
+        console.warn("Product Schema API sync error:", schemaApiErr);
+      }
       // 2. Save Product to Supabase
       if (isEditingProduct) {
         let query = supabase.from("products").update(payload);
@@ -584,6 +597,7 @@ export default function AdminDashboard() {
           delete payload.meta_title;
           delete payload.meta_description;
           delete payload.meta_keywords;
+          delete payload.custom_schema;
           let retryQuery = supabase.from("products").update(payload);
           if (productFormData.id && typeof productFormData.id === "number") {
             retryQuery = retryQuery.eq("id", productFormData.id);
@@ -604,6 +618,7 @@ export default function AdminDashboard() {
           delete payload.meta_title;
           delete payload.meta_description;
           delete payload.meta_keywords;
+          delete payload.custom_schema;
           const { error: retryError } = await supabase
             .from("products")
             .upsert([payload], { onConflict: "slug" });
@@ -2172,7 +2187,7 @@ export default function AdminDashboard() {
 
               </div>
 
-              <footer className={styles.modalFooter}>
+                  <footer className={styles.modalFooter}>
                 <button type="button" className={styles.secondaryBtn} onClick={() => setIsModalOpen(false)}>
                   Cancel
                 </button>
@@ -2639,6 +2654,16 @@ export default function AdminDashboard() {
                       </button>
                     </div>
                   </div>
+
+                                    <div className={`${styles.formGroup} ${styles.fullWidth}`}>
+                    <label>Custom Schema (JSON-LD)</label>
+                    <textarea
+                      rows={6}
+                      value={productFormData.customSchema || ""}
+                      onChange={(e) => setProductFormData({ ...productFormData, customSchema: e.target.value })}
+                      placeholder="Enter custom JSON-LD schema markup"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -2694,6 +2719,8 @@ export default function AdminDashboard() {
           </div>
         </div>
       )}
+
+
 
       {/* Quick Dedicated FAQs Modal */}
       {faqModalProduct && (

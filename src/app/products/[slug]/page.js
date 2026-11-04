@@ -73,5 +73,24 @@ export default async function ProductPage({ params }) {
   const slug = resolvedParams?.slug;
   const product = await fetchProductBySlugFromSupabase(slug);
 
-  return <ProductDetail product={product} slug={slug} />;
+  let customSchemaJson = null;
+  if (product?.customSchema && typeof product.customSchema === "string") {
+    const raw = product.customSchema.trim();
+    if (raw) {
+      const scriptMatch = raw.match(/<script[^>]*>([\s\S]*?)<\/script>/i);
+      customSchemaJson = scriptMatch ? scriptMatch[1].trim() : raw;
+    }
+  }
+
+  return (
+    <>
+      {customSchemaJson && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: customSchemaJson }}
+        />
+      )}
+      <ProductDetail product={product} slug={slug} />
+    </>
+  );
 }

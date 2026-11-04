@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./lasermarking.module.scss";
 import ScrollToTop from "@/common/ScrollToTop";
 import LaserMarkingFaq from "./LaserMarkingFaq";
+import laserMarkingMachineSchema from "@/data/laserMarkingMachineSchema.json";
 
 // Machine Images
 import flmHero from "@/assests/images/lasermarkingmachine.jpg";

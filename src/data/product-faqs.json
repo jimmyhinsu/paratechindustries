@@ -10,5 +10,6 @@
       "question": "Which laser power option should I choose (20W, 30W, 50W, 100W)?",
       "answer": "20W and 30W are ideal for standard surface marking, serial numbers, barcodes, and logos. 50W and 100W provide higher marking speeds, deeper engraving, and metal cutting (such as gold/silver jewellery sheets)."
     }
-  ]
+  ],
+  "co2-laser-cutting-machine": []
 }

@@ -1,0 +1,182 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://paratechindustries.com/#organization",
+      "name": "Paratech Industries",
+      "url": "https://paratechindustries.com/",
+      "email": "info@paratechindustries.com",
+      "telephone": "+91 9879533323",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No 6, Soma Kanji Ni Wadi, Near Savera Complex, Khatodara GIDC",
+        "addressLocality": "Surat",
+        "addressRegion": "Gujarat",
+        "postalCode": "395002",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://paratechindustries.com/laser-marking-machine#webpage",
+      "url": "https://paratechindustries.com/laser-marking-machine",
+      "name": "Laser Marking Machine",
+      "description": "Explore industrial laser marking machines from Paratech Industries, including fiber laser marking, UV laser marking, online laser marking, customised laser marking and 3D laser marking solutions for product identification, QR codes, barcodes, logos and industrial traceability applications.",
+      "isPartOf": {
+        "@id": "https://paratechindustries.com/#website"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Industrial Laser Marking Machines"
+      },
+      "publisher": {
+        "@id": "https://paratechindustries.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://paratechindustries.com/laser-marking-machine#product-list"
+      },
+      "breadcrumb": {
+        "@id": "https://paratechindustries.com/laser-marking-machine#breadcrumb"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://paratechindustries.com/#website",
+      "url": "https://paratechindustries.com/",
+      "name": "Paratech Industries",
+      "publisher": {
+        "@id": "https://paratechindustries.com/#organization"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://paratechindustries.com/laser-marking-machine#product-list",
+      "name": "Laser Marking Machines",
+      "description": "Explore the range of laser marking machines offered by Paratech Industries.",
+      "numberOfItems": 5,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Fiber Laser Marking Machine",
+          "url": "https://paratechindustries.com/products/fiber-laser-marking-machine"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "UV Laser Marking Machine",
+          "url": "https://paratechindustries.com/products/uv-laser-marking-machine"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Online Laser Marking Machine",
+          "url": "https://paratechindustries.com/products/online-laser-marking-machine"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Customise Laser Marking Machine",
+          "url": "https://paratechindustries.com/products/customise-laser-machine"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "3D Laser Marking Machine",
+          "url": "https://paratechindustries.com/products/3d-marking"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://paratechindustries.com/laser-marking-machine#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://paratechindustries.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Laser Marking Machine",
+          "item": "https://paratechindustries.com/laser-marking-machine"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://paratechindustries.com/laser-marking-machine#faq",
+      "url": "https://paratechindustries.com/laser-marking-machine",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a laser marking machine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A laser marking machine uses a focused laser beam to create permanent or durable marks on compatible materials. It can be used for text, logos, serial numbers, barcodes, QR codes, graphics, and product identification."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a laser marking machine used for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Laser marking machines are used for product identification, serial numbers, QR codes, barcodes, logos, batch numbers, manufacturing dates, traceability, branding, and decorative marking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which laser marking machine is best for metal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fiber laser marking machines are widely used for marking compatible metals such as stainless steel, aluminium, brass, copper, titanium, and other metal components. The best machine depends on the exact material and required marking result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a laser marking machine mark QR codes and barcodes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Suitable laser marking machines can mark QR codes, barcodes, data matrix codes, serial numbers, and other machine-readable information on compatible surfaces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can laser marking be done on plastic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but suitability depends on the type of plastic, its composition, colour, additives, and the laser wavelength. UV laser systems can be suitable for certain specialised plastic-marking applications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is laser marking permanent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Laser marking can create durable and permanent identification depending on the material, marking method, environmental conditions, and required application."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a laser marking machine cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cost varies depending on the laser source, power, marking area, machine configuration, automation level, software, and application requirements. Contact Paratech Industries for a machine recommendation and quotation based on your requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Paratech Industries provide laser marking machines in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Paratech Industries manufactures and supplies industrial laser marking solutions for customers in India and supports different manufacturing and industrial applications."
+          }
+        }
+      ]
+    }
+  ]
+}
