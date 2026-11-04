@@ -166,7 +166,7 @@ export default function LaserMarkingMachinePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
+          __html: JSON.stringify(laserMarkingMachineSchema),
         }}
       />
 
